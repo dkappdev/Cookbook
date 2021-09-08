@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB726E9109400776BC2 /* AppDelegate.swift */; };
 		E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */; };
-		E2BF7FBC26E9109400776BC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FBB26E9109400776BC2 /* ViewController.swift */; };
-		E2BF7FBF26E9109400776BC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FBD26E9109400776BC2 /* Main.storyboard */; };
 		E2BF7FC126E9109500776BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FC026E9109500776BC2 /* Assets.xcassets */; };
 		E2BF7FC426E9109500776BC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		E2BF7FB426E9109400776BC2 /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BF7FB726E9109400776BC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E2BF7FBB26E9109400776BC2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E2BF7FBE26E9109400776BC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2BF7FC026E9109500776BC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2BF7FC326E9109500776BC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2BF7FC526E9109500776BC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +52,69 @@
 		E2BF7FB626E9109400776BC2 /* Cookbook */ = {
 			isa = PBXGroup;
 			children = (
-				E2BF7FB726E9109400776BC2 /* AppDelegate.swift */,
-				E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */,
-				E2BF7FBB26E9109400776BC2 /* ViewController.swift */,
-				E2BF7FBD26E9109400776BC2 /* Main.storyboard */,
-				E2BF7FC026E9109500776BC2 /* Assets.xcassets */,
-				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
-				E2BF7FC526E9109500776BC2 /* Info.plist */,
+				E2BF7FCB26E91F6900776BC2 /* AppDelegate */,
+				E2BF7FCD26E91F8000776BC2 /* Controllers */,
+				E2BF7FD126E91F9100776BC2 /* Extensions */,
+				E2BF7FCE26E91F8800776BC2 /* Models */,
+				E2BF7FD026E91F8E00776BC2 /* Protocols */,
+				E2BF7FCF26E91F8B00776BC2 /* Resources */,
+				E2BF7FCC26E91F7C00776BC2 /* Views */,
 			);
 			path = Cookbook;
+			sourceTree = "<group>";
+		};
+		E2BF7FCB26E91F6900776BC2 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E2BF7FB726E9109400776BC2 /* AppDelegate.swift */,
+				E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		E2BF7FCC26E91F7C00776BC2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E2BF7FCD26E91F8000776BC2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E2BF7FCE26E91F8800776BC2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E2BF7FCF26E91F8B00776BC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E2BF7FC026E9109500776BC2 /* Assets.xcassets */,
+				E2BF7FC526E9109500776BC2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E2BF7FD026E91F8E00776BC2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E2BF7FD126E91F9100776BC2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +176,6 @@
 			files = (
 				E2BF7FC426E9109500776BC2 /* LaunchScreen.storyboard in Resources */,
 				E2BF7FC126E9109500776BC2 /* Assets.xcassets in Resources */,
-				E2BF7FBF26E9109400776BC2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +186,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2BF7FBC26E9109400776BC2 /* ViewController.swift in Sources */,
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +194,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E2BF7FBD26E9109400776BC2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2BF7FBE26E9109400776BC2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +328,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HCW5LR94BF;
-				INFOPLIST_FILE = Cookbook/Info.plist;
+				INFOPLIST_FILE = Cookbook/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +348,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HCW5LR94BF;
-				INFOPLIST_FILE = Cookbook/Info.plist;
+				INFOPLIST_FILE = Cookbook/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
