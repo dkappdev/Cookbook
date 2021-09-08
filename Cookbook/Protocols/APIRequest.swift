@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Set of properties common to all API Requests. Concrete types must explicitly specify `associatedtype Response`, `path` and `queryItems` (if needed). `URLRequest` will then be automatically created by default implementation.
 protocol APIRequest {
     associatedtype Response
     
