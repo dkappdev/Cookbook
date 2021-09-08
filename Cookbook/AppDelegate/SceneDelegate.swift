@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
+        window.tintColor = .systemGreen
         
         let viewController = UIViewController()
         viewController.view.backgroundColor = .systemBackground
