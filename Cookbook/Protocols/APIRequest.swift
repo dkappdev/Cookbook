@@ -8,7 +8,7 @@
 import UIKit
 
 /// Set of properties common to all API Requests. Concrete types must explicitly specify `associatedtype Response`, `path` and `queryItems` (if needed). `URLRequest` will then be automatically created by default implementation.
-protocol APIRequest {
+public protocol APIRequest {
     associatedtype Response
     
     var path: String { get }
@@ -18,7 +18,6 @@ protocol APIRequest {
 
 extension APIRequest {
     var host: String { "www.themealdb.com" }
-    var port: Int { 443 }
 }
 
 extension APIRequest {
@@ -31,7 +30,6 @@ extension APIRequest {
         
         components.scheme = "https"
         components.host = host
-        components.port = port
         components.path = path
         components.queryItems = queryItems
         

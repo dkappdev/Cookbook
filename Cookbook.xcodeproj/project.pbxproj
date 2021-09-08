@@ -12,6 +12,8 @@
 		E2BF7FC126E9109500776BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FC026E9109500776BC2 /* Assets.xcassets */; };
 		E2BF7FC426E9109500776BC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */; };
 		E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FD226E92AFD00776BC2 /* APIRequest.swift */; };
+		E2BF7FD826E939D400776BC2 /* FullMealInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FD726E939D400776BC2 /* FullMealInfo.swift */; };
+		E2BF7FDC26E942C900776BC2 /* AnyCodingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FDB26E942C900776BC2 /* AnyCodingKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		E2BF7FC326E9109500776BC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2BF7FC526E9109500776BC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2BF7FD226E92AFD00776BC2 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		E2BF7FD726E939D400776BC2 /* FullMealInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullMealInfo.swift; sourceTree = "<group>"; };
+		E2BF7FDB26E942C900776BC2 /* AnyCodingKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodingKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,7 @@
 		E2BF7FB626E9109400776BC2 /* Cookbook */ = {
 			isa = PBXGroup;
 			children = (
-				E2BF7FD426E92E9400776BC2 /* APIResponses */,
+				E2BF7FDD26E9446F00776BC2 /* APIService */,
 				E2BF7FCB26E91F6900776BC2 /* AppDelegate */,
 				E2BF7FCD26E91F8000776BC2 /* Controllers */,
 				E2BF7FD126E91F9100776BC2 /* Extensions */,
@@ -93,6 +97,7 @@
 		E2BF7FCE26E91F8800776BC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2BF7FD726E939D400776BC2 /* FullMealInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,11 +126,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E2BF7FD426E92E9400776BC2 /* APIResponses */ = {
+		E2BF7FDD26E9446F00776BC2 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				E2BF7FDB26E942C900776BC2 /* AnyCodingKey.swift */,
 			);
-			path = APIResponses;
+			path = APIService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2BF7FD826E939D400776BC2 /* FullMealInfo.swift in Sources */,
+				E2BF7FDC26E942C900776BC2 /* AnyCodingKey.swift in Sources */,
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */,
 				E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */,
