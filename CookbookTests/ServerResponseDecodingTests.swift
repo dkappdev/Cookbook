@@ -11,10 +11,10 @@ import XCTest
 class ServerResponseDecodingTests: XCTestCase {
     
     /// Makes sure that server responses can be properly decoded into instances
-    func testShouldDecodeValidMealsByNameRequestData() {
-        let expectation = expectation(description: "Should decode meal info list")
+    func testShouldDecodeValidMealsByNameResponse() {
+        let expectation = expectation(description: "Should finish network request")
         
-        var fullMealInfoList: MealsByNameResponse? = nil
+        var mealsByNameResponse: MealsByNameResponse? = nil
         
         let mealsByNameRequest = MealsByNameRequest(mealName: "pasta")
         
@@ -25,16 +25,45 @@ class ServerResponseDecodingTests: XCTestCase {
         
         mealsByNameRequest.send { result in
             switch result {
-            case .success(let mealInfoList):
-                fullMealInfoList = mealInfoList
+            case .success(let response):
+                mealsByNameResponse = response
                 expectation.fulfill()
-            case .failure(_):
+            case .failure(let error):
+                XCTFail(error)
                 expectation.fulfill()
             }
         }
         
         waitForExpectations(timeout: 15, handler: nil)
         
-        XCTAssertNotNil(fullMealInfoList)
+        XCTAssertNotNil(mealsByNameResponse)
+    }
+    
+    func testShouldDecodeValidMealByIDResponse() {
+        let expectation = expectation(description: "Should finish network request")
+        
+        var mealByIDResponse: MealByIDResponse? = nil
+        
+        let mealByIDRequest = MealByIDRequest(mealID: "52772")
+        
+        guard let mealByIDRequest = mealByIDRequest else {
+            XCTFail("Unable to create network request")
+            return
+        }
+        
+        mealByIDRequest.send { result in
+            switch result {
+            case .success(let response):
+                mealByIDResponse = response
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 15, handler: nil)
+        
+        XCTAssertNotNil(mealByIDResponse)
     }
 }
