@@ -58,7 +58,7 @@ extension APIRequest where Response: Decodable {
             } else if let error = error {
                 completion(.failure(error))
             }
-        }
+        }.resume()
     }
 }
 
@@ -79,6 +79,6 @@ extension APIRequest where Response == UIImage {
             } else {
                 completion(.failure(ImageRequestError.couldNotInitializeFromData))
             }
-        }
+        }.resume()
     }
 }
