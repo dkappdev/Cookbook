@@ -8,7 +8,7 @@
 import Foundation
 
 public struct MealByIDRequest: APIRequest {
-    public typealias Response = MealsByNameResponse
+    public typealias Response = MealByIDResponse
     
     public var path: String { "/api/json/v1/1/lookup.php" }
     
