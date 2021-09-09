@@ -14,7 +14,7 @@ class ServerResponseDecodingTests: XCTestCase {
     func testShouldDecodeValidMealsByNameRequestData() {
         let expectation = expectation(description: "Should decode meal info list")
         
-        var fullMealInfoList: FullMealInfoList? = nil
+        var fullMealInfoList: MealsByNameResponse? = nil
         
         let mealsByNameRequest = MealsByNameRequest(mealName: "pasta")
         

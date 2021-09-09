@@ -8,7 +8,7 @@
 import Foundation
 
 public struct MealsByNameRequest: APIRequest {
-    public typealias Response = FullMealInfoList
+    public typealias Response = MealsByNameResponse
     
     public var path: String { "/api/json/v1/1/search.php" }
     
@@ -16,6 +16,8 @@ public struct MealsByNameRequest: APIRequest {
     
     public var mealName: String
     
+    /// Creates a request to search meals by name
+    /// - Parameter mealName: the meal name, this string should not be empty
     public init?(mealName: String) {
         guard !mealName.isEmpty else {
             return nil
