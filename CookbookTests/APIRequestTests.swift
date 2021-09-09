@@ -9,8 +9,11 @@ import XCTest
 @testable import Cookbook
 
 class APIRequestTests: XCTestCase {
+    static let validMealName = "pasta"
+    static let validMealID = "52772"
+    
     func testShouldCreateMealsByNameRequestWithValidName() {
-        XCTAssertNotNil(MealsByNameRequest(mealName: "pasta"))
+        XCTAssertNotNil(MealsByNameRequest(mealName: Self.validMealName))
     }
     
     func testShouldNotCreateMealsByNameRequestWithEmptyName() {
@@ -18,19 +21,19 @@ class APIRequestTests: XCTestCase {
     }
     
     func testShouldCreateProperURLForMealsByNameRequest() {
-        let mealsByNameRequest = MealsByNameRequest(mealName: "tofu")
+        let mealsByNameRequest = MealsByNameRequest(mealName: Self.validMealName)
         
         guard let mealsByNameRequest = mealsByNameRequest else {
             XCTFail("Unable to create network request")
             return
         }
         
-        XCTAssertEqual(mealsByNameRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=tofu"))
+        XCTAssertEqual(mealsByNameRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=pasta"))
     }
     
     
     func testShouldCreateMealsByIDRequestWithValidID() {
-        XCTAssertNotNil(MealByIDRequest(mealID: "213"))
+        XCTAssertNotNil(MealByIDRequest(mealID: Self.validMealID))
     }
     
     func testShouldNotCreateMealsByIDRequestWithInvalidID() {
@@ -39,7 +42,7 @@ class APIRequestTests: XCTestCase {
     
    
     func testShouldCreateProperURLForMealByIDRequest() {
-        let mealByIDRequest = MealByIDRequest(mealID: "52772")
+        let mealByIDRequest = MealByIDRequest(mealID: Self.validMealID)
         
         guard let mealByIDRequest = mealByIDRequest else {
             XCTFail("Unable to create network request")

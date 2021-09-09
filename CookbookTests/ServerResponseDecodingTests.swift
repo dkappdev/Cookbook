@@ -10,16 +10,13 @@ import XCTest
 
 class ServerResponseDecodingTests: XCTestCase {
     
-    let validMealName = "pasta"
-    let validMealID = "52772"
-    
     /// Makes sure that server responses can be properly decoded into instances
     func testShouldDecodeValidMealsByNameResponse() {
         let expectation = expectation(description: "Should finish network request")
         
         var mealsByNameResponse: MealsByNameResponse? = nil
         
-        let mealsByNameRequest = MealsByNameRequest(mealName: validMealName)
+        let mealsByNameRequest = MealsByNameRequest(mealName: APIRequestTests.validMealName)
         
         guard let mealsByNameRequest = mealsByNameRequest else {
             XCTFail("Unable to create network request")
@@ -47,7 +44,7 @@ class ServerResponseDecodingTests: XCTestCase {
         
         var mealByIDResponse: MealByIDResponse? = nil
         
-        let mealByIDRequest = MealByIDRequest(mealID: validMealID)
+        let mealByIDRequest = MealByIDRequest(mealID: APIRequestTests.validMealID)
         
         guard let mealByIDRequest = mealByIDRequest else {
             XCTFail("Unable to create network request")
