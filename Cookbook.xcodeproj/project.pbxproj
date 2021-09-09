@@ -17,7 +17,7 @@
 		E2BF7FE126EA4B3D00776BC2 /* MealsByNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FE026EA4B3D00776BC2 /* MealsByNameRequest.swift */; };
 		E2BF7FE326EA4E0F00776BC2 /* FullMealInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FE226EA4E0F00776BC2 /* FullMealInfoList.swift */; };
 		E2BF7FEB26EA4FB100776BC2 /* ServerResponseDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FEA26EA4FB100776BC2 /* ServerResponseDecodingTests.swift */; };
-		E2BF7FF326EA553A00776BC2 /* APIRequestURLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FF226EA553A00776BC2 /* APIRequestURLTests.swift */; };
+		E2BF7FF326EA553A00776BC2 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FF226EA553A00776BC2 /* APIRequestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		E2BF7FE826EA4FB100776BC2 /* CookbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BF7FEA26EA4FB100776BC2 /* ServerResponseDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseDecodingTests.swift; sourceTree = "<group>"; };
 		E2BF7FEC26EA4FB100776BC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2BF7FF226EA553A00776BC2 /* APIRequestURLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestURLTests.swift; sourceTree = "<group>"; };
+		E2BF7FF226EA553A00776BC2 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E2BF7FEC26EA4FB100776BC2 /* Info.plist */,
-				E2BF7FF226EA553A00776BC2 /* APIRequestURLTests.swift */,
+				E2BF7FF226EA553A00776BC2 /* APIRequestTests.swift */,
 				E2BF7FEA26EA4FB100776BC2 /* ServerResponseDecodingTests.swift */,
 			);
 			path = CookbookTests;
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2BF7FF326EA553A00776BC2 /* APIRequestURLTests.swift in Sources */,
+				E2BF7FF326EA553A00776BC2 /* APIRequestTests.swift in Sources */,
 				E2BF7FEB26EA4FB100776BC2 /* ServerResponseDecodingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

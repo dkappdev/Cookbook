@@ -1,6 +1,6 @@
 //
-//  CookbookTests.swift
-//  CookbookTests
+//  ServerResponseDecodingTests.swift
+//  ServerResponseDecodingTests
 //
 //  Created by Daniil Kostitsin on 09.09.2021.
 //
@@ -12,11 +12,16 @@ class ServerResponseDecodingTests: XCTestCase {
     
     /// Makes sure that server responses can be properly decoded into instances
     func testShouldDecodeValidMealsByNameRequestData() {
-        let mealsByNameRequest = MealsByNameRequest(mealName: "pasta")
-        
         let expectation = expectation(description: "Should decode meal info list")
         
         var fullMealInfoList: FullMealInfoList? = nil
+        
+        let mealsByNameRequest = MealsByNameRequest(mealName: "pasta")
+        
+        guard let mealsByNameRequest = mealsByNameRequest else {
+            XCTFail("Unable to create network request")
+            return
+        }
         
         mealsByNameRequest.send { result in
             switch result {
