@@ -16,16 +16,19 @@ public protocol APIRequest {
     var request: URLRequest { get }
 }
 
+// Provides host property for the application
 extension APIRequest {
-    var host: String { "www.themealdb.com" }
+    public var host: String { "www.themealdb.com" }
 }
 
+// Provides default query items
 extension APIRequest {
-    var queryItems: [URLQueryItem]? { nil }
+    public var queryItems: [URLQueryItem]? { nil }
 }
 
+// Automatically creates URLRequest for concrete APIRequest instances with initialized fields
 extension APIRequest {
-    var request: URLRequest {
+    public var request: URLRequest {
         var components = URLComponents()
         
         components.scheme = "https"
@@ -38,5 +41,44 @@ extension APIRequest {
         }
         
         return URLRequest(url: url)
+    }
+}
+
+// Provides a helper function for decoding server responses for arbitrary decodable types
+extension APIRequest where Response: Decodable {
+    public func send(completion: @escaping (Result<Response, Error>) -> Void) {
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let decodedResponse = try JSONDecoder().decode(Response.self, from: data)
+                    completion(.success(decodedResponse))
+                } catch {
+                    completion(.failure(error))
+                }
+            } else if let error = error {
+                completion(.failure(error))
+            }
+        }
+    }
+}
+
+public enum ImageRequestError: Error {
+    case couldNotInitializeFromData
+}
+
+// Provides a helper function for decoding images returned from server
+extension APIRequest where Response == UIImage {
+    
+    public func send(completion: @escaping (Result<Response, Error>) -> Void) {
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data,
+               let image = UIImage(data: data) {
+                completion(.success(image))
+            } else if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.failure(ImageRequestError.couldNotInitializeFromData))
+            }
+        }
     }
 }
