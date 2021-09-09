@@ -10,81 +10,49 @@ import XCTest
 
 class ServerResponseDecodingTests: XCTestCase {
     
-    /// Makes sure that server responses can be properly decoded into instances
-    func testShouldDecodeValidMealsByNameResponse() {
+    func genericTestDecode<RequestType, ResponseType>(withRequest request: RequestType?, completion: @escaping (ResponseType?) -> Void) where RequestType: APIRequest, RequestType.Response == ResponseType, RequestType.Response: Decodable {
+        
         let expectation = expectation(description: "Should finish network request")
         
-        var mealsByNameResponse: MealsByNameResponse? = nil
-        
-        let mealsByNameRequest = MealsByNameRequest(mealName: APIRequestTests.validMealName)
-        
-        guard let mealsByNameRequest = mealsByNameRequest else {
+        guard let request = request else {
             XCTFail("Unable to create network request")
             return
         }
         
-        mealsByNameRequest.send { result in
+        request.send { result in
             switch result {
-            case .success(let response):
-                mealsByNameResponse = response
-                expectation.fulfill()
+            case .success(let networkResponse):
+                completion(networkResponse)
             case .failure(let error):
-                XCTFail(error.localizedDescription)
-                expectation.fulfill()
+                print(error.localizedDescription)
+                completion(nil)
             }
+            expectation.fulfill()
+        }
+    }
+    
+    /// Makes sure that server responses can be properly decoded into instances
+    func testShouldDecodeValidMealsByNameResponse() {
+        genericTestDecode(withRequest: MealsByNameRequest(mealName: APIRequestTests.validMealName)) { response in
+            XCTAssertNotNil(response)
         }
         
         waitForExpectations(timeout: 15, handler: nil)
-        
-        XCTAssertNotNil(mealsByNameResponse)
     }
     
     func testShouldDecodeValidMealByIDResponse() {
-        let expectation = expectation(description: "Should finish network request")
-        
-        var mealByIDResponse: MealByIDResponse? = nil
-        
-        let mealByIDRequest = MealByIDRequest(mealID: APIRequestTests.validMealID)
-        
-        guard let mealByIDRequest = mealByIDRequest else {
-            XCTFail("Unable to create network request")
-            return
-        }
-        
-        mealByIDRequest.send { result in
-            switch result {
-            case .success(let response):
-                mealByIDResponse = response
-                expectation.fulfill()
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-                expectation.fulfill()
-            }
+        genericTestDecode(withRequest: MealByIDRequest(mealID: APIRequestTests.validMealID)) { response in
+            XCTAssertNotNil(response)
         }
         
         waitForExpectations(timeout: 15, handler: nil)
-        
-        XCTAssertNotNil(mealByIDResponse)
     }
     
     func testShouldDecodeValidCategoryListResponse() {
-        let expectation = expectation(description: "Should finish network request")
-        
-        var categoryListResponse: CategoryListResponse? = nil
-        
-        CategoryListRequest().send { result in
-            switch result {
-            case .success(let response):
-                categoryListResponse = response
-                expectation.fulfill()
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-                expectation.fulfill()
-            }
+        genericTestDecode(withRequest: CategoryListRequest()) { response in
+            XCTAssertNotNil(response)
         }
         
         waitForExpectations(timeout: 15, handler: nil)
-        
-        XCTAssertNotNil(categoryListResponse)
     }
 }
