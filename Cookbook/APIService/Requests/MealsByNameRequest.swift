@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Request for getting all meals that match specified name
 public struct MealsByNameRequest: APIRequest {
     public typealias Response = MealsByNameResponse
     

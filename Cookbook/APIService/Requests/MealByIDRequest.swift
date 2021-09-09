@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Request for getting a meal by its ID
 public struct MealByIDRequest: APIRequest {
     public typealias Response = MealByIDResponse
     

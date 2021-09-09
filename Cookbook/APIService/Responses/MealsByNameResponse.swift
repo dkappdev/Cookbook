@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Stores information for all meals returned by `MealsByNameRequest`
 public struct MealsByNameResponse {
     public var mealInfos: [FullMealInfo]?
 }

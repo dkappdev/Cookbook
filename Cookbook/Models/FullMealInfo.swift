@@ -9,14 +9,22 @@ import Foundation
 
 /// A type that represents full meal information
 public struct FullMealInfo {
+    /// Meal ID that can be used to look it up in TheMealDB
     var mealID: String
+    /// Meal display name
     var mealName: String
+    /// Meal category
     var category: String
+    /// Origin area of the meal
     var area: String
+    /// Cooking instructions as a long multiline string
     var cookingInstructions: String
+    /// URL of the meal image
     var imageURL: URL
+    /// URL for cooking video on YouTube
     var youtubeURL: URL
     
+    /// Cooking ingredients stored as `(String, String)` tuple. The first value represents the ingredient name, and the second one represents measurements.
     var ingredients: [(String, String)]
 }
 

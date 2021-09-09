@@ -17,7 +17,7 @@ class APIRequestTests: XCTestCase {
         XCTAssertNil(MealsByNameRequest(mealName: ""))
     }
     
-    func testShouldCreateProperURLForSearchByName() {
+    func testShouldCreateProperURLForMealsByNameRequest() {
         let mealsByNameRequest = MealsByNameRequest(mealName: "tofu")
         
         guard let mealsByNameRequest = mealsByNameRequest else {
@@ -38,7 +38,7 @@ class APIRequestTests: XCTestCase {
     }
     
    
-    func testShouldCreateProperURLForLookupByID() {
+    func testShouldCreateProperURLForMealByIDRequest() {
         let mealByIDRequest = MealByIDRequest(mealID: "52772")
         
         guard let mealByIDRequest = mealByIDRequest else {
@@ -47,5 +47,11 @@ class APIRequestTests: XCTestCase {
         }
         
         XCTAssertEqual(mealByIDRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"))
+    }
+    
+    func testShouldCreateProperURLForCategoryListRequest() {
+        let categoryListRequest = CategoryListRequest()
+        
+        XCTAssertEqual(categoryListRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?c=list"))
     }
 }

@@ -66,4 +66,25 @@ class ServerResponseDecodingTests: XCTestCase {
         
         XCTAssertNotNil(mealByIDResponse)
     }
+    
+    func testShouldDecodeValidCategoryListResponse() {
+        let expectation = expectation(description: "Should finish network request")
+        
+        var categoryListResponse: CategoryListResponse? = nil
+        
+        CategoryListRequest().send { result in
+            switch result {
+            case .success(let response):
+                categoryListResponse = response
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 15, handler: nil)
+        
+        XCTAssertNotNil(categoryListResponse)
+    }
 }
