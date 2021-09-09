@@ -29,7 +29,7 @@ class ServerResponseDecodingTests: XCTestCase {
                 mealsByNameResponse = response
                 expectation.fulfill()
             case .failure(let error):
-                XCTFail(error)
+                XCTFail(error.localizedDescription)
                 expectation.fulfill()
             }
         }
