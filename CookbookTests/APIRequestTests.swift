@@ -9,6 +9,8 @@ import XCTest
 @testable import Cookbook
 
 class APIRequestTests: XCTestCase {
+    
+    // Note: used in other tests
     static let validMealName = "pasta"
     static let validMealID = "52772"
     
