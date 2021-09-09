@@ -14,14 +14,14 @@ public struct MealByIDResponse {
 extension MealByIDResponse: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: AnyCodingKey.self)
-        
+
         let mealInfos = try values.decode([FullMealInfo]?.self, forKey: AnyCodingKey(stringValue: "meals"))
-        
-        guard let mealInfos = mealInfos else {
+
+        if let mealInfos = mealInfos {
+            mealInfo = mealInfos.first
+        } else {
             mealInfo = nil
-            return
         }
-        
-        mealInfo = mealInfos.first
+
     }
 }
