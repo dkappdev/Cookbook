@@ -57,4 +57,8 @@ class ServerResponseDecodingTests: XCTestCase {
     func testShouldDecodeValidMealsByCategoryResponse() {
         genericTestDecode(withRequest: MealsByCategoryRequest(category: APIRequestTests.validCategory))
     }
+    
+    func testShouldDecodeValidRandomMealResponse() {
+        genericTestDecode(withRequest: RandomMealRequest())
+    }
 }

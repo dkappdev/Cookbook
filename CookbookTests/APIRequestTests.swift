@@ -91,4 +91,10 @@ class APIRequestTests: XCTestCase {
         
         XCTAssertEqual(mealsByCategoryRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?c=seafood"))
     }
+    
+    func testShouldCreateProperURLForRandomMealRequest() {
+        let randomMealRequest = RandomMealRequest()
+        
+        XCTAssertEqual(randomMealRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/random.php"))
+    }
 }
