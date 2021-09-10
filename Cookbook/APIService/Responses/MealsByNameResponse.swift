@@ -13,9 +13,7 @@ public struct MealsByNameResponse {
 }
 
 extension MealsByNameResponse: Decodable {
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: AnyCodingKey.self)
-        
-        mealInfos = try values.decode([FullMealInfo]?.self, forKey: AnyCodingKey(stringValue: "meals"))
+    public enum CodingKeys: String, CodingKey {
+        case mealInfos = "meals"
     }
 }

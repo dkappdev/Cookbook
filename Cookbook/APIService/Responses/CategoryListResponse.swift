@@ -14,7 +14,7 @@ public struct CategoryListResponse {
     private struct NestedCategory: Decodable {
         public var categoryName: String
         
-        enum CodingKeys: String, CodingKey {
+        public enum CodingKeys: String, CodingKey {
             case categoryName = "strCategory"
         }
     }
