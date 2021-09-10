@@ -25,6 +25,9 @@
 		E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923DD26EB6318007A1BC3 /* AreaListResponse.swift */; };
 		E2C923E026EB7A7E007A1BC3 /* AreaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923DF26EB7A7E007A1BC3 /* AreaInfo.swift */; };
 		E2C923E226EB7F4B007A1BC3 /* AreaListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E126EB7F4B007A1BC3 /* AreaListRequest.swift */; };
+		E2C923E426EB8212007A1BC3 /* IngredientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */; };
+		E2C923E626EB82CE007A1BC3 /* IngredientListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E526EB82CE007A1BC3 /* IngredientListResponse.swift */; };
+		E2C923E826EB832C007A1BC3 /* IngredientListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E726EB832C007A1BC3 /* IngredientListRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		E2C923DD26EB6318007A1BC3 /* AreaListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListResponse.swift; sourceTree = "<group>"; };
 		E2C923DF26EB7A7E007A1BC3 /* AreaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaInfo.swift; sourceTree = "<group>"; };
 		E2C923E126EB7F4B007A1BC3 /* AreaListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListRequest.swift; sourceTree = "<group>"; };
+		E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfo.swift; sourceTree = "<group>"; };
+		E2C923E526EB82CE007A1BC3 /* IngredientListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListResponse.swift; sourceTree = "<group>"; };
+		E2C923E726EB832C007A1BC3 /* IngredientListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +146,9 @@
 		E2BF7FCE26E91F8800776BC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E2BF7FD726E939D400776BC2 /* FullMealInfo.swift */,
 				E2C923DF26EB7A7E007A1BC3 /* AreaInfo.swift */,
+				E2BF7FD726E939D400776BC2 /* FullMealInfo.swift */,
+				E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,10 +200,11 @@
 		E2BF7FF826EA71AB00776BC2 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				E2C923E126EB7F4B007A1BC3 /* AreaListRequest.swift */,
+				E2C923D826EA8990007A1BC3 /* CategoryListRequest.swift */,
+				E2C923E726EB832C007A1BC3 /* IngredientListRequest.swift */,
 				E2BF7FF426EA6DE500776BC2 /* MealByIDRequest.swift */,
 				E2BF7FE026EA4B3D00776BC2 /* MealsByNameRequest.swift */,
-				E2C923D826EA8990007A1BC3 /* CategoryListRequest.swift */,
-				E2C923E126EB7F4B007A1BC3 /* AreaListRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -204,10 +212,11 @@
 		E2BF7FF926EA71AF00776BC2 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				E2C923DD26EB6318007A1BC3 /* AreaListResponse.swift */,
+				E2C923DA26EA8E26007A1BC3 /* CategoryListResponse.swift */,
+				E2C923E526EB82CE007A1BC3 /* IngredientListResponse.swift */,
 				E2BF7FF626EA719100776BC2 /* MealByIDResponse.swift */,
 				E2BF7FE226EA4E0F00776BC2 /* MealsByNameResponse.swift */,
-				E2C923DA26EA8E26007A1BC3 /* CategoryListResponse.swift */,
-				E2C923DD26EB6318007A1BC3 /* AreaListResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -323,12 +332,15 @@
 				E2BF7FD826E939D400776BC2 /* FullMealInfo.swift in Sources */,
 				E2BF7FDC26E942C900776BC2 /* AnyCodingKey.swift in Sources */,
 				E2BF7FE326EA4E0F00776BC2 /* MealsByNameResponse.swift in Sources */,
+				E2C923E826EB832C007A1BC3 /* IngredientListRequest.swift in Sources */,
 				E2C923E026EB7A7E007A1BC3 /* AreaInfo.swift in Sources */,
 				E2C923DB26EA8E26007A1BC3 /* CategoryListResponse.swift in Sources */,
 				E2BF7FE126EA4B3D00776BC2 /* MealsByNameRequest.swift in Sources */,
 				E2C923D926EA8990007A1BC3 /* CategoryListRequest.swift in Sources */,
 				E2C923E226EB7F4B007A1BC3 /* AreaListRequest.swift in Sources */,
+				E2C923E426EB8212007A1BC3 /* IngredientInfo.swift in Sources */,
 				E2BF7FF726EA719100776BC2 /* MealByIDResponse.swift in Sources */,
+				E2C923E626EB82CE007A1BC3 /* IngredientListResponse.swift in Sources */,
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */,
 				E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */,

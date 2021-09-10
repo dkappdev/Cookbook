@@ -65,4 +65,10 @@ class APIRequestTests: XCTestCase {
         
         XCTAssertEqual(areaListRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?a=list"))
     }
+    
+    func testShouldCreateProperURLForIngredientListRequest() {
+        let ingredientListRequest = IngredientListRequest()
+        
+        XCTAssertEqual(ingredientListRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?i=list"))
+    }
 }

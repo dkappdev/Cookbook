@@ -49,4 +49,8 @@ class ServerResponseDecodingTests: XCTestCase {
     func testShouldDecodeValidAreaListResponse() {
         genericTestDecode(withRequest: AreaListRequest())
     }
+    
+    func testShouldDecodeValidIngredientListResponse() {
+        genericTestDecode(withRequest: IngredientListRequest())
+    }
 }
