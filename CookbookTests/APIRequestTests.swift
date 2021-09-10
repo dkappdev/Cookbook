@@ -14,6 +14,7 @@ class APIRequestTests: XCTestCase {
     static let validMealName = "pasta"
     static let validMealID = "52772"
     static let validCategory = "seafood"
+    static let validArea = "canadian"
     
     func testShouldCreateMealsByNameRequestWithValidName() {
         XCTAssertNotNil(MealsByNameRequest(mealName: Self.validMealName))
@@ -73,11 +74,11 @@ class APIRequestTests: XCTestCase {
         XCTAssertEqual(ingredientListRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?i=list"))
     }
     
-    func testShouldCreateMealsByCategoryWithValidCategory() {
+    func testShouldCreateMealsByCategoryRequestWithValidCategory() {
         XCTAssertNotNil(MealsByCategoryRequest(category: Self.validCategory))
     }
     
-    func testShouldNotCreateMealsByCategoryWithInvalidCategory() {
+    func testShouldNotCreateMealsByCategoryRequestWithInvalidCategory() {
         XCTAssertNil(MealsByCategoryRequest(category: ""))
     }
     
@@ -96,5 +97,24 @@ class APIRequestTests: XCTestCase {
         let randomMealRequest = RandomMealRequest()
         
         XCTAssertEqual(randomMealRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/random.php"))
+    }
+    
+    func testShouldCreateMealsByAreaRequestWithValidArea() {
+        XCTAssertNotNil(MealsByAreaRequest(areaName: Self.validArea))
+    }
+    
+    func testShouldNotCreateMealsByAreaRequestWithInvalidArea() {
+        XCTAssertNil(MealsByAreaRequest(areaName: ""))
+    }
+    
+    func testShouldCreateProperURLForMealsByAreaRequest() {
+        let mealsByAreaRequest = MealsByAreaRequest(areaName: Self.validArea)
+        
+        guard let mealsByAreaRequest = mealsByAreaRequest else {
+            XCTFail("Failed to create network request")
+            return
+        }
+        
+        XCTAssertEqual(mealsByAreaRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?a=canadian"))
     }
 }

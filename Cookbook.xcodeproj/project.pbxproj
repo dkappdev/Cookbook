@@ -35,6 +35,8 @@
 		E2C923F226EB9C30007A1BC3 /* CategoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F126EB9C30007A1BC3 /* CategoryInfo.swift */; };
 		E2C923F426EBA4CA007A1BC3 /* RandomMealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F326EBA4CA007A1BC3 /* RandomMealResponse.swift */; };
 		E2C923F626EBA599007A1BC3 /* RandomMealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F526EBA599007A1BC3 /* RandomMealRequest.swift */; };
+		E2C923F826EBAEC7007A1BC3 /* MealsByAreaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F726EBAEC7007A1BC3 /* MealsByAreaResponse.swift */; };
+		E2C923FA26EBB00F007A1BC3 /* MealsByAreaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F926EBB00F007A1BC3 /* MealsByAreaRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		E2C923F126EB9C30007A1BC3 /* CategoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInfo.swift; sourceTree = "<group>"; };
 		E2C923F326EBA4CA007A1BC3 /* RandomMealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMealResponse.swift; sourceTree = "<group>"; };
 		E2C923F526EBA599007A1BC3 /* RandomMealRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMealRequest.swift; sourceTree = "<group>"; };
+		E2C923F726EBAEC7007A1BC3 /* MealsByAreaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByAreaResponse.swift; sourceTree = "<group>"; };
+		E2C923F926EBB00F007A1BC3 /* MealsByAreaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByAreaRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,9 +225,10 @@
 				E2C923D826EA8990007A1BC3 /* CategoryListRequest.swift */,
 				E2C923E726EB832C007A1BC3 /* IngredientListRequest.swift */,
 				E2BF7FF426EA6DE500776BC2 /* MealByIDRequest.swift */,
-				E2BF7FE026EA4B3D00776BC2 /* MealsByNameRequest.swift */,
 				E2C923EF26EB9192007A1BC3 /* MealsByCategoryRequest.swift */,
+				E2BF7FE026EA4B3D00776BC2 /* MealsByNameRequest.swift */,
 				E2C923F526EBA599007A1BC3 /* RandomMealRequest.swift */,
+				E2C923F926EBB00F007A1BC3 /* MealsByAreaRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -235,8 +240,9 @@
 				E2C923DA26EA8E26007A1BC3 /* CategoryListResponse.swift */,
 				E2C923E526EB82CE007A1BC3 /* IngredientListResponse.swift */,
 				E2BF7FF626EA719100776BC2 /* MealByIDResponse.swift */,
-				E2BF7FE226EA4E0F00776BC2 /* MealsByNameResponse.swift */,
+				E2C923F726EBAEC7007A1BC3 /* MealsByAreaResponse.swift */,
 				E2C923ED26EB890C007A1BC3 /* MealsByCategoryResponse.swift */,
+				E2BF7FE226EA4E0F00776BC2 /* MealsByNameResponse.swift */,
 				E2C923F326EBA4CA007A1BC3 /* RandomMealResponse.swift */,
 			);
 			path = Responses;
@@ -352,6 +358,8 @@
 				E2BF7FF526EA6DE500776BC2 /* MealByIDRequest.swift in Sources */,
 				E2BF7FD826E939D400776BC2 /* FullMealInfo.swift in Sources */,
 				E2BF7FDC26E942C900776BC2 /* AnyCodingKey.swift in Sources */,
+				E2C923F826EBAEC7007A1BC3 /* MealsByAreaResponse.swift in Sources */,
+				E2C923FA26EBB00F007A1BC3 /* MealsByAreaRequest.swift in Sources */,
 				E2BF7FE326EA4E0F00776BC2 /* MealsByNameResponse.swift in Sources */,
 				E2C923E826EB832C007A1BC3 /* IngredientListRequest.swift in Sources */,
 				E2C923E026EB7A7E007A1BC3 /* AreaInfo.swift in Sources */,

@@ -61,4 +61,8 @@ class ServerResponseDecodingTests: XCTestCase {
     func testShouldDecodeValidRandomMealResponse() {
         genericTestDecode(withRequest: RandomMealRequest())
     }
+    
+    func testShouldDecodeValidMealsByAreaResponse() {
+        genericTestDecode(withRequest: MealsByAreaRequest(areaName: APIRequestTests.validArea))
+    }
 }

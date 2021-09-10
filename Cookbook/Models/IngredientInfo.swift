@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Type that represents ingredient information – name and description
 public struct IngredientInfo {
     public var ingredientName: String
     public var ingredientDescription: String?
