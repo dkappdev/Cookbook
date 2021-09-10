@@ -15,25 +15,16 @@ class APIRequestTests: XCTestCase {
     static let validMealID = "52772"
     static let validCategory = "seafood"
     static let validArea = "canadian"
+    static let validIngredient = "lime"
     
     func testShouldCreateProperURLForMealsByNameRequest() {
         let mealsByNameRequest = MealsByNameRequest(mealName: Self.validMealName)
-        
-        guard let mealsByNameRequest = mealsByNameRequest else {
-            XCTFail("Failed to create network request")
-            return
-        }
         
         XCTAssertEqual(mealsByNameRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=pasta"))
     }
    
     func testShouldCreateProperURLForMealByIDRequest() {
         let mealByIDRequest = MealByIDRequest(mealID: Self.validMealID)
-        
-        guard let mealByIDRequest = mealByIDRequest else {
-            XCTFail("Failed to create network request")
-            return
-        }
         
         XCTAssertEqual(mealByIDRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"))
     }
@@ -58,12 +49,7 @@ class APIRequestTests: XCTestCase {
     
     func testShouldCreateProperURLForMealsByCategoryRequest() {
         let mealsByCategoryRequest = MealsByCategoryRequest(category: Self.validCategory)
-        
-        guard let mealsByCategoryRequest = mealsByCategoryRequest else {
-            XCTFail("Failed to create network request")
-            return
-        }
-        
+    
         XCTAssertEqual(mealsByCategoryRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?c=seafood"))
     }
     
@@ -76,11 +62,12 @@ class APIRequestTests: XCTestCase {
     func testShouldCreateProperURLForMealsByAreaRequest() {
         let mealsByAreaRequest = MealsByAreaRequest(areaName: Self.validArea)
         
-        guard let mealsByAreaRequest = mealsByAreaRequest else {
-            XCTFail("Failed to create network request")
-            return
-        }
-        
         XCTAssertEqual(mealsByAreaRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?a=canadian"))
+    }
+    
+    func testShouldCreateProperURLForIngredientImageRequest() {
+        let ingredientImageRequest = IngredientImageRequest(ingredientName: Self.validIngredient)
+        
+        XCTAssertEqual(ingredientImageRequest.request.url, URL(string: "https://www.themealdb.com/images/ingredients/lime.png"))
     }
 }

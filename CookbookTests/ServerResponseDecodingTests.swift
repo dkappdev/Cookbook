@@ -10,14 +10,9 @@ import XCTest
 
 class ServerResponseDecodingTests: XCTestCase {
     
-    func genericTestDecode<RequestType, ResponseType>(withRequest request: RequestType?) where RequestType: APIRequest, RequestType.Response == ResponseType, RequestType.Response: Decodable {
+    func genericTestDecode<RequestType, ResponseType>(withRequest request: RequestType) where RequestType: APIRequest, RequestType.Response == ResponseType, RequestType.Response: Decodable {
         
         let expectation = expectation(description: "Should finish network request")
-        
-        guard let request = request else {
-            XCTFail("Failed to create network request")
-            return
-        }
         
         request.send { result in
             switch result {
@@ -30,6 +25,24 @@ class ServerResponseDecodingTests: XCTestCase {
             expectation.fulfill()
         }
      
+        waitForExpectations(timeout: 15, handler: nil)
+    }
+    
+    func genericTestDecodeImage<RequestType>(withRequest request: RequestType) where RequestType: APIRequest, RequestType.Response == UIImage {
+        
+        let expectation = expectation(description: "Should finish network request")
+        
+        request.send { result in
+            switch result {
+            case .success(let response):
+                print(response)
+                XCTAssertNotNil(response)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        
         waitForExpectations(timeout: 15, handler: nil)
     }
     
@@ -64,5 +77,9 @@ class ServerResponseDecodingTests: XCTestCase {
     
     func testShouldDecodeValidMealsByAreaResponse() {
         genericTestDecode(withRequest: MealsByAreaRequest(areaName: APIRequestTests.validArea))
+    }
+    
+    func testShouldDecodeValidIngredientImageResponse() {
+        genericTestDecodeImage(withRequest: IngredientImageRequest(ingredientName: APIRequestTests.validIngredient))
     }
 }
