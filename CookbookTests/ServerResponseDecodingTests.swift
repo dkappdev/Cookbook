@@ -22,7 +22,6 @@ class ServerResponseDecodingTests: XCTestCase {
         request.send { result in
             switch result {
             case .success(let response):
-                print(response)
                 XCTAssertNotNil(response)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
