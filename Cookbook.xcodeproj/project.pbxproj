@@ -32,6 +32,7 @@
 		E2C923EC26EB87C0007A1BC3 /* IngredientAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */; };
 		E2C923EE26EB890C007A1BC3 /* MealsByCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923ED26EB890C007A1BC3 /* MealsByCategoryResponse.swift */; };
 		E2C923F026EB9192007A1BC3 /* MealsByCategoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923EF26EB9192007A1BC3 /* MealsByCategoryRequest.swift */; };
+		E2C923F226EB9C30007A1BC3 /* CategoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F126EB9C30007A1BC3 /* CategoryInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientAmount.swift; sourceTree = "<group>"; };
 		E2C923ED26EB890C007A1BC3 /* MealsByCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByCategoryResponse.swift; sourceTree = "<group>"; };
 		E2C923EF26EB9192007A1BC3 /* MealsByCategoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByCategoryRequest.swift; sourceTree = "<group>"; };
+		E2C923F126EB9C30007A1BC3 /* CategoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +157,11 @@
 			isa = PBXGroup;
 			children = (
 				E2C923DF26EB7A7E007A1BC3 /* AreaInfo.swift */,
+				E2C923F126EB9C30007A1BC3 /* CategoryInfo.swift */,
 				E2BF7FD726E939D400776BC2 /* FullMealInfo.swift */,
+				E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */,
 				E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */,
 				E2C923E926EB8623007A1BC3 /* ShortMealInfo.swift */,
-				E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				E2C923E426EB8212007A1BC3 /* IngredientInfo.swift in Sources */,
 				E2BF7FF726EA719100776BC2 /* MealByIDResponse.swift in Sources */,
 				E2C923E626EB82CE007A1BC3 /* IngredientListResponse.swift in Sources */,
+				E2C923F226EB9C30007A1BC3 /* CategoryInfo.swift in Sources */,
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */,
 				E2C923EA26EB8623007A1BC3 /* ShortMealInfo.swift in Sources */,

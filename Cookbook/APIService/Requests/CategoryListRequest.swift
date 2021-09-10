@@ -11,7 +11,5 @@ import Foundation
 public struct CategoryListRequest: APIRequest {
     public typealias Response = CategoryListResponse
     
-    public var path: String { "/api/json/v1/1/list.php" }
-    
-    public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "c", value: "list")] }
+    public var path: String { "/api/json/v1/1/categories.php" }
 }

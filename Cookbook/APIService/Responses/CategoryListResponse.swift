@@ -9,27 +9,11 @@ import Foundation
 
 /// Stores all available category names
 public struct CategoryListResponse {
-    public var categoryNames: [String]
-    
-    private struct NestedCategory: Decodable {
-        public var categoryName: String
-        
-        public enum CodingKeys: String, CodingKey {
-            case categoryName = "strCategory"
-        }
-    }
+    public var categoryInfos: [CategoryInfo]
 }
 
 extension CategoryListResponse: Decodable {
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: AnyCodingKey.self)
-        
-        let nestedCategories = try values.decode([NestedCategory].self, forKey: AnyCodingKey(stringValue: "meals"))
-        
-        categoryNames = []
-        
-        for category in nestedCategories {
-            categoryNames.append(category.categoryName)
-        }
+    public enum CodingKeys: String, CodingKey {
+        case categoryInfos = "categories"
     }
 }
