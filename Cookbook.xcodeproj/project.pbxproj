@@ -38,6 +38,7 @@
 		E2C923F826EBAEC7007A1BC3 /* MealsByAreaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F726EBAEC7007A1BC3 /* MealsByAreaResponse.swift */; };
 		E2C923FA26EBB00F007A1BC3 /* MealsByAreaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F926EBB00F007A1BC3 /* MealsByAreaRequest.swift */; };
 		E2C923FC26EBB7EF007A1BC3 /* IngredientImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923FB26EBB7EF007A1BC3 /* IngredientImageRequest.swift */; };
+		E2C923FE26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923FD26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E2C923F726EBAEC7007A1BC3 /* MealsByAreaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByAreaResponse.swift; sourceTree = "<group>"; };
 		E2C923F926EBB00F007A1BC3 /* MealsByAreaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByAreaRequest.swift; sourceTree = "<group>"; };
 		E2C923FB26EBB7EF007A1BC3 /* IngredientImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientImageRequest.swift; sourceTree = "<group>"; };
+		E2C923FD26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryImageRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				E2BF7FE026EA4B3D00776BC2 /* MealsByNameRequest.swift */,
 				E2C923F526EBA599007A1BC3 /* RandomMealRequest.swift */,
 				E2C923FB26EBB7EF007A1BC3 /* IngredientImageRequest.swift */,
+				E2C923FD26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				E2C923DB26EA8E26007A1BC3 /* CategoryListResponse.swift in Sources */,
 				E2C923F026EB9192007A1BC3 /* MealsByCategoryRequest.swift in Sources */,
 				E2BF7FE126EA4B3D00776BC2 /* MealsByNameRequest.swift in Sources */,
+				E2C923FE26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift in Sources */,
 				E2C923D926EA8990007A1BC3 /* CategoryListRequest.swift in Sources */,
 				E2C923F626EBA599007A1BC3 /* RandomMealRequest.swift in Sources */,
 				E2C923FC26EBB7EF007A1BC3 /* IngredientImageRequest.swift in Sources */,

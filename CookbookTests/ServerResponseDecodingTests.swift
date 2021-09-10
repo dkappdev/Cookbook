@@ -82,4 +82,15 @@ class ServerResponseDecodingTests: XCTestCase {
     func testShouldDecodeValidIngredientImageResponse() {
         genericTestDecodeImage(withRequest: IngredientImageRequest(ingredientName: APIRequestTests.validIngredient))
     }
+    
+    func testShouldDecodeValidArbitraryImageResponse() {
+        let imageURL = URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")
+        
+        guard let imageURL = imageURL else {
+            XCTFail("Failed to create URL from string")
+            return
+        }
+        
+        genericTestDecodeImage(withRequest: ArbitraryImageRequest(imageURL: imageURL))
+    }
 }

@@ -70,4 +70,17 @@ class APIRequestTests: XCTestCase {
         
         XCTAssertEqual(ingredientImageRequest.request.url, URL(string: "https://www.themealdb.com/images/ingredients/lime.png"))
     }
+    
+    func testShouldPreserveURLForArbitraryImageRequest() {
+        let imageURL = URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")
+        
+        guard let imageURL = imageURL else {
+            XCTFail("Failed to create URL from string")
+            return
+        }
+        
+        let arbitraryImageRequest = ArbitraryImageRequest(imageURL: imageURL)
+        
+        XCTAssertEqual(arbitraryImageRequest.request.url, imageURL)
+    }
 }
