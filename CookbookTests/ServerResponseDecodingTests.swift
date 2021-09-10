@@ -10,7 +10,7 @@ import XCTest
 
 class ServerResponseDecodingTests: XCTestCase {
     
-    func genericTestDecode<RequestType, ResponseType>(withRequest request: RequestType?, completion: @escaping (ResponseType?) -> Void) where RequestType: APIRequest, RequestType.Response == ResponseType, RequestType.Response: Decodable {
+    func genericTestDecode<RequestType, ResponseType>(withRequest request: RequestType?) where RequestType: APIRequest, RequestType.Response == ResponseType, RequestType.Response: Decodable {
         
         let expectation = expectation(description: "Should finish network request")
         
@@ -21,11 +21,11 @@ class ServerResponseDecodingTests: XCTestCase {
         
         request.send { result in
             switch result {
-            case .success(let networkResponse):
-                completion(networkResponse)
+            case .success(let response):
+                print(response)
+                XCTAssertNotNil(response)
             case .failure(let error):
-                print(error.localizedDescription)
-                completion(nil)
+                XCTFail(error.localizedDescription)
             }
             expectation.fulfill()
         }
@@ -35,20 +35,14 @@ class ServerResponseDecodingTests: XCTestCase {
     
     /// Makes sure that server responses can be properly decoded into instances
     func testShouldDecodeValidMealsByNameResponse() {
-        genericTestDecode(withRequest: MealsByNameRequest(mealName: APIRequestTests.validMealName)) { response in
-            XCTAssertNotNil(response)
-        }
+        genericTestDecode(withRequest: MealsByNameRequest(mealName: APIRequestTests.validMealName))
     }
     
     func testShouldDecodeValidMealByIDResponse() {
-        genericTestDecode(withRequest: MealByIDRequest(mealID: APIRequestTests.validMealID)) { response in
-            XCTAssertNotNil(response)
-        }
+        genericTestDecode(withRequest: MealByIDRequest(mealID: APIRequestTests.validMealID))
     }
     
     func testShouldDecodeValidCategoryListResponse() {
-        genericTestDecode(withRequest: CategoryListRequest()) { response in
-            XCTAssertNotNil(response)
-        }
+        genericTestDecode(withRequest: CategoryListRequest())
     }
 }
