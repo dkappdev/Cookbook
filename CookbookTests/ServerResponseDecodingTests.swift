@@ -29,6 +29,8 @@ class ServerResponseDecodingTests: XCTestCase {
             }
             expectation.fulfill()
         }
+     
+        waitForExpectations(timeout: 15, handler: nil)
     }
     
     /// Makes sure that server responses can be properly decoded into instances
@@ -36,23 +38,17 @@ class ServerResponseDecodingTests: XCTestCase {
         genericTestDecode(withRequest: MealsByNameRequest(mealName: APIRequestTests.validMealName)) { response in
             XCTAssertNotNil(response)
         }
-        
-        waitForExpectations(timeout: 15, handler: nil)
     }
     
     func testShouldDecodeValidMealByIDResponse() {
         genericTestDecode(withRequest: MealByIDRequest(mealID: APIRequestTests.validMealID)) { response in
             XCTAssertNotNil(response)
         }
-        
-        waitForExpectations(timeout: 15, handler: nil)
     }
     
     func testShouldDecodeValidCategoryListResponse() {
         genericTestDecode(withRequest: CategoryListRequest()) { response in
             XCTAssertNotNil(response)
         }
-        
-        waitForExpectations(timeout: 15, handler: nil)
     }
 }
