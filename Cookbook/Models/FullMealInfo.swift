@@ -25,7 +25,7 @@ public struct FullMealInfo {
     var youtubeURL: URL
     
     /// Cooking ingredients stored as `(String, String)` tuple. The first value represents the ingredient name, and the second one represents measurements.
-    var ingredients: [(String, String)]
+    var ingredients: [IngredientAmount]
 }
 
 extension FullMealInfo: Decodable {
@@ -43,7 +43,7 @@ extension FullMealInfo: Decodable {
         imageURL = try values.decode(URL.self, forKey: AnyCodingKey(stringValue: "strMealThumb"))
         youtubeURL = try values.decode(URL.self, forKey: AnyCodingKey(stringValue: "strYoutube"))
         
-        ingredients = [(String, String)]()
+        ingredients = [IngredientAmount]()
         
         for i in 1...20 {
             var ingredient = try values.decode(String?.self, forKey: AnyCodingKey(stringValue: "strIngredient\(i)"))
@@ -59,7 +59,7 @@ extension FullMealInfo: Decodable {
                 break
             }
             
-            ingredients.append((ingredient, amount))
+            ingredients.append(IngredientAmount(name: ingredient, amount: amount))
         }
     }
 }

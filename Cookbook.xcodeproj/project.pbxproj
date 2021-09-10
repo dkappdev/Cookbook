@@ -28,6 +28,8 @@
 		E2C923E426EB8212007A1BC3 /* IngredientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */; };
 		E2C923E626EB82CE007A1BC3 /* IngredientListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E526EB82CE007A1BC3 /* IngredientListResponse.swift */; };
 		E2C923E826EB832C007A1BC3 /* IngredientListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E726EB832C007A1BC3 /* IngredientListRequest.swift */; };
+		E2C923EA26EB8623007A1BC3 /* ShortMealInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923E926EB8623007A1BC3 /* ShortMealInfo.swift */; };
+		E2C923EC26EB87C0007A1BC3 /* IngredientAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfo.swift; sourceTree = "<group>"; };
 		E2C923E526EB82CE007A1BC3 /* IngredientListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListResponse.swift; sourceTree = "<group>"; };
 		E2C923E726EB832C007A1BC3 /* IngredientListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListRequest.swift; sourceTree = "<group>"; };
+		E2C923E926EB8623007A1BC3 /* ShortMealInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMealInfo.swift; sourceTree = "<group>"; };
+		E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientAmount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 				E2C923DF26EB7A7E007A1BC3 /* AreaInfo.swift */,
 				E2BF7FD726E939D400776BC2 /* FullMealInfo.swift */,
 				E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */,
+				E2C923E926EB8623007A1BC3 /* ShortMealInfo.swift */,
+				E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 				E2BF7FE326EA4E0F00776BC2 /* MealsByNameResponse.swift in Sources */,
 				E2C923E826EB832C007A1BC3 /* IngredientListRequest.swift in Sources */,
 				E2C923E026EB7A7E007A1BC3 /* AreaInfo.swift in Sources */,
+				E2C923EC26EB87C0007A1BC3 /* IngredientAmount.swift in Sources */,
 				E2C923DB26EA8E26007A1BC3 /* CategoryListResponse.swift in Sources */,
 				E2BF7FE126EA4B3D00776BC2 /* MealsByNameRequest.swift in Sources */,
 				E2C923D926EA8990007A1BC3 /* CategoryListRequest.swift in Sources */,
@@ -343,6 +350,7 @@
 				E2C923E626EB82CE007A1BC3 /* IngredientListResponse.swift in Sources */,
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */,
+				E2C923EA26EB8623007A1BC3 /* ShortMealInfo.swift in Sources */,
 				E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */,
 				E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */,
 			);
