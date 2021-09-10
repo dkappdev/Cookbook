@@ -16,14 +16,4 @@ public struct MealsByAreaRequest: APIRequest {
     public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "a", value: areaName)] }
     
     public private(set) var areaName: String
-    
-    /// Creates a request to get all meals from an area
-    /// - Parameter areaName: the origin area of meal
-    public init?(areaName: String) {
-        guard !areaName.isEmpty else {
-            return nil
-        }
-        
-        self.areaName = areaName
-    }
 }

@@ -16,14 +16,6 @@ class APIRequestTests: XCTestCase {
     static let validCategory = "seafood"
     static let validArea = "canadian"
     
-    func testShouldCreateMealsByNameRequestWithValidName() {
-        XCTAssertNotNil(MealsByNameRequest(mealName: Self.validMealName))
-    }
-    
-    func testShouldNotCreateMealsByNameRequestWithEmptyName() {
-        XCTAssertNil(MealsByNameRequest(mealName: ""))
-    }
-    
     func testShouldCreateProperURLForMealsByNameRequest() {
         let mealsByNameRequest = MealsByNameRequest(mealName: Self.validMealName)
         
@@ -34,16 +26,6 @@ class APIRequestTests: XCTestCase {
         
         XCTAssertEqual(mealsByNameRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=pasta"))
     }
-    
-    
-    func testShouldCreateMealsByIDRequestWithValidID() {
-        XCTAssertNotNil(MealByIDRequest(mealID: Self.validMealID))
-    }
-    
-    func testShouldNotCreateMealsByIDRequestWithInvalidID() {
-        XCTAssertNil(MealByIDRequest(mealID: "notANumber"))
-    }
-    
    
     func testShouldCreateProperURLForMealByIDRequest() {
         let mealByIDRequest = MealByIDRequest(mealID: Self.validMealID)
@@ -74,14 +56,6 @@ class APIRequestTests: XCTestCase {
         XCTAssertEqual(ingredientListRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?i=list"))
     }
     
-    func testShouldCreateMealsByCategoryRequestWithValidCategory() {
-        XCTAssertNotNil(MealsByCategoryRequest(category: Self.validCategory))
-    }
-    
-    func testShouldNotCreateMealsByCategoryRequestWithInvalidCategory() {
-        XCTAssertNil(MealsByCategoryRequest(category: ""))
-    }
-    
     func testShouldCreateProperURLForMealsByCategoryRequest() {
         let mealsByCategoryRequest = MealsByCategoryRequest(category: Self.validCategory)
         
@@ -97,14 +71,6 @@ class APIRequestTests: XCTestCase {
         let randomMealRequest = RandomMealRequest()
         
         XCTAssertEqual(randomMealRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/random.php"))
-    }
-    
-    func testShouldCreateMealsByAreaRequestWithValidArea() {
-        XCTAssertNotNil(MealsByAreaRequest(areaName: Self.validArea))
-    }
-    
-    func testShouldNotCreateMealsByAreaRequestWithInvalidArea() {
-        XCTAssertNil(MealsByAreaRequest(areaName: ""))
     }
     
     func testShouldCreateProperURLForMealsByAreaRequest() {

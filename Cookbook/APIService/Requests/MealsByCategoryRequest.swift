@@ -16,14 +16,4 @@ public struct MealsByCategoryRequest: APIRequest {
     public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "c", value: category)] }
     
     public private(set) var category: String
-    
-    /// Creates a request to get all meals from a category
-    /// - Parameter category: the category of meals
-    public init?(category: String) {
-        guard !category.isEmpty else {
-            return nil
-        }
-        
-        self.category = category
-    }
 }

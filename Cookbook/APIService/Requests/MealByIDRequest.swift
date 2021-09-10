@@ -16,14 +16,4 @@ public struct MealByIDRequest: APIRequest {
     public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "i", value: mealID)] }
     
     public private(set) var mealID: String
-    
-    /// Creates a request to lookup a meal by ID
-    /// - Parameter mealID: the meal ID as a string, the string should contain an integer
-    public init?(mealID: String) {
-        guard Int(mealID) != nil else {
-            return nil
-        }
-        
-        self.mealID = mealID
-    }
 }
