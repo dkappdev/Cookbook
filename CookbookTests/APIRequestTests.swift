@@ -13,6 +13,7 @@ class APIRequestTests: XCTestCase {
     // Note: used in other tests
     static let validMealName = "pasta"
     static let validMealID = "52772"
+    static let validCategory = "seafood"
     
     func testShouldCreateMealsByNameRequestWithValidName() {
         XCTAssertNotNil(MealsByNameRequest(mealName: Self.validMealName))
@@ -26,7 +27,7 @@ class APIRequestTests: XCTestCase {
         let mealsByNameRequest = MealsByNameRequest(mealName: Self.validMealName)
         
         guard let mealsByNameRequest = mealsByNameRequest else {
-            XCTFail("Unable to create network request")
+            XCTFail("Failed to create network request")
             return
         }
         
@@ -47,7 +48,7 @@ class APIRequestTests: XCTestCase {
         let mealByIDRequest = MealByIDRequest(mealID: Self.validMealID)
         
         guard let mealByIDRequest = mealByIDRequest else {
-            XCTFail("Unable to create network request")
+            XCTFail("Failed to create network request")
             return
         }
         
@@ -70,5 +71,24 @@ class APIRequestTests: XCTestCase {
         let ingredientListRequest = IngredientListRequest()
         
         XCTAssertEqual(ingredientListRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?i=list"))
+    }
+    
+    func testShouldCreateMealsByCategoryWithValidCategory() {
+        XCTAssertNotNil(MealsByCategoryRequest(category: Self.validCategory))
+    }
+    
+    func testShouldNotCreateMealsByCategoryWithInvalidCategory() {
+        XCTAssertNil(MealsByCategoryRequest(category: ""))
+    }
+    
+    func testShouldCreateProperURLForMealsByCategoryRequest() {
+        let mealsByCategoryRequest = MealsByCategoryRequest(category: Self.validCategory)
+        
+        guard let mealsByCategoryRequest = mealsByCategoryRequest else {
+            XCTFail("Failed to create network request")
+            return
+        }
+        
+        XCTAssertEqual(mealsByCategoryRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?c=seafood"))
     }
 }

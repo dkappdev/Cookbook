@@ -15,7 +15,7 @@ public struct MealsByNameRequest: APIRequest {
     
     public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "s", value: mealName)] }
     
-    public var mealName: String
+    public private(set) var mealName: String
     
     /// Creates a request to search meals by name
     /// - Parameter mealName: the meal name, this string should not be empty

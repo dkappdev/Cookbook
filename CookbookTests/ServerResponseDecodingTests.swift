@@ -15,7 +15,7 @@ class ServerResponseDecodingTests: XCTestCase {
         let expectation = expectation(description: "Should finish network request")
         
         guard let request = request else {
-            XCTFail("Unable to create network request")
+            XCTFail("Failed to create network request")
             return
         }
         
@@ -52,5 +52,9 @@ class ServerResponseDecodingTests: XCTestCase {
     
     func testShouldDecodeValidIngredientListResponse() {
         genericTestDecode(withRequest: IngredientListRequest())
+    }
+    
+    func testShouldDecodeValidMealsByCategoryResponse() {
+        genericTestDecode(withRequest: MealsByCategoryRequest(category: APIRequestTests.validCategory))
     }
 }

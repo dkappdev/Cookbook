@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Stores information about all available ingredients
 public struct IngredientListResponse {
     public var ingredientInfos: [IngredientInfo]
 }
