@@ -15,5 +15,5 @@ public struct MealsByAreaRequest: APIRequest {
     
     public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "a", value: areaName)] }
     
-    public private(set) var areaName: String
+    public var areaName: String
 }

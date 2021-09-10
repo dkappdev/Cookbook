@@ -15,5 +15,5 @@ public struct MealsByNameRequest: APIRequest {
     
     public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "s", value: mealName)] }
     
-    public private(set) var mealName: String
+    public var mealName: String
 }
