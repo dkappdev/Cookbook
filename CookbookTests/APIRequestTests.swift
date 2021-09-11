@@ -22,7 +22,7 @@ class APIRequestTests: XCTestCase {
         
         XCTAssertEqual(mealsByNameRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=pasta"))
     }
-   
+    
     func testShouldCreateProperURLForMealByIDRequest() {
         let mealByIDRequest = MealByIDRequest(mealID: Self.validMealID)
         
@@ -49,7 +49,7 @@ class APIRequestTests: XCTestCase {
     
     func testShouldCreateProperURLForMealsByCategoryRequest() {
         let mealsByCategoryRequest = MealsByCategoryRequest(category: Self.validCategory)
-    
+        
         XCTAssertEqual(mealsByCategoryRequest.request.url, URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?c=seafood"))
     }
     

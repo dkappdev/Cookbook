@@ -35,7 +35,7 @@ extension APIRequest {
         components.host = host
         components.path = path
         components.queryItems = queryItems
-
+        
         guard let url = components.url else {
             fatalError("Failed to create URL for URLRequest")
         }
