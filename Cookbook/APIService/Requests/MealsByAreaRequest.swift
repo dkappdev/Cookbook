@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Request for getting al meals from an area
+/// Request for getting all meals from an area
 public struct MealsByAreaRequest: APIRequest {
     public typealias Response = MealsByAreaResponse
     

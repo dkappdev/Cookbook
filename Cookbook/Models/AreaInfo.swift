@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A type that represents information about meal origin (area).
+/// A type that represents information about meal origin area.
 public struct AreaInfo {
     public var name: String
     public var flagEmoji: String
