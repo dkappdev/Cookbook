@@ -5,7 +5,7 @@
 //  Created by Daniil Kostitsin on 12.09.2021.
 //
 
-import Foundation
+import UIKit
 
 /// Set of properties and methods that collection view section view models should implement
 public protocol SectionViewModel {
@@ -23,4 +23,17 @@ public protocol SectionViewModel {
     /// - Parameter elementKind: supplementary view kind
     /// - Returns: section's supplementary view of specifier kind
     func model(forElementOfKind elementKind: String) -> ItemViewModel?
+}
+
+extension SectionViewModel {
+    func model(forElementOfKind elementKind: String) -> ItemViewModel? {
+        switch elementKind {
+        case UICollectionView.elementKindSectionHeader:
+            return headerItem
+        case UICollectionView.elementKindSectionFooter:
+            return footerItem
+        default:
+            return nil
+        }
+    }
 }
