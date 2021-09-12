@@ -13,19 +13,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
         window.tintColor = .systemGreen
         
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .systemBackground
+        // Setting up tab bar controller and its children
+        let tabBarController = UITabBarController()
+        window.rootViewController = tabBarController
         
-        window.rootViewController = viewController
+        // Home
+        let homeCollectionViewController = HomeCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        homeCollectionViewController.tabBarItem.title = NSLocalizedString("tab_bar_home_button_title", comment: "")
+        homeCollectionViewController.tabBarItem.image = UIImage(systemName: "house")
+        homeCollectionViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        tabBarController.addChild(homeCollectionViewController)
         
         self.window = window
     }
