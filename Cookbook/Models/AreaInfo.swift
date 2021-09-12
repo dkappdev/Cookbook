@@ -12,6 +12,10 @@ public struct AreaInfo {
     public var name: String
     public var flagEmoji: String
     
+    public var prettyString: String {
+        "\(flagEmoji) \(name.capitalized)"
+    }
+    
     private static var nameToFlagMap = [
         "american": "🇺🇸",
         "british": "🇬🇧",

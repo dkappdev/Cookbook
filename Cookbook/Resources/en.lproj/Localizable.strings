@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Cookbook
+
+  Created by Daniil Kostitsin on 12.09.2021.
+  
+*/
+
+"meal_of_the_day_image_accessibility_label" = "Meal of the Day";

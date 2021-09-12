@@ -26,7 +26,7 @@ public protocol SectionViewModel {
 }
 
 extension SectionViewModel {
-    func model(forElementOfKind elementKind: String) -> ItemViewModel? {
+    public func model(forElementOfKind elementKind: String) -> ItemViewModel? {
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
             return headerItem

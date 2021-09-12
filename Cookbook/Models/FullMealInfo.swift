@@ -16,13 +16,13 @@ public struct FullMealInfo {
     /// Meal category
     var category: String
     /// Origin area of the meal
-    var area: String
+    var areaInfo: AreaInfo
     /// Cooking instructions as a long multiline string
     var cookingInstructions: String
     /// URL of the meal image
     var imageURL: URL
     /// URL for cooking video on YouTube
-    var youtubeURL: URL
+    var youtubeURL: URL?
     
     /// Cooking ingredients stored as `(String, String)` tuple. The first value represents the ingredient name, and the second one represents measurements.
     var ingredients: [IngredientAmount]
@@ -38,7 +38,8 @@ extension FullMealInfo: Decodable {
         mealID = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "idMeal"))
         mealName = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "strMeal"))
         category = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "strCategory"))
-        area = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "strArea"))
+        let areaString = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "strArea"))
+        areaInfo = AreaInfo(name: areaString)
         cookingInstructions = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "strInstructions"))
         imageURL = try values.decode(URL.self, forKey: AnyCodingKey(stringValue: "strMealThumb"))
         youtubeURL = try values.decode(URL.self, forKey: AnyCodingKey(stringValue: "strYoutube"))
