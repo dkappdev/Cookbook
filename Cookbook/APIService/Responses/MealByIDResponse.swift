@@ -23,6 +23,5 @@ extension MealByIDResponse: Decodable {
         } else {
             mealInfo = nil
         }
-        
     }
 }
