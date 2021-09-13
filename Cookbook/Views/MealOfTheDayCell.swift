@@ -54,7 +54,6 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public convenience init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        setupLayout()
     }
     
     private func setupLayout() {
