@@ -73,3 +73,13 @@ extension FullMealInfo: Decodable {
         }
     }
 }
+
+extension FullMealInfo: Hashable {
+    public static func == (lhs: FullMealInfo, rhs: FullMealInfo) -> Bool {
+        return lhs.mealID == rhs.mealID
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(mealID)
+    }
+}

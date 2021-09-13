@@ -74,13 +74,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         backgroundColor = .systemGray4
         
         layer.cornerRadius = 16
-        
-        layer.shadowRadius = 8
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.3
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.masksToBounds = false
-        
+        clipsToBounds = true
         
         // Calculating height for labels
         

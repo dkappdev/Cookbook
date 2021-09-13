@@ -7,10 +7,12 @@
 
 import UIKit
 
-public class NamedSectionItemViewModel: ItemViewModel {
+public class NamedSectionItemViewModel: BaseItemViewModel {
     
     // MARK: - Properties
-    public let reuseIdentifier: String = NamedSectionHeader.reuseIdentifier
+    public override var reuseIdentifier: String {
+        NamedSectionHeader.reuseIdentifier
+    }
     
     public let sectionName: String
     
@@ -22,9 +24,18 @@ public class NamedSectionItemViewModel: ItemViewModel {
     
     // MARK: - Setup
     
-    public func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath) {
+    public override func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath) {
         guard let cell = cell as? NamedSectionHeader else { return }
         
         cell.nameLabel.text = sectionName
     }
+    
+    public override func hash(into hasher: inout Hasher) {
+        hasher.combine(sectionName)
+    }
+}
+
+// Conforming to Equatable
+public func == (lhs: NamedSectionItemViewModel, rhs: NamedSectionItemViewModel) -> Bool {
+    return lhs.sectionName == rhs.sectionName
 }

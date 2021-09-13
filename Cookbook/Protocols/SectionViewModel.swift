@@ -10,14 +10,17 @@ import UIKit
 /// Set of properties and methods that collection view section view models should implement
 public protocol SectionViewModel {
     
+    /// Unique string that identifies section in collection view
+    var sectionUniqueName: String { get }
+    
     /// Section header
-    var headerItem: ItemViewModel? { get }
+    var headerItem: BaseItemViewModel? { get }
     
     /// Section footer
-    var footerItem: ItemViewModel? { get }
+    var footerItem: BaseItemViewModel? { get }
     
     /// Section content items
-    var items: [ItemViewModel] { get }
+    var items: [BaseItemViewModel] { get }
     
     /// Returns a supplementary view for the specified kind
     /// - Parameter elementKind: supplementary view kind
