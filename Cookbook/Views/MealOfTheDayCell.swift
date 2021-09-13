@@ -44,6 +44,12 @@ public class MealOfTheDayCell: UICollectionViewCell {
         return label
     }()
     
+    // MARK: - Static properties
+    
+    public static let reuseIdentifier = "MealOfTheDay"
+    
+    // MARK: - Initializers
+    
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupLayout()
