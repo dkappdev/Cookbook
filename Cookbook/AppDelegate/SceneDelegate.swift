@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
         window.tintColor = .systemGreen
+        self.window = window
         
         // Setting up tab bar controller and its children
         let tabBarController = UITabBarController()
@@ -30,7 +31,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         homeCollectionViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         tabBarController.addChild(homeCollectionViewController)
         
-        self.window = window
+        // Testing
+        
+        let testingViewController = TestingViewController()
+        testingViewController.tabBarItem.title = "Testing"
+        testingViewController.tabBarItem.image = UIImage(systemName: "hammer")
+        testingViewController.tabBarItem.selectedImage = UIImage(systemName: "hammer.fill")
+        tabBarController.addChild(testingViewController)
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
