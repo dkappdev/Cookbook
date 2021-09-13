@@ -18,5 +18,5 @@ public protocol ItemViewModel {
     ///   - cell: cell that needs to be set up
     ///   - collectionView: collection view that owns the cell
     ///   - indexPath: cell index path
-    func setup(_ cell: UICollectionViewCell, in collectionView: UICollectionView, at indexPath: IndexPath)
+    func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath)
 }
