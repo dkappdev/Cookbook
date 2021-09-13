@@ -42,7 +42,7 @@ extension FullMealInfo: Decodable {
         areaInfo = AreaInfo(name: areaString)
         cookingInstructions = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "strInstructions"))
         imageURL = try values.decode(URL.self, forKey: AnyCodingKey(stringValue: "strMealThumb"))
-        youtubeURL = try values.decode(URL.self, forKey: AnyCodingKey(stringValue: "strYoutube"))
+        youtubeURL = try values.decode(URL?.self, forKey: AnyCodingKey(stringValue: "strYoutube"))
         
         ingredients = [IngredientAmount]()
         
