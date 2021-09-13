@@ -10,22 +10,26 @@ import Foundation
 /// A type that represents full meal information
 public struct FullMealInfo {
     /// Meal ID that can be used to look it up in TheMealDB
-    var mealID: String
+    public var mealID: String
     /// Meal display name
-    var mealName: String
+    public var mealName: String
     /// Meal category
-    var category: String
+    public var category: String
     /// Origin area of the meal
-    var areaInfo: AreaInfo
+    public var areaInfo: AreaInfo
     /// Cooking instructions as a long multiline string
-    var cookingInstructions: String
+    public var cookingInstructions: String
     /// URL of the meal image
-    var imageURL: URL
+    public var imageURL: URL
     /// URL for cooking video on YouTube
-    var youtubeURL: URL?
+    public var youtubeURL: URL?
     
     /// Cooking ingredients stored as `(String, String)` tuple. The first value represents the ingredient name, and the second one represents measurements.
-    var ingredients: [IngredientAmount]
+    public var ingredients: [IngredientAmount]
+    
+    // MARK: Instances
+    
+    public static let empty = FullMealInfo(mealID: "", mealName: " ", category: " ", areaInfo: AreaInfo.empty, cookingInstructions: "", imageURL: URL(string: "https://example.org")!, youtubeURL: nil, ingredients: [])
 }
 
 extension FullMealInfo: Decodable {
@@ -42,7 +46,11 @@ extension FullMealInfo: Decodable {
         areaInfo = AreaInfo(name: areaString)
         cookingInstructions = try values.decode(String.self, forKey: AnyCodingKey(stringValue: "strInstructions"))
         imageURL = try values.decode(URL.self, forKey: AnyCodingKey(stringValue: "strMealThumb"))
-        youtubeURL = try values.decode(URL?.self, forKey: AnyCodingKey(stringValue: "strYoutube"))
+        let youtubeURLString = try values.decode(String?.self, forKey: AnyCodingKey(stringValue: "strYoutube"))
+        
+        if let youtubeURLString = youtubeURLString {
+            youtubeURL = URL(string: youtubeURLString)
+        }
         
         ingredients = [IngredientAmount]()
         
