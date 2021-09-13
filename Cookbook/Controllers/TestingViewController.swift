@@ -14,8 +14,20 @@ public class TestingViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
-        let subview = MealOfTheDayCell()
+        let sectionName = NamedSectionHeader()
+        view.addSubview(sectionName)
+        sectionName.translatesAutoresizingMaskIntoConstraints = false
         
+        sectionName.nameLabel.text = "Meal of the Day"
+        
+        NSLayoutConstraint.activate([
+            sectionName.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sectionName.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            sectionName.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor)
+        ])
+        
+        let subview = MealOfTheDayCell()
+        view.addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
         
         RandomMealRequest().send { result in
@@ -24,7 +36,7 @@ public class TestingViewController: UIViewController {
                 ArbitraryImageRequest(imageURL: randomMealResponse.mealInfo.imageURL).send { result in
                     switch result {
                     case .success(let image):
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async {                            
                             subview.mealImageView.image = image
                             let mealInfo = randomMealResponse.mealInfo
                             subview.mealNameLabel.text = mealInfo.mealName
@@ -40,12 +52,10 @@ public class TestingViewController: UIViewController {
             }
         }
         
-        view.addSubview(subview)
-        
         NSLayoutConstraint.activate([
             subview.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             subview.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            subview.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            subview.topAnchor.constraint(equalTo: sectionName.bottomAnchor, constant: 16),
             subview.heightAnchor.constraint(equalToConstant: 350)
         ])
     }
