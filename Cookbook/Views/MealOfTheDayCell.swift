@@ -10,6 +10,8 @@ import UIKit
 /// Collection view cell that displays meal of the day
 public class MealOfTheDayCell: UICollectionViewCell {
     
+    // MARK: - Views
+    
     public let mealImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -54,6 +56,12 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public convenience init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    }
+    
+    // MARK: - Layout setup
+    
+    public override func layoutSubviews() {
+        setupLayout()
     }
     
     private func setupLayout() {
@@ -158,9 +166,5 @@ public class MealOfTheDayCell: UICollectionViewCell {
             mealNameLabel.bottomAnchor.constraint(equalTo: areaEffect.topAnchor, constant: -8),
             mealNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
-    }
-    
-    public override func layoutSubviews() {
-        setupLayout()
     }
 }
