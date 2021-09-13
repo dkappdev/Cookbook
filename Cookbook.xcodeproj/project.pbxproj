@@ -10,6 +10,7 @@
 		E25B8B2A26EE7E6900B1EEA8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */; };
 		E25B8B2C26EF339A00B1EEA8 /* MealOfTheDaySectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2B26EF339A00B1EEA8 /* MealOfTheDaySectionViewModel.swift */; };
 		E25B8B2E26EF45F600B1EEA8 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */; };
+		E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */; };
 		E26142D426ED2554008E300E /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26142D326ED2554008E300E /* ItemViewModel.swift */; };
 		E26142D826EDFD4E008E300E /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26142D726EDFD4E008E300E /* SectionViewModel.swift */; };
 		E26142DA26EE1118008E300E /* MealOfTheDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26142D926EE1118008E300E /* MealOfTheDayCell.swift */; };
@@ -62,6 +63,7 @@
 		E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		E25B8B2B26EF339A00B1EEA8 /* MealOfTheDaySectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfTheDaySectionViewModel.swift; sourceTree = "<group>"; };
 		E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
+		E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeader.swift; sourceTree = "<group>"; };
 		E26142D326ED2554008E300E /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		E26142D726EDFD4E008E300E /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
 		E26142D926EE1118008E300E /* MealOfTheDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfTheDayCell.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
 				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
+				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				E2C923F426EBA4CA007A1BC3 /* RandomMealResponse.swift in Sources */,
 				E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */,
 				E2C923EA26EB8623007A1BC3 /* ShortMealInfo.swift in Sources */,
+				E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */,
 				E25B8B2E26EF45F600B1EEA8 /* TestingViewController.swift in Sources */,
 				E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */,
 				E2C923EE26EB890C007A1BC3 /* MealsByCategoryResponse.swift in Sources */,

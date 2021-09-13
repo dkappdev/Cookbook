@@ -12,7 +12,6 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public let mealImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.accessibilityLabel = NSLocalizedString("meal_of_the_day_image_accessibility_label", comment: "")
         imageView.accessibilityHint = NSLocalizedString("another_image_hit", comment: "")
@@ -22,7 +21,6 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public let mealNameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -30,7 +28,6 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public let mealAreaLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .center
@@ -39,7 +36,6 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public let mealCategoryLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .center
@@ -82,6 +78,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         // Meal image view
         
         addSubview(mealImageView)
+        mealImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             mealImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -114,6 +111,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         addSubview(areaEffect)
         
         areaEffect.contentView.addSubview(mealAreaLabel)
+        mealAreaLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             mealAreaLabel.leadingAnchor.constraint(equalTo: mealAreaLabel.superview!.leadingAnchor, constant: 12),
@@ -137,6 +135,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         addSubview(categoryEffect)
         
         categoryEffect.contentView.addSubview(mealCategoryLabel)
+        mealCategoryLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             mealCategoryLabel.leadingAnchor.constraint(equalTo: mealCategoryLabel.superview!.leadingAnchor, constant: 12),
@@ -153,6 +152,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         // Meal name label
         
         addSubview(mealNameLabel)
+        mealNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             mealNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
