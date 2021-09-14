@@ -12,9 +12,13 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     public typealias DataSourceType = UICollectionViewDiffableDataSource<BaseSectionViewModel, BaseItemViewModel>
     
+    // MARK: - Properties
+    
     public var models: [BaseSectionViewModel] = []
     
     public var dataSource: DataSourceType!
+    
+    // MARK: - View Lifecycle
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +30,11 @@ public class HomeCollectionViewController: UICollectionViewController {
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
+        
         update()
     }
+    
+    // MARK: - Updates
     
     /// Updates model data with new information received from network
     private func update() {
@@ -62,6 +69,20 @@ public class HomeCollectionViewController: UICollectionViewController {
         }
     }
     
+    private func updateCollectionView() {
+        var snapshot = NSDiffableDataSourceSnapshot<BaseSectionViewModel, BaseItemViewModel>()
+        
+        for model in models {
+            snapshot.appendSections([model])
+            snapshot.appendItems(model.items, toSection: model)
+            snapshot.reloadItems(model.items)
+        }
+        
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    // MARK: - Collection view layout
+    
     private func createLayout() -> UICollectionViewCompositionalLayout {
         return .init { [weak self] sectionIndex, environment in
             guard let self = self else { return nil }
@@ -89,17 +110,7 @@ public class HomeCollectionViewController: UICollectionViewController {
         }
     }
     
-    private func updateCollectionView() {
-        var snapshot = NSDiffableDataSourceSnapshot<BaseSectionViewModel, BaseItemViewModel>()
-        
-        for model in models {
-            snapshot.appendSections([model])
-            snapshot.appendItems(model.items, toSection: model)
-            snapshot.reloadItems(model.items)
-        }
-        
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
+    // MARK: - Collection view data source
     
     /// Creates diffable data source for collection view
     private func createDataSource() -> DataSourceType {
@@ -124,6 +135,8 @@ public class HomeCollectionViewController: UICollectionViewController {
         
         return dataSource
     }
+    
+    // MARK: - Utility methods
     
     private func labelHeight(for font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: Double.greatestFiniteMagnitude, height: Double.greatestFiniteMagnitude)
