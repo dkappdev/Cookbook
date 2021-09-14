@@ -16,7 +16,6 @@ public class MealOfTheDayCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.accessibilityLabel = NSLocalizedString("meal_of_the_day_image_accessibility_label", comment: "")
-        imageView.accessibilityHint = NSLocalizedString("another_image_hit", comment: "")
         imageView.clipsToBounds = true
         return imageView
     }()
