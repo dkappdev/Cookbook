@@ -26,10 +26,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Home
         let homeCollectionViewController = HomeCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        homeCollectionViewController.tabBarItem.title = NSLocalizedString("tab_bar_home_button_title", comment: "")
-        homeCollectionViewController.tabBarItem.image = UIImage(systemName: "house")
-        homeCollectionViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
-        tabBarController.addChild(homeCollectionViewController)
+        let homeNavigationController = UINavigationController(rootViewController: homeCollectionViewController)
+        
+        homeNavigationController.tabBarItem.title = NSLocalizedString("tab_bar_home_button_title", comment: "")
+        homeNavigationController.tabBarItem.image = UIImage(systemName: "house")
+        homeNavigationController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        
+        homeNavigationController.navigationBar.prefersLargeTitles = true
+        
+        tabBarController.addChild(homeNavigationController)
         
         // Testing
         

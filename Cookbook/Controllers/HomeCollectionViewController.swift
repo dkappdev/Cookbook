@@ -22,15 +22,23 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setting background color
         collectionView.backgroundColor = .systemBackground
         
+        // Configuring navigation controller
+        navigationItem.title = NSLocalizedString("tab_bar_home_button_title", comment: "")
+        
+        // Registering cell and supplementary views
         collectionView.register(MealOfTheDayCell.self, forCellWithReuseIdentifier: MealOfTheDayCell.reuseIdentifier)
         collectionView.register(NamedSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: NamedSectionHeader.reuseIdentifier)
         
+        // Creating layout and data source
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
         
+        // Triggering update
         update()
     }
     
@@ -99,7 +107,7 @@ public class HomeCollectionViewController: UICollectionViewController {
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-                header.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 16)
+                header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 
                 section.boundarySupplementaryItems = [header]
                 
