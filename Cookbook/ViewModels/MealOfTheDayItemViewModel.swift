@@ -15,18 +15,17 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         MealOfTheDayCell.reuseIdentifier
     }
     
+    private var image: UIImage?
+    
     public let mealInfo: FullMealInfo
-    public let mealImage: UIImage
     
     // MARK: - Initializers
     
     /// Creates a new meal item view model
     /// - Parameters:
     ///   - mealInfo: meal information
-    ///   - mealImage: image of the meal
-    public init(mealInfo: FullMealInfo, mealImage: UIImage) {
+    public init(mealInfo: FullMealInfo) {
         self.mealInfo = mealInfo
-        self.mealImage = mealImage
     }
     // MARK: - Setup
     
@@ -35,7 +34,28 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         cell.mealNameLabel.text = mealInfo.mealName
         cell.mealAreaLabel.text = mealInfo.areaInfo.prettyString
         cell.mealCategoryLabel.text = mealInfo.category
-        cell.mealImageView.image = mealImage
+        
+        guard mealInfo != FullMealInfo.empty else { return }
+        
+        if let image = image {
+            DispatchQueue.main.async {
+                cell.mealImageView.image = image
+            }
+        } else {
+            ArbitraryImageRequest(imageURL: mealInfo.imageURL).send { result in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        if collectionView.indexPath(for: cell) == indexPath {
+                            cell.mealImageView.image = image
+                        }
+                    }
+                    self.image = image
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
     public override func hash(into hasher: inout Hasher) {
