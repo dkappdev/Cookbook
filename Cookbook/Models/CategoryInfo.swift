@@ -21,3 +21,13 @@ extension CategoryInfo: Decodable {
         case imageURL = "strCategoryThumb"
     }
 }
+
+extension CategoryInfo: Hashable {
+    public static func == (lhs: CategoryInfo, rhs: CategoryInfo) -> Bool {
+        lhs.categoryName == rhs.categoryName
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(categoryName)
+    }
+}
