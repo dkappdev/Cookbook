@@ -73,7 +73,7 @@ public struct AreaInfo {
     
     /// Creates an empty instance of area info
     private init() {
-        self.name = ""
+        self.name = "   "
         self.flagEmoji = ""
     }
 }

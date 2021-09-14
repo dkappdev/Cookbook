@@ -75,6 +75,9 @@ public class HomeCollectionViewController: UICollectionViewController {
         let mealsByCategorySection = BaseSectionViewModel(uniqueSectionName: "MealsByCategorySection")
         models.append(mealsByCategorySection)
         mealsByCategorySection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meals_by_category_section_name", comment: ""))
+        for _ in 0..<3 {
+            mealsByCategorySection.items.append(CategoryItemViewModel(categoryInfo: CategoryInfo.empty))
+        }
         
         CategoryListRequest().send { result in
             switch result {

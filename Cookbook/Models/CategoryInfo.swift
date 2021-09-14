@@ -12,6 +12,9 @@ public struct CategoryInfo {
     public var categoryName: String
     public var categoryDescription: String
     public var imageURL: URL
+    
+    // MARK: Instances
+    public static let empty = CategoryInfo(categoryName: " ", categoryDescription: " ", imageURL: URL(string: "https://example.org")!)
 }
 
 extension CategoryInfo: Decodable {

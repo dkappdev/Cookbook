@@ -30,7 +30,7 @@ public struct FullMealInfo {
     // MARK: Instances
     
     /// Empty instance of meal information. This is used as a placeholder before actual meal information is loaded from network.
-    public static let empty = FullMealInfo(mealID: "", mealName: " ", category: " ", areaInfo: AreaInfo.empty, cookingInstructions: "", imageURL: URL(string: "https://example.org")!, youtubeURL: nil, ingredients: [])
+    public static let empty = FullMealInfo(mealID: "", mealName: " ", category: "    ", areaInfo: AreaInfo.empty, cookingInstructions: "", imageURL: URL(string: "https://example.org")!, youtubeURL: nil, ingredients: [])
 }
 
 extension FullMealInfo: Decodable {

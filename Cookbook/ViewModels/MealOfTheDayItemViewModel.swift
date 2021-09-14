@@ -35,7 +35,9 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         cell.mealAreaLabel.text = mealInfo.areaInfo.prettyString
         cell.mealCategoryLabel.text = mealInfo.category
         
-        guard mealInfo != FullMealInfo.empty else { return }
+        guard mealInfo != FullMealInfo.empty else {
+            return
+        }
         
         if let image = image {
             DispatchQueue.main.async {

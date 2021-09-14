@@ -34,6 +34,10 @@ public class CategoryItemViewModel: BaseItemViewModel {
         cell.categoryImageView.image = nil
         cell.categoryImageView.backgroundColor = .systemGray4
         
+        guard categoryInfo != CategoryInfo.empty else {
+            return
+        }
+        
         if let image = image {
             DispatchQueue.main.async {
                 cell.categoryImageView.image = image
