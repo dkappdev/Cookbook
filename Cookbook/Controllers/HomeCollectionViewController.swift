@@ -29,9 +29,10 @@ public class HomeCollectionViewController: UICollectionViewController {
         // Configuring navigation controller
         navigationItem.title = NSLocalizedString("tab_bar_home_button_title", comment: "")
         
-        // Registering cell and supplementary views
-        collectionView.register(MealOfTheDayCell.self, forCellWithReuseIdentifier: MealOfTheDayCell.reuseIdentifier)
+        // Registering cells and supplementary views
         collectionView.register(NamedSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: NamedSectionHeader.reuseIdentifier)
+        collectionView.register(MealOfTheDayCell.self, forCellWithReuseIdentifier: MealOfTheDayCell.reuseIdentifier)
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseIdentifier)
         
         // Creating layout and data source
         dataSource = createDataSource()
@@ -53,24 +54,16 @@ public class HomeCollectionViewController: UICollectionViewController {
         models.append(mealOfTheDaySection)
         
         mealOfTheDaySection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meal_of_the_day_section_name", comment: ""))
-        mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: FullMealInfo.empty, mealImage: UIImage()))
+        mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: FullMealInfo.empty))
                 
         // Starting network request to get actual information
         RandomMealRequest().send { result in
             switch result {
             case .success(let randomMealResponse):
-                ArbitraryImageRequest(imageURL: randomMealResponse.mealInfo.imageURL).send { [weak self] result in
-                    guard let self = self else { return }
-                    switch result {
-                    case .success(let image):
-                        mealOfTheDaySection.items.removeAll()
-                        mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: randomMealResponse.mealInfo, mealImage: image))
-                        DispatchQueue.main.async {
-                            self.updateCollectionView()
-                        }
-                    case .failure(let error):
-                        print(error)
-                    }
+                mealOfTheDaySection.items.removeAll()
+                mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: randomMealResponse.mealInfo))
+                DispatchQueue.main.async {
+                    self.updateCollectionView()
                 }
             case .failure(let error):
                 print(error)
@@ -82,6 +75,21 @@ public class HomeCollectionViewController: UICollectionViewController {
         let mealsByCategorySection = BaseSectionViewModel(uniqueSectionName: "MealsByCategorySection")
         models.append(mealsByCategorySection)
         mealsByCategorySection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meals_by_category_section_name", comment: ""))
+        
+        CategoryListRequest().send { result in
+            switch result {
+            case .success(let categoryListResponse):
+                mealsByCategorySection.items.removeAll()
+                for category in categoryListResponse.categoryInfos {
+                    mealsByCategorySection.items.append(CategoryItemViewModel(categoryInfo: category))
+                }
+                DispatchQueue.main.async {
+                    self.updateCollectionView()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         
         // Starting first collection view update to display empty cells
@@ -106,6 +114,7 @@ public class HomeCollectionViewController: UICollectionViewController {
         return .init { [weak self] sectionIndex, environment in
             guard let self = self else { return nil }
             switch sectionIndex {
+            // Meal of the day section
             case 0:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -114,11 +123,31 @@ public class HomeCollectionViewController: UICollectionViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 24, trailing: 16)
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-                header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+                header.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
+                
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+                // Meals by category sections
+            case 1:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(150), heightDimension: .absolute(200))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
+                section.interGroupSpacing = 16
+                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                header.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
                 
                 section.boundarySupplementaryItems = [header]
                 
