@@ -46,15 +46,15 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     /// Updates model data with new information received from network
     private func update() {
+        // MARK: Meal of the Day section
+        
         // Setting up meal of the day section with empty info
-        let mealOfTheDaySection = BaseSectionViewModel(sectionUniqueName: "MealOfTheDaySection")
+        let mealOfTheDaySection = BaseSectionViewModel(uniqueSectionName: "MealOfTheDaySection")
         models.append(mealOfTheDaySection)
         
         mealOfTheDaySection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meal_of_the_day_section_name", comment: ""))
         mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: FullMealInfo.empty, mealImage: UIImage()))
-        
-        updateCollectionView()
-        
+                
         // Starting network request to get actual information
         RandomMealRequest().send { result in
             switch result {
@@ -63,7 +63,8 @@ public class HomeCollectionViewController: UICollectionViewController {
                     guard let self = self else { return }
                     switch result {
                     case .success(let image):
-                        mealOfTheDaySection.items[0] = MealOfTheDayItemViewModel(mealInfo: randomMealResponse.mealInfo, mealImage: image)
+                        mealOfTheDaySection.items.removeAll()
+                        mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: randomMealResponse.mealInfo, mealImage: image))
                         DispatchQueue.main.async {
                             self.updateCollectionView()
                         }
@@ -75,6 +76,16 @@ public class HomeCollectionViewController: UICollectionViewController {
                 print(error)
             }
         }
+        
+        // MARK: Meals by Category section
+        
+        let mealsByCategorySection = BaseSectionViewModel(uniqueSectionName: "MealsByCategorySection")
+        models.append(mealsByCategorySection)
+        mealsByCategorySection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meals_by_category_section_name", comment: ""))
+        
+        
+        // Starting first collection view update to display empty cells
+        updateCollectionView()
     }
     
     private func updateCollectionView() {

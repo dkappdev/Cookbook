@@ -11,7 +11,7 @@ import UIKit
 public protocol SectionViewModel {
     
     /// Unique string that identifies section in collection view
-    var sectionUniqueName: String { get }
+    var uniqueSectionName: String { get }
     
     /// Section header
     var headerItem: BaseItemViewModel? { get }

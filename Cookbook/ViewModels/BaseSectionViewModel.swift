@@ -8,7 +8,7 @@
 import UIKit
 
 public class BaseSectionViewModel: SectionViewModel, Hashable {
-    public let sectionUniqueName: String
+    public let uniqueSectionName: String
     
     public var headerItem: BaseItemViewModel? = nil
     
@@ -16,8 +16,8 @@ public class BaseSectionViewModel: SectionViewModel, Hashable {
     
     public var items: [BaseItemViewModel] = []
     
-    public init(sectionUniqueName: String) {
-        self.sectionUniqueName = sectionUniqueName
+    public init(uniqueSectionName: String) {
+        self.uniqueSectionName = uniqueSectionName
     }
     
     public func hash(into hasher: inout Hasher) {
@@ -26,5 +26,5 @@ public class BaseSectionViewModel: SectionViewModel, Hashable {
 }
 
 public func == (lhs: BaseSectionViewModel, rhs: BaseSectionViewModel) -> Bool {
-    return lhs.sectionUniqueName == rhs.sectionUniqueName
+    return lhs.uniqueSectionName == rhs.uniqueSectionName
 }
