@@ -71,10 +71,35 @@ public class MealOfTheDayCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        backgroundColor = .systemGray4
+        // Creating shadow
         
-        layer.cornerRadius = 16
-        clipsToBounds = true
+        layer.shadowRadius = 12
+        layer.cornerRadius = 12
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.masksToBounds = false
+        
+        // Container view
+        // This container holds all subviews
+        // This is necessary because setting `clipsToBounds` property to `true` on the root view causes the drop shadow to disappear
+        // By creating a separate container view we can properly clip subviews and create rounded corners
+        // while keeping the drop shadow on the main view
+        
+        let containerView = UIView()
+        containerView.layer.cornerRadius = 12
+        containerView.clipsToBounds = true
+        containerView.backgroundColor = .systemGray4
+        
+        addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
         
         // Calculating height for labels
         
@@ -84,14 +109,14 @@ public class MealOfTheDayCell: UICollectionViewCell {
         
         // Meal image view
         
-        addSubview(mealImageView)
+        containerView.addSubview(mealImageView)
         mealImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mealImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            mealImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            mealImageView.topAnchor.constraint(equalTo: topAnchor),
-            mealImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            mealImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            mealImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            mealImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            mealImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
         
         // Bottom blur effect
@@ -99,12 +124,12 @@ public class MealOfTheDayCell: UICollectionViewCell {
         let bottomEffect = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
         bottomEffect.translatesAutoresizingMaskIntoConstraints = false
         bottomEffect.clipsToBounds = true
-        addSubview(bottomEffect)
+        containerView.addSubview(bottomEffect)
         
         NSLayoutConstraint.activate([
-            bottomEffect.bottomAnchor.constraint(equalTo: bottomAnchor),
-            bottomEffect.leadingAnchor.constraint(equalTo: leadingAnchor),
-            bottomEffect.trailingAnchor.constraint(equalTo: trailingAnchor),
+            bottomEffect.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            bottomEffect.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            bottomEffect.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             bottomEffect.heightAnchor.constraint(equalToConstant: areaBoundingBox.height + nameBoundingBox.height + 8 + 3 * 8)
         ])
         
@@ -115,7 +140,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         areaEffect.clipsToBounds = true
         areaEffect.layer.cornerRadius = (areaBoundingBox.height + 8) / 2
         
-        addSubview(areaEffect)
+        containerView.addSubview(areaEffect)
         
         areaEffect.contentView.addSubview(mealAreaLabel)
         mealAreaLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -128,8 +153,8 @@ public class MealOfTheDayCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            areaEffect.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            areaEffect.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            areaEffect.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            areaEffect.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
         ])
         
         // Meal category blue effect + label
@@ -139,7 +164,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         categoryEffect.clipsToBounds = true
         categoryEffect.layer.cornerRadius = (areaBoundingBox.height + 8) / 2
         
-        addSubview(categoryEffect)
+        containerView.addSubview(categoryEffect)
         
         categoryEffect.contentView.addSubview(mealCategoryLabel)
         mealCategoryLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -158,13 +183,13 @@ public class MealOfTheDayCell: UICollectionViewCell {
         
         // Meal name label
         
-        addSubview(mealNameLabel)
+        containerView.addSubview(mealNameLabel)
         mealNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mealNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            mealNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             mealNameLabel.bottomAnchor.constraint(equalTo: areaEffect.topAnchor, constant: -8),
-            mealNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            mealNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
         ])
     }
 }
