@@ -18,6 +18,8 @@ public class CategoryItemViewModel: BaseItemViewModel {
     private var image: UIImage?
     
     public let categoryInfo: CategoryInfo
+    private var hasRequestedImage = false
+    private var mostRecentCell: CategoryCell?
     
     // MARK: - Initializers
     
@@ -38,20 +40,24 @@ public class CategoryItemViewModel: BaseItemViewModel {
             return
         }
         
+        mostRecentCell = cell
+        
         if let image = image {
             DispatchQueue.main.async {
                 cell.categoryImageView.image = image
                 cell.categoryImageView.backgroundColor = .white
             }
-        } else {
+        } else if !hasRequestedImage {
+            hasRequestedImage = true
             ArbitraryImageRequest(imageURL: categoryInfo.imageURL).send { result in
                 switch result {
                 case .success(let image):
                     DispatchQueue.main.async {
                         // Setting the image only if the cell was not reused
-                        if collectionView.indexPath(for: cell) == indexPath {
-                            cell.categoryImageView.image = image
-                            cell.categoryImageView.backgroundColor = .white
+                        if let mostRecentCell = self.mostRecentCell,
+                            collectionView.indexPath(for: mostRecentCell) == indexPath {
+                            mostRecentCell.categoryImageView.image = image
+                            mostRecentCell.categoryImageView.backgroundColor = .white
                         }
                     }
                     self.image = image

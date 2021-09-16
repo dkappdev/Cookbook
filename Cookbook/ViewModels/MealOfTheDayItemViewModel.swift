@@ -53,8 +53,9 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
                 switch result {
                 case .success(let image):
                     DispatchQueue.main.async {
-                        if collectionView.indexPath(for: self.mostRecentCell!) == indexPath {
-                            self.mostRecentCell!.mealImageView.image = image
+                        if let mostRecentCell = self.mostRecentCell,
+                            collectionView.indexPath(for: mostRecentCell) == indexPath {
+                            mostRecentCell.mealImageView.image = image
                         }
                     }
                     self.image = image
