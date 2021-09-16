@@ -21,7 +21,7 @@ public class BaseSectionViewModel: SectionViewModel, Hashable {
     }
     
     public func hash(into hasher: inout Hasher) {
-        fatalError("hash(into:) for ItemViewModel has not been implemented")
+        hasher.combine(uniqueSectionName)
     }
 }
 

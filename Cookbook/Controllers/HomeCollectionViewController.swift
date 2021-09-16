@@ -100,7 +100,6 @@ public class HomeCollectionViewController: UICollectionViewController {
             }
         }
         
-        
         // Starting first collection view update to display empty cells
         updateCollectionView()
     }
