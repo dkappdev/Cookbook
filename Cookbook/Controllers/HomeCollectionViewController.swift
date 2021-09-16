@@ -89,7 +89,12 @@ public class HomeCollectionViewController: UICollectionViewController {
             switch result {
             case .success(let categoryListResponse):
                 mealsByCategorySection.items.removeAll()
-                for category in categoryListResponse.categoryInfos {
+                var categories = categoryListResponse.categoryInfos.sorted { $0.categoryName < $1.categoryName }
+                if let miscIndex = categories.firstIndex(where: { $0.categoryName == "Miscellaneous" }) {
+                    let misc = categories.remove(at: miscIndex)
+                    categories.append(misc)
+                }
+                for category in categories {
                     mealsByCategorySection.items.append(CategoryItemViewModel(categoryInfo: category))
                 }
                 DispatchQueue.main.async {
