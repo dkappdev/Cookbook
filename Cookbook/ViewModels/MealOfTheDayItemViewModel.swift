@@ -16,6 +16,8 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
     }
     
     private var image: UIImage?
+    private var hasRequestedImage = false
+    private var mostRecentCell: MealOfTheDayCell?
     
     public let mealInfo: FullMealInfo
     
@@ -39,17 +41,20 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
             return
         }
         
+        mostRecentCell = cell
+        
         if let image = image {
             DispatchQueue.main.async {
                 cell.mealImageView.image = image
             }
-        } else {
+        } else if !hasRequestedImage {
+            hasRequestedImage = true
             ArbitraryImageRequest(imageURL: mealInfo.imageURL).send { result in
                 switch result {
                 case .success(let image):
                     DispatchQueue.main.async {
-                        if collectionView.indexPath(for: cell) == indexPath {
-                            cell.mealImageView.image = image
+                        if collectionView.indexPath(for: self.mostRecentCell!) == indexPath {
+                            self.mostRecentCell!.mealImageView.image = image
                         }
                     }
                     self.image = image
