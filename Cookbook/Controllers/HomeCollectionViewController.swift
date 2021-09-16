@@ -36,8 +36,14 @@ public class HomeCollectionViewController: UICollectionViewController {
         
         // Creating layout and data source
         dataSource = createDataSource()
-        collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
+        
+        // Having prefetching enabled and using orthogonal scrolling causes collection view to dequeue cells too many times
+        // (Each cell gets dequeued around 20-30 times)
+        // There doesn't seem to be any information about this issue on the internet
+        // The only other solution I have come up with is to completely abandon orthogonal scrolling, but that would make the main screen too cluttered
+        // Because of this, I disabled prefetching for now
+        collectionView.isPrefetchingEnabled = false
         
         // Triggering update
         update()
@@ -55,7 +61,7 @@ public class HomeCollectionViewController: UICollectionViewController {
         
         mealOfTheDaySection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meal_of_the_day_section_name", comment: ""))
         mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: FullMealInfo.empty))
-                
+        
         // Starting network request to get actual information
         RandomMealRequest().send { result in
             switch result {
@@ -135,7 +141,7 @@ public class HomeCollectionViewController: UICollectionViewController {
                 section.boundarySupplementaryItems = [header]
                 
                 return section
-                // Meals by category sections
+            // Meals by category sections
             case 1:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
