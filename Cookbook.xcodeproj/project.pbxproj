@@ -20,6 +20,8 @@
 		E26142D826EDFD4E008E300E /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26142D726EDFD4E008E300E /* SectionViewModel.swift */; };
 		E26142DA26EE1118008E300E /* MealOfTheDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26142D926EE1118008E300E /* MealOfTheDayCell.swift */; };
 		E26142E026EE2B5A008E300E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E26142E226EE2B5A008E300E /* Localizable.strings */; };
+		E2846E9626F8977200233629 /* AreaItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2846E9526F8977200233629 /* AreaItemViewModel.swift */; };
+		E2846E9826F897BA00233629 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2846E9726F897BA00233629 /* AreaCell.swift */; };
 		E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB726E9109400776BC2 /* AppDelegate.swift */; };
 		E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */; };
 		E2BF7FC126E9109500776BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FC026E9109500776BC2 /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		E26142E126EE2B5A008E300E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E26142E326EE2C13008E300E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E26142E426EE2C13008E300E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E2846E9526F8977200233629 /* AreaItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaItemViewModel.swift; sourceTree = "<group>"; };
+		E2846E9726F897BA00233629 /* AreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCell.swift; sourceTree = "<group>"; };
 		E2BF7FB426E9109400776BC2 /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BF7FB726E9109400776BC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		E26142DB26EE112D008E300E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E2846E9526F8977200233629 /* AreaItemViewModel.swift */,
 				E25B8B3526EFC13300B1EEA8 /* BaseItemViewModel.swift */,
 				E25B8B3726EFD4B000B1EEA8 /* BaseSectionViewModel.swift */,
 				E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */,
@@ -194,10 +199,11 @@
 		E2BF7FCC26E91F7C00776BC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2846E9726F897BA00233629 /* AreaCell.swift */,
+				E2426BB226F0B6A3009246A5 /* CategoryCell.swift */,
 				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
 				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
 				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
-				E2426BB226F0B6A3009246A5 /* CategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */,
 				E2BF7FD826E939D400776BC2 /* FullMealInfo.swift in Sources */,
 				E26142DA26EE1118008E300E /* MealOfTheDayCell.swift in Sources */,
+				E2846E9826F897BA00233629 /* AreaCell.swift in Sources */,
 				E25B8B3226EF66C000B1EEA8 /* NamedSectionItemViewModel.swift in Sources */,
 				E2BF7FDC26E942C900776BC2 /* AnyCodingKey.swift in Sources */,
 				E2426BB326F0B6A3009246A5 /* CategoryCell.swift in Sources */,
@@ -434,6 +441,7 @@
 				E2C923F626EBA599007A1BC3 /* RandomMealRequest.swift in Sources */,
 				E25B8B3626EFC13300B1EEA8 /* BaseItemViewModel.swift in Sources */,
 				E2C923FC26EBB7EF007A1BC3 /* IngredientImageRequest.swift in Sources */,
+				E2846E9626F8977200233629 /* AreaItemViewModel.swift in Sources */,
 				E2C923E226EB7F4B007A1BC3 /* AreaListRequest.swift in Sources */,
 				E2C923E426EB8212007A1BC3 /* IngredientInfo.swift in Sources */,
 				E2BF7FF726EA719100776BC2 /* MealByIDResponse.swift in Sources */,

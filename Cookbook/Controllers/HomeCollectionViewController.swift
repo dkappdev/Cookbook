@@ -33,6 +33,7 @@ public class HomeCollectionViewController: UICollectionViewController {
         collectionView.register(NamedSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: NamedSectionHeader.reuseIdentifier)
         collectionView.register(MealOfTheDayCell.self, forCellWithReuseIdentifier: MealOfTheDayCell.reuseIdentifier)
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseIdentifier)
+        collectionView.register(AreaCell.self, forCellWithReuseIdentifier: AreaCell.reuseIdentifier)
         
         // Creating layout and data source
         dataSource = createDataSource()
@@ -105,6 +106,25 @@ public class HomeCollectionViewController: UICollectionViewController {
             }
         }
         
+        let mealsByAreaSection = BaseSectionViewModel(uniqueSectionName: "MealsByAreaSection")
+        models.append(mealsByAreaSection)
+        mealsByAreaSection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meals_by_area_section_name", comment: ""))
+        
+        AreaListRequest().send { result in
+            switch result {
+            case .success(let areaListResponse):
+                for areaInfo in areaListResponse.areaInfos {
+                    mealsByAreaSection.items.append(AreaItemViewModel(areaInfo: areaInfo))
+                }
+                DispatchQueue.main.async {
+                    self.updateCollectionView()
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         // Starting first collection view update to display empty cells
         updateCollectionView()
     }
@@ -138,9 +158,8 @@ public class HomeCollectionViewController: UICollectionViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16)
                 
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16 + 12))
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 8 + 12))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-                header.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
                 
                 section.boundarySupplementaryItems = [header]
                 
@@ -158,9 +177,24 @@ public class HomeCollectionViewController: UICollectionViewController {
                 section.interGroupSpacing = 16
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
                 
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16 + 12))
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 8 + 12))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-                header.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
+                
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+            case 2:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 8, trailing: 16)
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 8 + 12))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
                 section.boundarySupplementaryItems = [header]
                 

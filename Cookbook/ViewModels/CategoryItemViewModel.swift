@@ -29,6 +29,8 @@ public class CategoryItemViewModel: BaseItemViewModel {
         self.categoryInfo = categoryInfo
     }
     
+    // MARK: - Cell setup
+    
     public override func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath) {
         guard let cell = cell as? CategoryCell else { return }
         
