@@ -58,7 +58,7 @@ public class CategoryCell: UICollectionViewCell {
         }
         
         // Category name label
-                
+        
         addSubview(categoryNameLabel)
         categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -70,17 +70,35 @@ public class CategoryCell: UICollectionViewCell {
         
         // Category image view
         
+        let containerView = UIView()
+        addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: categoryNameLabel.topAnchor, constant: -8)
+        ])
+        
+        containerView.layer.masksToBounds = false
+        containerView.layer.shadowRadius = 6
+        containerView.layer.cornerRadius = 12
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.3
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
         categoryImageView.layer.cornerRadius = 12
         categoryImageView.layer.masksToBounds = true
         
-        addSubview(categoryImageView)
+        containerView.addSubview(categoryImageView)
         categoryImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            categoryImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            categoryImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            categoryImageView.topAnchor.constraint(equalTo: topAnchor),
-            categoryImageView.bottomAnchor.constraint(equalTo: categoryNameLabel.topAnchor, constant: -8)
+            categoryImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            categoryImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            categoryImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            categoryImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
     }
 }
