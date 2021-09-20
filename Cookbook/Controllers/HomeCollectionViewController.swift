@@ -136,9 +136,9 @@ public class HomeCollectionViewController: UICollectionViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 24, trailing: 16)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16)
                 
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16))
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16 + 12))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 header.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
                 
@@ -154,11 +154,11 @@ public class HomeCollectionViewController: UICollectionViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 8, trailing: 16)
                 section.interGroupSpacing = 16
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
                 
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16))
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(self.labelHeight(for: NamedSectionHeader().nameLabel.font) + 16 + 12))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 header.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
                 
