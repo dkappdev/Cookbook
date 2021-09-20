@@ -52,5 +52,19 @@ public class NamedSectionHeader: UICollectionReusableView {
             nameLabel.topAnchor.constraint(equalTo: topAnchor),
             nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
+        let lineView = UIView()
+        lineView.backgroundColor = .tertiaryLabel
+        let lineViewHeight = 1 / UIScreen.main.scale
+        
+        addSubview(lineView)
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            lineView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            lineView.topAnchor.constraint(equalTo: topAnchor),
+            lineView.heightAnchor.constraint(equalToConstant: lineViewHeight)
+        ])
     }
 }
