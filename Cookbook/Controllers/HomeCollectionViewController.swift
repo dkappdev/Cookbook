@@ -113,7 +113,14 @@ public class HomeCollectionViewController: UICollectionViewController {
         AreaListRequest().send { result in
             switch result {
             case .success(let areaListResponse):
-                for areaInfo in areaListResponse.areaInfos {
+                var areas = areaListResponse.areaInfos.sorted { $0.name < $1.name }
+                
+                if let unknownIndex = areas.firstIndex(where: { $0.name == "Unknown" }) {
+                    let unknown = areas.remove(at: unknownIndex)
+                    areas.append(unknown)
+                }
+                
+                for areaInfo in areas {
                     mealsByAreaSection.items.append(AreaItemViewModel(areaInfo: areaInfo))
                 }
                 DispatchQueue.main.async {
