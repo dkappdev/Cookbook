@@ -62,7 +62,7 @@ public class AreaCell: UICollectionViewCell {
         flagLabel.setContentHuggingPriority(UILayoutPriority(751), for: .horizontal)
         
         NSLayoutConstraint.activate([
-            flagLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            flagLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             flagLabel.topAnchor.constraint(equalTo: topAnchor),
             flagLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
