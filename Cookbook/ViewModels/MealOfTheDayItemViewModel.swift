@@ -37,6 +37,9 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         cell.mealAreaLabel.text = mealInfo.areaInfo.prettyString
         cell.mealCategoryLabel.text = mealInfo.category
         
+        cell.accessibilityHint = NSLocalizedString("button_accessibility_hint", comment: "")
+        cell.accessibilityLabel = "\(mealInfo.mealName)\n\(mealInfo.areaInfo.name)\n\(mealInfo.category)"
+        
         guard mealInfo != FullMealInfo.empty else {
             return
         }

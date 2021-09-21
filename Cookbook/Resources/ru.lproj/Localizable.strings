@@ -11,3 +11,4 @@
 "meal_of_the_day_section_name" = "Блюдо дня";
 "meals_by_category_section_name" = "Категории блюд";
 "meals_by_area_section_name" = "Блюда стран мира";
+"button_accessibility_hint" = "Кнопка";

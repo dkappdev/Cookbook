@@ -15,7 +15,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
     public let mealImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.accessibilityLabel = NSLocalizedString("meal_of_the_day_image_accessibility_label", comment: "")
+        imageView.isAccessibilityElement = false
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -24,6 +24,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         return label
     }()
     
@@ -31,6 +32,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         label.textAlignment = .center
         return label
     }()
@@ -39,6 +41,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         label.textAlignment = .center
         return label
     }()
@@ -71,6 +74,8 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     private func setupLayout() {
         // Creating shadow
+        
+        isAccessibilityElement = true
         
         layer.shadowRadius = 12
         layer.cornerRadius = 12
