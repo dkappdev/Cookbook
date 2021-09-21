@@ -29,6 +29,9 @@ public class AreaItemViewModel: BaseItemViewModel {
         
         cell.flagLabel.text = areaInfo.flagEmoji
         cell.nameLabel.text = areaInfo.name
+        
+        cell.accessibilityLabel = areaInfo.name
+        cell.accessibilityHint = NSLocalizedString("button_accessibility_hint", comment: "")
     }
     
     public override func hash(into hasher: inout Hasher) {

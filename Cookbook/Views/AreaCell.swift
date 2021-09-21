@@ -15,6 +15,7 @@ public class AreaCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         return label
     }()
     
@@ -22,6 +23,7 @@ public class AreaCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         return label
     }()
     
@@ -29,6 +31,7 @@ public class AreaCell: UICollectionViewCell {
         let line = UIView()
         line.backgroundColor = .tertiaryLabel
         line.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale).isActive = true
+        line.isAccessibilityElement = false
         return line
     }()
     
@@ -55,6 +58,8 @@ public class AreaCell: UICollectionViewCell {
     // MARK: - Layout setup
     
     private func setupLayout() {
+        
+        isAccessibilityElement = true
         
         addSubview(flagLabel)
         flagLabel.translatesAutoresizingMaskIntoConstraints = false

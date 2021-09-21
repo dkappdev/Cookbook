@@ -12,3 +12,4 @@
 "meals_by_category_section_name" = "Meals by Category";
 "meals_by_area_section_name" = "Meals by Area";
 "button_accessibility_hint" = "Button";
+"heading_accessibility_hint" = "Heading";

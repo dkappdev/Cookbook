@@ -28,6 +28,8 @@ public class NamedSectionItemViewModel: BaseItemViewModel {
         guard let cell = cell as? NamedSectionHeader else { return }
         
         cell.nameLabel.text = sectionName
+        
+        cell.accessibilityLabel = "\(sectionName)"
     }
     
     public override func hash(into hasher: inout Hasher) {

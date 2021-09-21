@@ -38,6 +38,9 @@ public class CategoryItemViewModel: BaseItemViewModel {
         cell.categoryImageView.image = nil
         cell.categoryImageView.backgroundColor = .systemGray4
         
+        cell.accessibilityLabel = categoryInfo.categoryName
+        cell.accessibilityHint = NSLocalizedString("button_accessibility_hint", comment: "")
+        
         guard categoryInfo != CategoryInfo.empty else {
             return
         }

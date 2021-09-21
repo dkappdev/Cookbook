@@ -16,6 +16,7 @@ public class NamedSectionHeader: UICollectionReusableView {
         let dynamicFont = UIFontMetrics(forTextStyle: .title1).scaledFont(for: staticFont)
         label.font = dynamicFont
         label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         return label
     }()
     
@@ -43,6 +44,8 @@ public class NamedSectionHeader: UICollectionReusableView {
     // MARK: Layout setup
     
     private func setupLayout() {
+        isAccessibilityElement = true
+        
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         

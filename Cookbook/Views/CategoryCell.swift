@@ -16,6 +16,7 @@ public class CategoryCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.backgroundColor = .systemGray4
+        imageView.isAccessibilityElement = false
         return imageView
     }()
     
@@ -23,6 +24,7 @@ public class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         return label
     }()
     
@@ -58,6 +60,8 @@ public class CategoryCell: UICollectionViewCell {
         }
         
         // Category name label
+        
+        isAccessibilityElement = true
         
         addSubview(categoryNameLabel)
         categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
