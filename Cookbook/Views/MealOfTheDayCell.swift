@@ -22,7 +22,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public let mealNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.font = .preferredFont(forTextStyle: .title2)
         label.adjustsFontForContentSizeCategory = true
         label.isAccessibilityElement = false
         return label
@@ -30,7 +30,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public let mealAreaLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.isAccessibilityElement = false
         label.textAlignment = .center
@@ -39,7 +39,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
     
     public let mealCategoryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.isAccessibilityElement = false
         label.textAlignment = .center

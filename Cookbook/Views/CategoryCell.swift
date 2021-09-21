@@ -22,7 +22,7 @@ public class CategoryCell: UICollectionViewCell {
     
     public let categoryNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.isAccessibilityElement = false
         return label
