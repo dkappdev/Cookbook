@@ -107,9 +107,8 @@ public class MealOfTheDayCell: UICollectionViewCell {
         
         // Calculating height for labels
         
-        let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
-        let areaBoundingBox = (mealAreaLabel.text ?? "").boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: mealAreaLabel.font ?? .preferredFont(forTextStyle: .body)], context: nil)
-        let nameBoundingBox = (mealNameLabel.text ?? "").boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: mealNameLabel.font ?? .preferredFont(forTextStyle: .body)], context: nil)
+        let areaLabelHeight = UILabel.labelHeight(for: mealAreaLabel.font)
+        let nameLabelHeight = UILabel.labelHeight(for: mealNameLabel.font)
         
         // Meal image view
         
@@ -134,7 +133,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
             bottomEffect.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             bottomEffect.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             bottomEffect.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            bottomEffect.heightAnchor.constraint(equalToConstant: areaBoundingBox.height + nameBoundingBox.height + 8 + 3 * 8)
+            bottomEffect.heightAnchor.constraint(equalToConstant: areaLabelHeight + nameLabelHeight + 8 + 3 * 8)
         ])
         
         // Meal area blur effect + label
@@ -142,7 +141,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         let areaEffect = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
         areaEffect.translatesAutoresizingMaskIntoConstraints = false
         areaEffect.clipsToBounds = true
-        areaEffect.layer.cornerRadius = (areaBoundingBox.height + 8) / 2
+        areaEffect.layer.cornerRadius = (areaLabelHeight + 8) / 2
         
         containerView.addSubview(areaEffect)
         
@@ -166,7 +165,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
         let categoryEffect = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
         categoryEffect.translatesAutoresizingMaskIntoConstraints = false
         categoryEffect.clipsToBounds = true
-        categoryEffect.layer.cornerRadius = (areaBoundingBox.height + 8) / 2
+        categoryEffect.layer.cornerRadius = (areaLabelHeight + 8) / 2
         
         containerView.addSubview(categoryEffect)
         

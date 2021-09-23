@@ -128,9 +128,7 @@ public class QuickMealInfoCell: UICollectionViewCell {
         
         // Calculating height for area and category labels
         
-        let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
-        let boundingBox = "Arbitrary text".boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: mealAreaLabel.font ?? .preferredFont(forTextStyle: .body)], context: nil)
-        let areaLabelHeight = boundingBox.height
+        let areaLabelHeight = UILabel.labelHeight(for: mealAreaLabel.font)
         
         // Meal area blur effect + label
         
