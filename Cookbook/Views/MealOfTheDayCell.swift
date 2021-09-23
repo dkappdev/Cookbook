@@ -108,8 +108,8 @@ public class MealOfTheDayCell: UICollectionViewCell {
         // Calculating height for labels
         
         let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
-        let areaBoundingBox = (mealAreaLabel.text ?? "").boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: mealAreaLabel.font ?? UIFont.preferredFont(forTextStyle: .body)], context: nil)
-        let nameBoundingBox = (mealNameLabel.text ?? "").boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: mealNameLabel.font ?? UIFont.preferredFont(forTextStyle: .body)], context: nil)
+        let areaBoundingBox = (mealAreaLabel.text ?? "").boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: mealAreaLabel.font ?? .preferredFont(forTextStyle: .body)], context: nil)
+        let nameBoundingBox = (mealNameLabel.text ?? "").boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: mealNameLabel.font ?? .preferredFont(forTextStyle: .body)], context: nil)
         
         // Meal image view
         
@@ -150,10 +150,10 @@ public class MealOfTheDayCell: UICollectionViewCell {
         mealAreaLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mealAreaLabel.leadingAnchor.constraint(equalTo: mealAreaLabel.superview!.leadingAnchor, constant: 12),
-            mealAreaLabel.trailingAnchor.constraint(equalTo: mealAreaLabel.superview!.trailingAnchor, constant: -12),
-            mealAreaLabel.topAnchor.constraint(equalTo: mealAreaLabel.superview!.topAnchor, constant: 4),
-            mealAreaLabel.bottomAnchor.constraint(equalTo: mealAreaLabel.superview!.bottomAnchor, constant: -4),
+            mealAreaLabel.leadingAnchor.constraint(equalTo: areaEffect.leadingAnchor, constant: 12),
+            mealAreaLabel.trailingAnchor.constraint(equalTo: areaEffect.trailingAnchor, constant: -12),
+            mealAreaLabel.topAnchor.constraint(equalTo: areaEffect.topAnchor, constant: 4),
+            mealAreaLabel.bottomAnchor.constraint(equalTo: areaEffect.bottomAnchor, constant: -4),
         ])
         
         NSLayoutConstraint.activate([
@@ -174,10 +174,10 @@ public class MealOfTheDayCell: UICollectionViewCell {
         mealCategoryLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mealCategoryLabel.leadingAnchor.constraint(equalTo: mealCategoryLabel.superview!.leadingAnchor, constant: 12),
-            mealCategoryLabel.trailingAnchor.constraint(equalTo: mealCategoryLabel.superview!.trailingAnchor, constant: -12),
-            mealCategoryLabel.topAnchor.constraint(equalTo: mealCategoryLabel.superview!.topAnchor, constant: 4),
-            mealCategoryLabel.bottomAnchor.constraint(equalTo: mealCategoryLabel.superview!.bottomAnchor, constant: -4),
+            mealCategoryLabel.leadingAnchor.constraint(equalTo: categoryEffect.leadingAnchor, constant: 12),
+            mealCategoryLabel.trailingAnchor.constraint(equalTo: categoryEffect.trailingAnchor, constant: -12),
+            mealCategoryLabel.topAnchor.constraint(equalTo: categoryEffect.topAnchor, constant: 4),
+            mealCategoryLabel.bottomAnchor.constraint(equalTo: categoryEffect.bottomAnchor, constant: -4),
         ])
         
         NSLayoutConstraint.activate([
