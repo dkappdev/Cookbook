@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E22485E326FCE8BB00AD4954 /* UILabel+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22485E226FCE8BB00AD4954 /* UILabel+LabelHeight.swift */; };
+		E22485E526FCF8A100AD4954 /* QuickMealInfoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22485E426FCF8A100AD4954 /* QuickMealInfoItemViewModel.swift */; };
 		E2426BB326F0B6A3009246A5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB226F0B6A3009246A5 /* CategoryCell.swift */; };
 		E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */; };
 		E258B90B26FA37E6005DB02A /* QuickMealInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		E22485E226FCE8BB00AD4954 /* UILabel+LabelHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LabelHeight.swift"; sourceTree = "<group>"; };
+		E22485E426FCF8A100AD4954 /* QuickMealInfoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMealInfoItemViewModel.swift; sourceTree = "<group>"; };
 		E2426BB226F0B6A3009246A5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewModel.swift; sourceTree = "<group>"; };
 		E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMealInfoCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */,
 				E25B8B3326EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift */,
 				E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */,
+				E22485E426FCF8A100AD4954 /* QuickMealInfoItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 			files = (
 				E2BF7FF526EA6DE500776BC2 /* MealByIDRequest.swift in Sources */,
 				E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */,
+				E22485E526FCF8A100AD4954 /* QuickMealInfoItemViewModel.swift in Sources */,
 				E2BF7FD826E939D400776BC2 /* FullMealInfo.swift in Sources */,
 				E26142DA26EE1118008E300E /* MealOfTheDayCell.swift in Sources */,
 				E2846E9826F897BA00233629 /* AreaCell.swift in Sources */,

@@ -242,4 +242,15 @@ public class HomeCollectionViewController: UICollectionViewController {
         return dataSource
     }
     
+    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            guard let mealOfTheDayViewModel = models[indexPath.section].items[indexPath.section] as? MealOfTheDayItemViewModel else { return }
+            let mealInfoViewController = MealInfoViewController(mealInfo: mealOfTheDayViewModel.mealInfo)
+            navigationController?.pushViewController(mealInfoViewController, animated: true)
+            break
+        default:
+            break
+        }
+    }
 }
