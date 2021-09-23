@@ -6,10 +6,10 @@
   
 */
 
-"meal_of_the_day_image_accessibility_label" = "Meal of the Day";
 "tab_bar_home_button_title" = "Home";
 "meal_of_the_day_section_name" = "Meal of the Day";
 "meals_by_category_section_name" = "Meals by Category";
 "meals_by_area_section_name" = "Meals by Area";
 "button_accessibility_hint" = "Button";
 "heading_accessibility_hint" = "Heading";
+"add_to_favorites_button_accessibility_label" = "Add to Favorites";

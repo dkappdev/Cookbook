@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E2426BB326F0B6A3009246A5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB226F0B6A3009246A5 /* CategoryCell.swift */; };
 		E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */; };
+		E258B90B26FA37E6005DB02A /* QuickMealInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */; };
 		E25B8B2A26EE7E6900B1EEA8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */; };
 		E25B8B2E26EF45F600B1EEA8 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */; };
 		E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		E2426BB226F0B6A3009246A5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewModel.swift; sourceTree = "<group>"; };
+		E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMealInfoCell.swift; sourceTree = "<group>"; };
 		E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeader.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				E26142DA26EE1118008E300E /* MealOfTheDayCell.swift in Sources */,
 				E2846E9826F897BA00233629 /* AreaCell.swift in Sources */,
 				E25B8B3226EF66C000B1EEA8 /* NamedSectionItemViewModel.swift in Sources */,
+				E258B90B26FA37E6005DB02A /* QuickMealInfoCell.swift in Sources */,
 				E2BF7FDC26E942C900776BC2 /* AnyCodingKey.swift in Sources */,
 				E2426BB326F0B6A3009246A5 /* CategoryCell.swift in Sources */,
 				E2C923F826EBAEC7007A1BC3 /* MealsByAreaResponse.swift in Sources */,
