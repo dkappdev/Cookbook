@@ -161,7 +161,7 @@ public class MealOfTheDayCell: UICollectionViewCell {
             areaEffect.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
         ])
         
-        // Meal category blue effect + label
+        // Meal category blur effect + label
         
         let categoryEffect = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
         categoryEffect.translatesAutoresizingMaskIntoConstraints = false
