@@ -14,8 +14,10 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     // MARK: - Properties
     
+    /// Section view models
     private var models: [BaseSectionViewModel] = []
     
+    /// Collection view diffable data source
     private var dataSource: DataSourceType!
     
     // MARK: - VC Lifecycle
@@ -40,7 +42,7 @@ public class HomeCollectionViewController: UICollectionViewController {
         collectionView.collectionViewLayout = createLayout()
         
         // Having prefetching enabled and using orthogonal scrolling causes collection view to dequeue cells too many times
-        // (Each cell gets dequeued around 20-30 times)
+        // (Each cell gets dequeued around 10-20 times)
         // There doesn't seem to be any information about this issue on the internet
         // The only other solution I have come up with is to completely abandon orthogonal scrolling, but that would make the main screen too cluttered
         // Because of this, I disabled prefetching for now
@@ -136,6 +138,7 @@ public class HomeCollectionViewController: UICollectionViewController {
         updateCollectionView()
     }
     
+    /// Updates collection view data source
     private func updateCollectionView() {
         var snapshot = NSDiffableDataSourceSnapshot<BaseSectionViewModel, BaseItemViewModel>()
         
@@ -150,6 +153,8 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     // MARK: - Collection view layout
     
+    /// Creates custom collection view layout
+    /// - Returns: new layout
     private func createLayout() -> UICollectionViewCompositionalLayout {
         return .init { sectionIndex, environment in
             switch sectionIndex {
