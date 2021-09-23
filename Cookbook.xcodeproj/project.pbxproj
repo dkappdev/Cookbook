@@ -54,6 +54,7 @@
 		E2C923FA26EBB00F007A1BC3 /* MealsByAreaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923F926EBB00F007A1BC3 /* MealsByAreaRequest.swift */; };
 		E2C923FC26EBB7EF007A1BC3 /* IngredientImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923FB26EBB7EF007A1BC3 /* IngredientImageRequest.swift */; };
 		E2C923FE26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923FD26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift */; };
+		E2D1809726F90AC200E3FD90 /* MealInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		E2C923F926EBB00F007A1BC3 /* MealsByAreaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByAreaRequest.swift; sourceTree = "<group>"; };
 		E2C923FB26EBB7EF007A1BC3 /* IngredientImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientImageRequest.swift; sourceTree = "<group>"; };
 		E2C923FD26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryImageRequest.swift; sourceTree = "<group>"; };
+		E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
 				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
 				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
+				E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */,
+				E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */,
 				E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */,
 			);
 			path = Controllers;
@@ -443,6 +447,7 @@
 				E2C923FC26EBB7EF007A1BC3 /* IngredientImageRequest.swift in Sources */,
 				E2846E9626F8977200233629 /* AreaItemViewModel.swift in Sources */,
 				E2C923E226EB7F4B007A1BC3 /* AreaListRequest.swift in Sources */,
+				E2D1809726F90AC200E3FD90 /* MealInfoViewController.swift in Sources */,
 				E2C923E426EB8212007A1BC3 /* IngredientInfo.swift in Sources */,
 				E2BF7FF726EA719100776BC2 /* MealByIDResponse.swift in Sources */,
 				E2C923E626EB82CE007A1BC3 /* IngredientListResponse.swift in Sources */,
