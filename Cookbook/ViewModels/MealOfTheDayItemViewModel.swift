@@ -29,10 +29,13 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
     public init(mealInfo: FullMealInfo) {
         self.mealInfo = mealInfo
     }
+    
     // MARK: - Setup
     
     public override func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath) {
         guard let cell = cell as? MealOfTheDayCell else { return }
+        
+        // Setting up labels
         cell.mealNameLabel.text = mealInfo.mealName
         cell.mealAreaLabel.text = mealInfo.areaInfo.prettyString
         cell.mealCategoryLabel.text = mealInfo.category
@@ -40,9 +43,12 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         cell.accessibilityHint = NSLocalizedString("button_accessibility_hint", comment: "")
         cell.accessibilityLabel = "\(mealInfo.mealName). \(mealInfo.areaInfo.name). \(mealInfo.category)"
         
+        // Making sure this is not a stub cell
         guard mealInfo != FullMealInfo.empty else {
             return
         }
+        
+        // Requesting image from network
         
         mostRecentCell = cell
         
