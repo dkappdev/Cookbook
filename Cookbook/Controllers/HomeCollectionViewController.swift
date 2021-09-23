@@ -18,7 +18,7 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     public var dataSource: DataSourceType!
     
-    // MARK: - View Lifecycle
+    // MARK: - VC Lifecycle
     
     public override func viewDidLoad() {
         super.viewDidLoad()
