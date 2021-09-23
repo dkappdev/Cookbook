@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E22485E326FCE8BB00AD4954 /* UILabel+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22485E226FCE8BB00AD4954 /* UILabel+LabelHeight.swift */; };
 		E2426BB326F0B6A3009246A5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB226F0B6A3009246A5 /* CategoryCell.swift */; };
 		E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */; };
 		E258B90B26FA37E6005DB02A /* QuickMealInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E22485E226FCE8BB00AD4954 /* UILabel+LabelHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LabelHeight.swift"; sourceTree = "<group>"; };
 		E2426BB226F0B6A3009246A5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewModel.swift; sourceTree = "<group>"; };
 		E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMealInfoCell.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		E2BF7FD126E91F9100776BC2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E22485E226FCE8BB00AD4954 /* UILabel+LabelHeight.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				E25B8B3826EFD4B000B1EEA8 /* BaseSectionViewModel.swift in Sources */,
 				E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */,
 				E25B8B2E26EF45F600B1EEA8 /* TestingViewController.swift in Sources */,
+				E22485E326FCE8BB00AD4954 /* UILabel+LabelHeight.swift in Sources */,
 				E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */,
 				E2C923EE26EB890C007A1BC3 /* MealsByCategoryResponse.swift in Sources */,
 				E26142D826EDFD4E008E300E /* SectionViewModel.swift in Sources */,
