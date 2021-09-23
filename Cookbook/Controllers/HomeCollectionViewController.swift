@@ -14,9 +14,9 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     // MARK: - Properties
     
-    public var models: [BaseSectionViewModel] = []
+    private var models: [BaseSectionViewModel] = []
     
-    public var dataSource: DataSourceType!
+    private var dataSource: DataSourceType!
     
     // MARK: - VC Lifecycle
     
