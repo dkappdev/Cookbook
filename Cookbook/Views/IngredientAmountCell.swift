@@ -86,7 +86,7 @@ public class IngredientAmountCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             ingredientNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             ingredientNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            ingredientNameLabel.bottomAnchor.constraint(equalTo: ingredientAmountLabel.topAnchor, constant: -8)
+            ingredientNameLabel.bottomAnchor.constraint(equalTo: ingredientAmountLabel.topAnchor)
         ])
         
         // Ingredient image view
