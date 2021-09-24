@@ -53,8 +53,8 @@ public class NamedSectionHeader: UICollectionReusableView {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            nameLabel.topAnchor.constraint(equalTo: topAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 8)
         ])
         
         let lineView = UIView()
