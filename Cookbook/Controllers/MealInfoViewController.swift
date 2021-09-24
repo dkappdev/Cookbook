@@ -39,6 +39,9 @@ public class MealInfoViewController: UICollectionViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = NSLocalizedString("recipe_title", comment: "")
+        
         // Registering cells and supplementary views
         collectionView.register(QuickMealInfoCell.self, forCellWithReuseIdentifier: QuickMealInfoCell.reuseIdentifier)
         
@@ -86,7 +89,7 @@ public class MealInfoViewController: UICollectionViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
                 return section
             default:
                 return nil
