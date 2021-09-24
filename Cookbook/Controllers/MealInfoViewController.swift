@@ -19,12 +19,16 @@ public class MealInfoViewController: UICollectionViewController {
     
     // MARK: - Initializers
     
+    /// Creates VC to display information for meal with specified ID. This initializer requests meal information from network. It should only be used if you don't have access to full meal information. Otherwise, use `init(mealInfo:)` to avoid creating a delay.
+    /// - Parameter mealID: meal ID
     public init(mealID: String) {
         self.mealID = mealID
         super.init(collectionViewLayout: Self.createLayout())
     }
     
-    public init(mealInfo: FullMealInfo){
+    /// Creates VC that displays meal information passed as an argument
+    /// - Parameter mealInfo: meal information
+    public init(mealInfo: FullMealInfo) {
         self.mealID = mealInfo.mealID
         self.mealInfo = mealInfo
         super.init(collectionViewLayout: Self.createLayout())
@@ -38,6 +42,8 @@ public class MealInfoViewController: UICollectionViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setting up navigation item
         
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = NSLocalizedString("recipe_title", comment: "")
@@ -70,6 +76,7 @@ public class MealInfoViewController: UICollectionViewController {
     
     // MARK: - Updates
     
+    /// Creates collection view sections with meal information
     private func update() {
         let quickInfoSection = BaseSectionViewModel(uniqueSectionName: "QuickInfoSection")
         models.append(quickInfoSection)
@@ -78,6 +85,8 @@ public class MealInfoViewController: UICollectionViewController {
     
     // MARK: - Collection View Layout
     
+    /// Creates custom collection view layout
+    /// - Returns: new layout
     private static func createLayout() -> UICollectionViewCompositionalLayout {
         return .init { sectionIndex, environment in
             switch sectionIndex {
