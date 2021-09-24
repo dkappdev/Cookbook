@@ -58,6 +58,7 @@
 		E2C923FC26EBB7EF007A1BC3 /* IngredientImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923FB26EBB7EF007A1BC3 /* IngredientImageRequest.swift */; };
 		E2C923FE26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C923FD26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift */; };
 		E2D1809726F90AC200E3FD90 /* MealInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */; };
+		E2D6624926FE30CE008DBD72 /* IngredientAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		E2C923FB26EBB7EF007A1BC3 /* IngredientImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientImageRequest.swift; sourceTree = "<group>"; };
 		E2C923FD26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryImageRequest.swift; sourceTree = "<group>"; };
 		E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoViewController.swift; sourceTree = "<group>"; };
+		E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientAmountCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
 				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
 				E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */,
+				E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */,
 				E2C923EE26EB890C007A1BC3 /* MealsByCategoryResponse.swift in Sources */,
 				E26142D826EDFD4E008E300E /* SectionViewModel.swift in Sources */,
+				E2D6624926FE30CE008DBD72 /* IngredientAmountCell.swift in Sources */,
 				E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
