@@ -56,10 +56,6 @@ public class CategoryCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        if let categoryName = categoryNameLabel.text {
-            categoryImageView.accessibilityLabel = categoryName
-        }
-        
         // Category name label
         
         isAccessibilityElement = true
