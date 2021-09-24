@@ -40,8 +40,31 @@ public class IngredientAmountCell: UICollectionViewCell {
     
     // MARK: - Static properties
     
+    public static let reuseIdentifier = "IngredientAmountCell"
+    
     // MARK: - Initializers
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupLayout()
+    }
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+    }
+    
+    public convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    }
     
     // MARK: - Layout setup
     
+    public override func layoutSubviews() {
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        
+    }
 }
