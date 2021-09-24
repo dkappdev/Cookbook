@@ -50,6 +50,7 @@ public class MealInfoViewController: UICollectionViewController {
         
         // Registering cells and supplementary views
         collectionView.register(QuickMealInfoCell.self, forCellWithReuseIdentifier: QuickMealInfoCell.reuseIdentifier)
+        collectionView.register(NamedSectionHeader.self, forSupplementaryViewOfKind: NamedSectionHeader.elementKind, withReuseIdentifier: NamedSectionHeader.reuseIdentifier)
         
         // Requesting meal info if necessary
         if mealInfo != nil {
@@ -81,6 +82,10 @@ public class MealInfoViewController: UICollectionViewController {
         let quickInfoSection = BaseSectionViewModel(uniqueSectionName: "QuickInfoSection")
         models.append(quickInfoSection)
         quickInfoSection.items.append(QuickMealInfoItemViewModel(mealInfo: mealInfo))
+        
+        let ingredientsSection = BaseSectionViewModel(uniqueSectionName: "IngredientsSection")
+        models.append(ingredientsSection)
+        ingredientsSection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("ingredients_section_name", comment: ""))
     }
     
     // MARK: - Collection View Layout
@@ -94,11 +99,29 @@ public class MealInfoViewController: UICollectionViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(120 + 8 * 2))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(max(QuickMealInfoCell.imageSize, QuickMealInfoCell.textHeight)))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+                return section
+            case 1:
+                let itemsSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemsSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(120), heightDimension: .absolute(160))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+                section.interGroupSpacing = 16
+                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                section.boundarySupplementaryItems = [header]
+                
                 return section
             default:
                 return nil
