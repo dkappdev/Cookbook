@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Basic collection view header that displays section name
 public class NamedSectionHeader: UICollectionReusableView {
     // MARK: - Views
     

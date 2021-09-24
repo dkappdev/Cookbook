@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Collection view cell that displays a meal category
 public class CategoryCell: UICollectionViewCell {
     
     // MARK: - Views
