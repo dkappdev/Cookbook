@@ -103,7 +103,7 @@ public class IngredientAmountCell: UICollectionViewCell {
         ])
         
         containerView.layer.masksToBounds = false
-        containerView.layer.shadowRadius = -6
+        containerView.layer.shadowRadius = 6
         containerView.layer.cornerRadius = 12
         containerView.layer.shadowColor = UIColor.black.cgColor
         containerView.layer.shadowOpacity = 0.2
