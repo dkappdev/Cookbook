@@ -50,6 +50,7 @@ public class MealInfoViewController: UICollectionViewController {
         
         // Registering cells and supplementary views
         collectionView.register(QuickMealInfoCell.self, forCellWithReuseIdentifier: QuickMealInfoCell.reuseIdentifier)
+        collectionView.register(IngredientAmountCell.self, forCellWithReuseIdentifier: IngredientAmountCell.reuseIdentifier)
         collectionView.register(NamedSectionHeader.self, forSupplementaryViewOfKind: NamedSectionHeader.elementKind, withReuseIdentifier: NamedSectionHeader.reuseIdentifier)
         
         // Requesting meal info if necessary
@@ -73,6 +74,10 @@ public class MealInfoViewController: UICollectionViewController {
                 }
             }
         }
+        
+        // Disabling collection view prefetching
+        // (See `HomeCollectionViewController.viewDidLoad()` for more information)
+        collectionView.isPrefetchingEnabled = false
     }
     
     // MARK: - Updates
@@ -86,6 +91,11 @@ public class MealInfoViewController: UICollectionViewController {
         let ingredientsSection = BaseSectionViewModel(uniqueSectionName: "IngredientsSection")
         models.append(ingredientsSection)
         ingredientsSection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("ingredients_section_name", comment: ""))
+        for ingredient in mealInfo.ingredients {
+            ingredientsSection.items.append(IngredientAmountItemViewModel(ingredientAmount: ingredient))
+        }
+        
+        collectionView.reloadData()
     }
     
     // MARK: - Collection View Layout
