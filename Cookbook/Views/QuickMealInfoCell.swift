@@ -61,6 +61,12 @@ public class QuickMealInfoCell: UICollectionViewCell {
     
     public static let reuseIdentifier = "QuickMealInfo"
     
+    public static let imageSize: CGFloat = 120
+    public static var textHeight: CGFloat {
+        // two lines of name label + (area/category label + top/bottom padding) * 2 + space between area and category effect + space between name label and area effect
+        UILabel.labelHeight(for: .preferredFont(forTextStyle: .title2)) * 2 + (UILabel.labelHeight(for: .preferredFont(forTextStyle: .body)) + 8) * 2 + 8 + 8
+    }
+    
     // MARK: - Initializers
     
     public required init?(coder: NSCoder) {
@@ -93,8 +99,8 @@ public class QuickMealInfoCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             mealImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mealImageView.topAnchor.constraint(equalTo: topAnchor),
-            mealImageView.heightAnchor.constraint(equalToConstant: 120),
-            mealImageView.widthAnchor.constraint(equalToConstant: 120)
+            mealImageView.heightAnchor.constraint(equalToConstant: Self.imageSize),
+            mealImageView.widthAnchor.constraint(equalToConstant: Self.imageSize)
         ])
         
         // Meal name label
@@ -142,7 +148,8 @@ public class QuickMealInfoCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             areaEffect.leadingAnchor.constraint(equalTo: mealNameLabel.leadingAnchor),
-            areaEffect.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: 8)
+            areaEffect.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: 8),
+            areaEffect.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor)
         ])
         
         areaEffect.contentView.addSubview(mealAreaLabel)
@@ -165,8 +172,9 @@ public class QuickMealInfoCell: UICollectionViewCell {
         categoryEffect.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            categoryEffect.leadingAnchor.constraint(equalTo: areaEffect.trailingAnchor, constant: 8),
-            categoryEffect.bottomAnchor.constraint(equalTo: areaEffect.bottomAnchor)
+            categoryEffect.leadingAnchor.constraint(equalTo: mealNameLabel.leadingAnchor),
+            categoryEffect.topAnchor.constraint(equalTo: areaEffect.bottomAnchor, constant: 8),
+            categoryEffect.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor)
         ])
         
         categoryEffect.contentView.addSubview(mealCategoryLabel)
