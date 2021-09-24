@@ -20,6 +20,16 @@ public class HomeCollectionViewController: UICollectionViewController {
     /// Collection view diffable data source
     private var dataSource: DataSourceType!
     
+    // MARK: - Initializers
+    
+    public init() {
+        super.init(collectionViewLayout: Self.createLayout())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - VC Lifecycle
     
     public override func viewDidLoad() {
@@ -39,7 +49,6 @@ public class HomeCollectionViewController: UICollectionViewController {
         
         // Creating layout and data source
         dataSource = createDataSource()
-        collectionView.collectionViewLayout = createLayout()
         
         // Having prefetching enabled and using orthogonal scrolling causes collection view to dequeue cells too many times
         // (Each cell gets dequeued around 10-20 times)
@@ -155,7 +164,7 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     /// Creates custom collection view layout
     /// - Returns: new layout
-    private func createLayout() -> UICollectionViewCompositionalLayout {
+    private static func createLayout() -> UICollectionViewCompositionalLayout {
         return .init { sectionIndex, environment in
             switch sectionIndex {
             // Meal of the day section

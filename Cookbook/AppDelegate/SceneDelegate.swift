@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = tabBarController
         
         // Home
-        let homeCollectionViewController = HomeCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let homeCollectionViewController = HomeCollectionViewController()
         let homeNavigationController = UINavigationController(rootViewController: homeCollectionViewController)
         
         homeNavigationController.tabBarItem.title = NSLocalizedString("tab_bar_home_button_title", comment: "")
