@@ -54,7 +54,6 @@ public class CategoryItemViewModel: BaseItemViewModel {
         cell.accessibilityLabel = categoryInfo.categoryName
         cell.accessibilityHint = NSLocalizedString("button_accessibility_hint", comment: "")
         
-        
         // Requesting image only if this is not a stub cell and an image hasn't already been requested
         guard categoryInfo != CategoryInfo.empty,
               !hasRequestedImage else {
