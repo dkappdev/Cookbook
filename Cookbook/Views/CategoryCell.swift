@@ -56,9 +56,9 @@ public class CategoryCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        // Category name label
-        
         isAccessibilityElement = true
+        
+        // Category name label
         
         addSubview(categoryNameLabel)
         categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
