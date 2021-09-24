@@ -24,6 +24,7 @@ public class IngredientAmountCell: UICollectionViewCell {
     public let ingredientNameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
+        label.numberOfLines = 2
         label.adjustsFontForContentSizeCategory = true
         label.isAccessibilityElement = false
         return label
