@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Collection view cell that displays meal's photo, name, origin, and category, along with an 'Add to Favorites' button
 public class QuickMealInfoCell: UICollectionViewCell {
     
     // MARK: - Views
