@@ -23,7 +23,7 @@ extension UILabel {
     /// - Parameter text: text used to calculate height
     /// - Returns: intrinsic label height for specified fonts
     public static func labelHeight(for font: UIFont, withText text: String, width: CGFloat) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: Double.greatestFiniteMagnitude)
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let areaBoundingBox = text.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
         return areaBoundingBox.height
     }
