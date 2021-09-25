@@ -15,8 +15,11 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         MealOfTheDayCell.reuseIdentifier
     }
     
+    /// Cached version of downloaded image
     private var image: UIImage?
+    /// Indicates whether or not an image has already been requested
     private var hasRequestedImage = false
+    /// Cell that most recently called `setup(_:in:at:)`. This property is used to properly set category image after receiving it from network.
     private var mostRecentCell: MealOfTheDayCell?
     
     public let mealInfo: FullMealInfo
@@ -35,42 +38,41 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
     public override func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath) {
         guard let cell = cell as? MealOfTheDayCell else { return }
         
-        // Setting up labels
+        // Remembering most recent cell
+        mostRecentCell = cell
+        
+        // Setting up labels and image view
         cell.mealNameLabel.text = mealInfo.mealName
         cell.mealAreaLabel.text = mealInfo.areaInfo.prettyString
         cell.mealCategoryLabel.text = mealInfo.category
         
+        if let image = image {
+            cell.mealImageView.image = image
+        }
+        
+        // Setting up accessibility information
         cell.accessibilityHint = NSLocalizedString("button_accessibility_hint", comment: "")
         cell.accessibilityLabel = "\(mealInfo.mealName). \(mealInfo.areaInfo.name). \(mealInfo.category)"
         
-        // Making sure this is not a stub cell
-        guard mealInfo != FullMealInfo.empty else {
-            return
-        }
+        // Requesting image only if this is not a stub cell and an image hasn't already been requested
+        guard mealInfo != FullMealInfo.empty,
+              !hasRequestedImage else {
+                  return
+              }
         
-        // Requesting image from network
-        
-        mostRecentCell = cell
-        
-        if let image = image {
-            DispatchQueue.main.async {
-                cell.mealImageView.image = image
-            }
-        } else if !hasRequestedImage {
-            hasRequestedImage = true
-            ArbitraryImageRequest(imageURL: mealInfo.imageURL).send { result in
-                switch result {
-                case .success(let image):
-                    DispatchQueue.main.async {
-                        if let mostRecentCell = self.mostRecentCell,
-                            collectionView.indexPath(for: mostRecentCell) == indexPath {
-                            mostRecentCell.mealImageView.image = image
-                        }
+        hasRequestedImage = true
+        ArbitraryImageRequest(imageURL: mealInfo.imageURL).send { result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    if let mostRecentCell = self.mostRecentCell,
+                       collectionView.indexPath(for: mostRecentCell) == indexPath {
+                        mostRecentCell.mealImageView.image = image
                     }
-                    self.image = image
-                case .failure(let error):
-                    print(error)
                 }
+                self.image = image
+            case .failure(let error):
+                print(error)
             }
         }
     }
