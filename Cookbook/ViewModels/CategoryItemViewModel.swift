@@ -56,9 +56,7 @@ public class CategoryItemViewModel: BaseItemViewModel {
         
         // Requesting image only if this is not a stub cell and an image hasn't already been requested
         guard categoryInfo != CategoryInfo.empty,
-              !hasRequestedImage else {
-                  return
-              }
+              !hasRequestedImage else { return }
         
         hasRequestedImage = true
         ArbitraryImageRequest(imageURL: categoryInfo.imageURL).send { result in

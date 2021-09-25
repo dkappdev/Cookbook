@@ -163,11 +163,11 @@
 				E25B8B3526EFC13300B1EEA8 /* BaseItemViewModel.swift */,
 				E25B8B3726EFD4B000B1EEA8 /* BaseSectionViewModel.swift */,
 				E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */,
+				E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */,
+				E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */,
 				E25B8B3326EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift */,
 				E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */,
 				E22485E426FCF8A100AD4954 /* QuickMealInfoItemViewModel.swift */,
-				E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */,
-				E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

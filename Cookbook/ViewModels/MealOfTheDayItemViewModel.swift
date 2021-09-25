@@ -56,9 +56,7 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         
         // Requesting image only if this is not a stub cell and an image hasn't already been requested
         guard mealInfo != FullMealInfo.empty,
-              !hasRequestedImage else {
-                  return
-              }
+              !hasRequestedImage else { return }
         
         hasRequestedImage = true
         ArbitraryImageRequest(imageURL: mealInfo.imageURL).send { result in
