@@ -16,4 +16,15 @@ extension UILabel {
         let areaBoundingBox = "Label".boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
         return areaBoundingBox.height
     }
+    
+    /// Calculates label height with specified width
+    /// - Parameter font: the font used for the text
+    /// - Parameter width: width to use for calculations
+    /// - Parameter text: text used to calculate height
+    /// - Returns: intrinsic label height for specified fonts
+    public static func labelHeight(for font: UIFont, withText text: String, width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: Double.greatestFiniteMagnitude)
+        let areaBoundingBox = text.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
+        return areaBoundingBox.height
+    }
 }

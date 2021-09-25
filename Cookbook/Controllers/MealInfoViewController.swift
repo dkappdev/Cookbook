@@ -23,7 +23,7 @@ public class MealInfoViewController: UICollectionViewController {
     /// - Parameter mealID: meal ID
     public init(mealID: String) {
         self.mealID = mealID
-        super.init(collectionViewLayout: Self.createLayout())
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
     /// Creates VC that displays meal information passed as an argument
@@ -31,7 +31,7 @@ public class MealInfoViewController: UICollectionViewController {
     public init(mealInfo: FullMealInfo) {
         self.mealID = mealInfo.mealID
         self.mealInfo = mealInfo
-        super.init(collectionViewLayout: Self.createLayout())
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
     required init?(coder: NSCoder) {
@@ -42,6 +42,8 @@ public class MealInfoViewController: UICollectionViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.setCollectionViewLayout(createLayout(), animated: false)
         
         // Setting up navigation item
         
@@ -105,7 +107,7 @@ public class MealInfoViewController: UICollectionViewController {
         let cookingInstructionsSection = BaseSectionViewModel(uniqueSectionName: "CookingInstructionsSection")
         models.append(cookingInstructionsSection)
         cookingInstructionsSection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("cooking_instructions_section_name", comment: ""))
-        
+        cookingInstructionsSection.items.append(CookingInstructionsItemViewModel(mealInfo: mealInfo))
         
         // Reloading data to show new sections
         collectionView.reloadData()
@@ -115,8 +117,9 @@ public class MealInfoViewController: UICollectionViewController {
     
     /// Creates custom collection view layout
     /// - Returns: new layout
-    private static func createLayout() -> UICollectionViewCompositionalLayout {
-        return .init { sectionIndex, environment in
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        return .init { [weak self] sectionIndex, environment in
+            guard let self = self else { return nil }
             switch sectionIndex {
             case 0:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -150,13 +153,21 @@ public class MealInfoViewController: UICollectionViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
+                var sectionHeight: CGFloat = 0
+                // Button height
+                sectionHeight += 2 * 16 + UILabel.labelHeight(for: .preferredFont(forTextStyle: .body))
+                // Distance between button and label
+                sectionHeight += 16
+                // Label height
+                sectionHeight += UILabel.labelHeight(for: .preferredFont(forTextStyle: .body), withText: self.mealInfo.cookingInstructions, width: self.collectionView.bounds.width - 16 * 2)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(sectionHeight))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
                 
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
                 section.boundarySupplementaryItems = [header]

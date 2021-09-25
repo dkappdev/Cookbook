@@ -77,7 +77,7 @@ public class CookingInstructionsCell: UICollectionViewCell {
             openInYouTubeButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             openInYouTubeButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             // Make sure button can fit label with additional vertical padding
-            openInYouTubeButton.heightAnchor.constraint(equalToConstant: UILabel.labelHeight(for: .preferredFont(forTextStyle: .body)) + 2 * 8)
+            openInYouTubeButton.heightAnchor.constraint(equalToConstant: UILabel.labelHeight(for: .preferredFont(forTextStyle: .body)) + 2 * 16),
         ])
     }
 }
