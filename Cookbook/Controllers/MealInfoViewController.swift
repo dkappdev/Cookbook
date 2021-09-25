@@ -107,7 +107,12 @@ public class MealInfoViewController: UICollectionViewController {
         let cookingInstructionsSection = BaseSectionViewModel(uniqueSectionName: "CookingInstructionsSection")
         models.append(cookingInstructionsSection)
         cookingInstructionsSection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("cooking_instructions_section_name", comment: ""))
-        cookingInstructionsSection.items.append(CookingInstructionsItemViewModel(mealInfo: mealInfo))
+        let cookingInstructionsItem = CookingInstructionsItemViewModel(mealInfo: mealInfo)
+        cookingInstructionsSection.items.append(cookingInstructionsItem)
+        cookingInstructionsItem.setYouTubeButtonAction { [weak self] in
+            guard let self = self else { return }
+            self.openRecipeInYouTube()
+        }
         
         // Reloading data to show new sections
         collectionView.reloadData()
@@ -154,10 +159,12 @@ public class MealInfoViewController: UICollectionViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 var sectionHeight: CGFloat = 0
-                // Button height
-                sectionHeight += 2 * 16 + UILabel.labelHeight(for: .preferredFont(forTextStyle: .body))
-                // Distance between button and label
-                sectionHeight += 16
+                if self.mealInfo.youtubeURL != nil {
+                    // Button height
+                    sectionHeight += 2 * 16 + UILabel.labelHeight(for: .preferredFont(forTextStyle: .body))
+                    // Distance between button and label
+                    sectionHeight += 16
+                }
                 // Label height
                 sectionHeight += UILabel.labelHeight(for: .preferredFont(forTextStyle: .body), withText: self.mealInfo.cookingInstructions, width: self.collectionView.bounds.width - 16 * 2)
                 
@@ -201,5 +208,13 @@ public class MealInfoViewController: UICollectionViewController {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: model.reuseIdentifier, for: indexPath)
         model.setup(view, in: collectionView, at: indexPath)
         return view
+    }
+    
+    // MARK: - Responding to user actions
+    
+    private func openRecipeInYouTube() {
+        if let youtubeURL = mealInfo.youtubeURL {
+            UIApplication.shared.open(youtubeURL)
+        }
     }
 }
