@@ -25,6 +25,7 @@
 		E26142E026EE2B5A008E300E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E26142E226EE2B5A008E300E /* Localizable.strings */; };
 		E2636B8F26FE381A000FBD6A /* IngredientAmountItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */; };
 		E272E1EB26FEE5D100CE1F53 /* CookingInstructionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272E1EA26FEE5D100CE1F53 /* CookingInstructionsCell.swift */; };
+		E272E1ED26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */; };
 		E2846E9626F8977200233629 /* AreaItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2846E9526F8977200233629 /* AreaItemViewModel.swift */; };
 		E2846E9826F897BA00233629 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2846E9726F897BA00233629 /* AreaCell.swift */; };
 		E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB726E9109400776BC2 /* AppDelegate.swift */; };
@@ -94,6 +95,7 @@
 		E26142E426EE2C13008E300E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientAmountItemViewModel.swift; sourceTree = "<group>"; };
 		E272E1EA26FEE5D100CE1F53 /* CookingInstructionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingInstructionsCell.swift; sourceTree = "<group>"; };
+		E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingInstructionsItemViewModel.swift; sourceTree = "<group>"; };
 		E2846E9526F8977200233629 /* AreaItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaItemViewModel.swift; sourceTree = "<group>"; };
 		E2846E9726F897BA00233629 /* AreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCell.swift; sourceTree = "<group>"; };
 		E2BF7FB426E9109400776BC2 /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 				E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */,
 				E22485E426FCF8A100AD4954 /* QuickMealInfoItemViewModel.swift */,
 				E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */,
+				E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				E2C923F826EBAEC7007A1BC3 /* MealsByAreaResponse.swift in Sources */,
 				E2C923FA26EBB00F007A1BC3 /* MealsByAreaRequest.swift in Sources */,
 				E2BF7FE326EA4E0F00776BC2 /* MealsByNameResponse.swift in Sources */,
+				E272E1ED26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift in Sources */,
 				E25B8B3426EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift in Sources */,
 				E2C923E826EB832C007A1BC3 /* IngredientListRequest.swift in Sources */,
 				E2C923E026EB7A7E007A1BC3 /* AreaInfo.swift in Sources */,
