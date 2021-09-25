@@ -18,6 +18,7 @@ public class QuickMealInfoCell: UICollectionViewCell {
         // Allow OS to produce descriptions of meal images
         imageView.isAccessibilityElement = true
         imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -56,6 +57,10 @@ public class QuickMealInfoCell: UICollectionViewCell {
     // MARK: - Instance properties
     
     public let isCurrentMealAddedToFavorites = false
+    
+    /// The tap gesture recognizer for image view
+    /// Because cell are reuse
+    public var tapGestureRecognizer: UITapGestureRecognizer?
     
     // MARK: - Static properties
     
@@ -193,5 +198,18 @@ public class QuickMealInfoCell: UICollectionViewCell {
         let sfSymbolName = isAddedToFavorites ? "heart.fill" : "heart"
         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: UIFont.TextStyle.title1.metrics.scaledValue(for: 22), weight: .semibold, scale: .default)
         addToFavoritesButton.setImage(UIImage(systemName: sfSymbolName, withConfiguration: symbolConfiguration), for: .normal)
+    }
+    
+    // MARK: - Gesture recognizers
+    public func removeCustomGestureRecognizer() {
+        if let tapGestureRecognizer = tapGestureRecognizer {
+            mealImageView.removeGestureRecognizer(tapGestureRecognizer)
+        }
+        tapGestureRecognizer = nil
+    }
+    
+    public func addImageTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        self.tapGestureRecognizer = tapGestureRecognizer
+        mealImageView.addGestureRecognizer(tapGestureRecognizer)
     }
 }

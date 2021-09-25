@@ -21,6 +21,9 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
     /// Cell that most recently called `setup(_:in:at:)`. This property is used to properly set category image after receiving it from network.
     private var mostRecentCell: QuickMealInfoCell?
     
+    /// Action to perform when users taps on the meal image
+    private var openImageAction: ((UIImage) -> Void)? = nil
+    
     public let mealInfo: FullMealInfo
     
     // MARK: - Initializers
@@ -47,8 +50,14 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
         // Setting up accessibility information
         cell.mealAreaLabel.accessibilityLabel = mealInfo.areaInfo.name
         
+        // Removing old gesture recognizer since cell might have been reused
+        cell.removeCustomGestureRecognizer()
+        
         if let image = image {
             cell.mealImageView.image = image
+            // If there is an image, configure the tap gesture
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openImage(gestureRecognizer:)))
+            cell.addImageTapGestureRecognizer(tapGestureRecognizer)
         }
         
         // Requesting image only if we haven't requested it before
@@ -62,6 +71,8 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
                     if let mostRecentCell = self.mostRecentCell,
                        collectionView.indexPath(for: mostRecentCell) == indexPath {
                         mostRecentCell.mealImageView.image = image
+                        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.openImage(gestureRecognizer:)))
+                        mostRecentCell.addImageTapGestureRecognizer(tapGestureRecognizer)
                     }
                 }
                 self.image = image
@@ -69,6 +80,15 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
                 print(error)
             }
         }
+    }
+    
+    public func setOpenImageAction(_ action: @escaping (UIImage) -> Void) {
+        openImageAction = action
+    }
+    
+    @objc private func openImage(gestureRecognizer: UITapGestureRecognizer) {
+        guard let image = image else { return }
+        openImageAction?(image)
     }
     
     public override func hash(into hasher: inout Hasher) {
