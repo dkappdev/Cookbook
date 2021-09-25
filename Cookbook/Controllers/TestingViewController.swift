@@ -13,23 +13,5 @@ public class TestingViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        
-        let quickMealInfoView = QuickMealInfoCell()
-        quickMealInfoView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(quickMealInfoView)
-        
-        quickMealInfoView.mealImageView.image = UIImage(systemName: "star.fill")
-        quickMealInfoView.mealNameLabel.text = "Pommes"
-        
-        NSLayoutConstraint.activate([
-            quickMealInfoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            quickMealInfoView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            quickMealInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            quickMealInfoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        
-        quickMealInfoView.mealAreaLabel.text = "🇫🇷 French"
-        quickMealInfoView.mealCategoryLabel.text = "Vegan"
     }
 }
