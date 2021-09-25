@@ -27,6 +27,8 @@ public class CookingInstructionsCell: UICollectionViewCell {
     
     // MARK: - Static properties
     
+    public static let reuseIdentifier = "CookingInstructionsCell"
+    
     // MARK: - Initializers
     
     public required init?(coder: NSCoder) {

@@ -51,6 +51,7 @@ public class MealInfoViewController: UICollectionViewController {
         // Registering cells and supplementary views
         collectionView.register(QuickMealInfoCell.self, forCellWithReuseIdentifier: QuickMealInfoCell.reuseIdentifier)
         collectionView.register(IngredientAmountCell.self, forCellWithReuseIdentifier: IngredientAmountCell.reuseIdentifier)
+        collectionView.register(CookingInstructionsCell.self, forCellWithReuseIdentifier: CookingInstructionsCell.reuseIdentifier)
         collectionView.register(NamedSectionHeader.self, forSupplementaryViewOfKind: NamedSectionHeader.elementKind, withReuseIdentifier: NamedSectionHeader.reuseIdentifier)
         
         // Requesting meal info if necessary
