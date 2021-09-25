@@ -217,12 +217,12 @@
 			children = (
 				E2846E9726F897BA00233629 /* AreaCell.swift */,
 				E2426BB226F0B6A3009246A5 /* CategoryCell.swift */,
+				E272E1EA26FEE5D100CE1F53 /* CookingInstructionsCell.swift */,
 				E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */,
 				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
 				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
 				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
 				E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */,
-				E272E1EA26FEE5D100CE1F53 /* CookingInstructionsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -75,7 +75,9 @@ public class CookingInstructionsCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             openInYouTubeButton.topAnchor.constraint(equalTo: cookingInstructionsLabel.bottomAnchor, constant: 16),
             openInYouTubeButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            openInYouTubeButton.trailingAnchor.constraint(equalTo: trailingAnchor)
+            openInYouTubeButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            // Make sure button can fit label with additional vertical padding
+            openInYouTubeButton.heightAnchor.constraint(equalToConstant: UILabel.labelHeight(for: .preferredFont(forTextStyle: .body)) + 2 * 8)
         ])
     }
 }
