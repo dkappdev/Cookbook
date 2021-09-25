@@ -14,8 +14,10 @@ public class CookingInstructionsItemViewModel: BaseItemViewModel {
         CookingInstructionsCell.reuseIdentifier
     }
     
-    public let mealInfo: FullMealInfo
+    /// Action to perform when user presses the 'Open in YouTube' button
     private var openInYouTubeAction: (() -> Void)? = nil
+    
+    public let mealInfo: FullMealInfo
     
     // MARK: - Initializers
     
