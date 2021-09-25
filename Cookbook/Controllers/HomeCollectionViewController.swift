@@ -231,9 +231,13 @@ public class HomeCollectionViewController: UICollectionViewController {
     private func createDataSource() -> DataSourceType {
         let dataSource = DataSourceType(collectionView: collectionView) { [weak self] collectionView, indexPath, model in
             guard let self = self else { return nil }
-            let model = self.models[indexPath.section].items[indexPath.row]
+            
+            let sectionModel = self.models[indexPath.section]
+            let model = sectionModel.items[indexPath.item]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIdentifier, for: indexPath)
+            
             model.setup(cell, in: collectionView, at: indexPath)
+            
             return cell
         }
         
