@@ -21,6 +21,8 @@ public class CookingInstructionsCell: UICollectionViewCell {
     public let openInYouTubeButton: UIButton = {
         let button = UIButton()
         button.setTitle(NSLocalizedString("open_in_youtube_button_label", comment: ""), for: .normal)
+        button.backgroundColor = .systemRed
+        button.setTitleColor(.white, for: .normal)
         #warning("Make sure VoiceOver reads this button correctly")
         return button
     }()
@@ -51,6 +53,29 @@ public class CookingInstructionsCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
+        // Cooking instructions label
         
+        addSubview(cookingInstructionsLabel)
+        cookingInstructionsLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cookingInstructionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cookingInstructionsLabel.topAnchor.constraint(equalTo: topAnchor),
+            cookingInstructionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        // "Open in YouTube" button
+        
+        addSubview(openInYouTubeButton)
+        openInYouTubeButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        openInYouTubeButton.layer.masksToBounds = true
+        openInYouTubeButton.layer.cornerRadius = 12
+        
+        NSLayoutConstraint.activate([
+            openInYouTubeButton.topAnchor.constraint(equalTo: cookingInstructionsLabel.bottomAnchor, constant: 16),
+            openInYouTubeButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            openInYouTubeButton.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
 }
