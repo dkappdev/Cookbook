@@ -34,8 +34,7 @@ public class NamedSectionHeader: UICollectionReusableView {
     }
     
     public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupLayout()
+        fatalError("init(coder:) has not been implemented")
     }
     
     public convenience init() {

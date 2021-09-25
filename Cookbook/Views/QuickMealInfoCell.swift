@@ -70,8 +70,7 @@ public class QuickMealInfoCell: UICollectionViewCell {
     // MARK: - Initializers
     
     public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupLayout()
+        fatalError("init(coder:) has not been implemented")
     }
     
     public override init(frame: CGRect) {
