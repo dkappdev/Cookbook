@@ -44,6 +44,9 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
         cell.mealAreaLabel.text = mealInfo.areaInfo.prettyString
         cell.mealCategoryLabel.text = mealInfo.category
         
+        // Setting up accessibility information
+        cell.mealAreaLabel.accessibilityLabel = mealInfo.areaInfo.name
+        
         if let image = image {
             cell.mealImageView.image = image
         }

@@ -23,7 +23,6 @@ public class CookingInstructionsCell: UICollectionViewCell {
         button.setTitle(NSLocalizedString("open_in_youtube_button_label", comment: ""), for: .normal)
         button.backgroundColor = .systemRed
         button.setTitleColor(.white, for: .normal)
-        #warning("Make sure VoiceOver reads this button correctly")
         return button
     }()
     
