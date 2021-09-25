@@ -69,6 +69,8 @@ public class ImageViewController: UIViewController {
         ])
     }
     
+    // MARK: - Responding to user actions
+    
     @objc private func doneBarButtonTapped() {
         delegate?.imageViewControllerDidDismiss(self)
     }
