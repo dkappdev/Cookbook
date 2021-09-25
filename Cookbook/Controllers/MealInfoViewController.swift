@@ -85,9 +85,13 @@ public class MealInfoViewController: UICollectionViewController {
     
     /// Creates collection view sections with meal information
     private func update() {
+        // Quick meal info
+        
         let quickInfoSection = BaseSectionViewModel(uniqueSectionName: "QuickInfoSection")
         models.append(quickInfoSection)
         quickInfoSection.items.append(QuickMealInfoItemViewModel(mealInfo: mealInfo))
+        
+        // Ingredients
         
         let ingredientsSection = BaseSectionViewModel(uniqueSectionName: "IngredientsSection")
         models.append(ingredientsSection)
@@ -96,6 +100,14 @@ public class MealInfoViewController: UICollectionViewController {
             ingredientsSection.items.append(IngredientAmountItemViewModel(ingredientAmount: ingredient))
         }
         
+        // Cooking instructions
+        
+        let cookingInstructionsSection = BaseSectionViewModel(uniqueSectionName: "CookingInstructionsSection")
+        models.append(cookingInstructionsSection)
+        cookingInstructionsSection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("cooking_instructions_section_name", comment: ""))
+        
+        
+        // Reloading data to show new sections
         collectionView.reloadData()
     }
     
@@ -127,6 +139,22 @@ public class MealInfoViewController: UICollectionViewController {
                 section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
                 section.interGroupSpacing = 16
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+            case 2:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
