@@ -33,6 +33,7 @@ public class IngredientAmountCell: UICollectionViewCell {
     public let ingredientAmountLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .subheadline)
+        label.numberOfLines = 2
         label.textColor = .secondaryLabel
         label.adjustsFontForContentSizeCategory = true
         label.isAccessibilityElement = false
