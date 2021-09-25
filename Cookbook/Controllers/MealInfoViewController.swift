@@ -91,7 +91,13 @@ public class MealInfoViewController: UICollectionViewController {
         
         let quickInfoSection = BaseSectionViewModel(uniqueSectionName: "QuickInfoSection")
         models.append(quickInfoSection)
-        quickInfoSection.items.append(QuickMealInfoItemViewModel(mealInfo: mealInfo))
+        let quickMealInfoItem = QuickMealInfoItemViewModel(mealInfo: mealInfo)
+        quickInfoSection.items.append(quickMealInfoItem)
+        quickMealInfoItem.setOpenImageAction { [weak self] image in
+            guard let self = self else { return }
+            self.openMealImage(image: image)
+        }
+        
         
         // Ingredients
         
@@ -217,12 +223,20 @@ public class MealInfoViewController: UICollectionViewController {
             UIApplication.shared.open(youtubeURL)
         }
     }
+    
+    private func openMealImage(image: UIImage) {
+        let imageViewController = ImageViewController(image: image)
+        imageViewController.delegate = self
+        imageViewController.modalPresentationStyle = .fullScreen
+        present(imageViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Image VC delegate
 
 extension MealInfoViewController: ImageViewControllerDelegate {
     public func imageViewControllerDidDismiss(_ imageViewController: ImageViewController) {
+        // Dismiss image VC that was presented modally
         self.dismiss(animated: true, completion: nil)
     }
 }
