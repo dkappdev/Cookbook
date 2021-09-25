@@ -201,15 +201,16 @@ public class QuickMealInfoCell: UICollectionViewCell {
     }
     
     // MARK: - Gesture recognizers
+    
+    public func addImageTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        self.tapGestureRecognizer = tapGestureRecognizer
+        mealImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
     public func removeCustomGestureRecognizer() {
         if let tapGestureRecognizer = tapGestureRecognizer {
             mealImageView.removeGestureRecognizer(tapGestureRecognizer)
         }
         tapGestureRecognizer = nil
-    }
-    
-    public func addImageTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
-        self.tapGestureRecognizer = tapGestureRecognizer
-        mealImageView.addGestureRecognizer(tapGestureRecognizer)
     }
 }
