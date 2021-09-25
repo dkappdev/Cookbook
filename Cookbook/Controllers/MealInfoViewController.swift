@@ -218,3 +218,11 @@ public class MealInfoViewController: UICollectionViewController {
         }
     }
 }
+
+// MARK: - Image VC delegate
+
+extension MealInfoViewController: ImageViewControllerDelegate {
+    public func imageViewControllerDidDismiss(_ imageViewController: ImageViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
