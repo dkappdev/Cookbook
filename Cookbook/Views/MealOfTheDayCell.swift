@@ -76,7 +76,6 @@ public class MealOfTheDayCell: UICollectionViewCell {
         
         isAccessibilityElement = true
         
-        layer.shadowRadius = 12
         layer.cornerRadius = 12
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.3

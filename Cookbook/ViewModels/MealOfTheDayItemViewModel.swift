@@ -41,6 +41,9 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         // Remembering most recent cell
         mostRecentCell = cell
         
+        // Removing shadow for stub cell
+        cell.layer.shadowRadius = 0
+        
         // Setting up labels and image view
         cell.mealNameLabel.text = mealInfo.mealName
         cell.mealAreaLabel.text = mealInfo.areaInfo.prettyString
@@ -48,6 +51,7 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
         
         if let image = image {
             cell.mealImageView.image = image
+            cell.layer.shadowRadius = 12
         }
         
         // Setting up accessibility information
@@ -66,6 +70,7 @@ public class MealOfTheDayItemViewModel: BaseItemViewModel {
                     if let mostRecentCell = self.mostRecentCell,
                        collectionView.indexPath(for: mostRecentCell) == indexPath {
                         mostRecentCell.mealImageView.image = image
+                        mostRecentCell.layer.shadowRadius = 12
                     }
                 }
                 self.image = image
