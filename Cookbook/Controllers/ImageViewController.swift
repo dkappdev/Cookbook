@@ -16,9 +16,11 @@ public class ImageViewController: UIViewController {
     
     // MARK: - Views
     
-    private let doneButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBarButtonTapped))
-        button.tintColor = .white
+    private let doneButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(NSLocalizedString("done_bar_button_title", comment: ""), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -29,6 +31,7 @@ public class ImageViewController: UIViewController {
         imageView.clipsToBounds = true
         return imageView
     }()
+
     
     // MARK: - Properties
     
@@ -39,7 +42,7 @@ public class ImageViewController: UIViewController {
     
     /// Creates a new image view controller that displays specified image
     /// - Parameter image: image do display
-    public init(with image: UIImage) {
+    public init(image: UIImage) {
         self.image = image
         super.init(nibName: nil, bundle: nil)
     }
@@ -50,11 +53,15 @@ public class ImageViewController: UIViewController {
     
     // MARK: - View lifecycle
     
+    /// Sets proper status bar color for light mode
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     public override func viewDidLoad() {
         view.backgroundColor = .black
         
-        navigationItem.rightBarButtonItem = doneButton
-        navigationItem.rightBarButtonItem?.tintColor = .white
+        // Image view
         
         imageView.image = image
         
@@ -67,11 +74,35 @@ public class ImageViewController: UIViewController {
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+        // 'Done' button
+        
+        let buttonBackground = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterialDark))
+        view.addSubview(buttonBackground)
+        buttonBackground.translatesAutoresizingMaskIntoConstraints = false
+        buttonBackground.clipsToBounds = true
+        
+        buttonBackground.layer.cornerRadius = 16
+        
+        NSLayoutConstraint.activate([
+            buttonBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            buttonBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8)
+        ])
+        
+        buttonBackground.contentView.addSubview(doneButton)
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            doneButton.leadingAnchor.constraint(equalTo: buttonBackground.leadingAnchor, constant: 16),
+            doneButton.trailingAnchor.constraint(equalTo: buttonBackground.trailingAnchor, constant: -16),
+            doneButton.topAnchor.constraint(equalTo: buttonBackground.topAnchor, constant: 8),
+            doneButton.bottomAnchor.constraint(equalTo: buttonBackground.bottomAnchor, constant: -8)
+        ])
     }
     
     // MARK: - Responding to user actions
     
-    @objc private func doneBarButtonTapped() {
+    @objc private func doneButtonTapped() {
         delegate?.imageViewControllerDidDismiss(self)
     }
 }
