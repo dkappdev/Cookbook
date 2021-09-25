@@ -22,6 +22,9 @@ public class IngredientAmountItemViewModel: BaseItemViewModel {
     /// Cell that most recently called `setup(_:in:at:)`. This property is used to properly set ingredient image after receiving it from network.
     private var mostRecentCell: IngredientAmountCell?
     
+    /// Action to perform when user taps on the ingredient image
+    private var openImageAction: ((UIImage) -> Void)? = nil
+    
     public let ingredientAmount: IngredientAmount
     
     // MARK: - Initializers
@@ -44,9 +47,14 @@ public class IngredientAmountItemViewModel: BaseItemViewModel {
         cell.ingredientNameLabel.text = ingredientAmount.name
         cell.ingredientAmountLabel.text = ingredientAmount.amount
         
+        // Removing old gesture recognizer since cell might have been reused
+        cell.removeImageTapGestureRecognizer()
+        
         if let image = image {
             cell.ingredientImageView.image = image
             cell.ingredientImageView.backgroundColor = .white
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openImage(gestureRecognizer:)))
+            cell.addImageTapGestureRecognizer(tapGestureRecognizer)
         } else {
             cell.ingredientImageView.image = nil
             cell.ingredientImageView.backgroundColor = .systemGray4
@@ -69,6 +77,8 @@ public class IngredientAmountItemViewModel: BaseItemViewModel {
                        collectionView.indexPath(for: mostRecentCell) == indexPath {
                         mostRecentCell.ingredientImageView.image = image
                         mostRecentCell.ingredientImageView.backgroundColor = .white
+                        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.openImage(gestureRecognizer:)))
+                        cell.addImageTapGestureRecognizer(tapGestureRecognizer)
                     }
                     
                 }
@@ -77,6 +87,15 @@ public class IngredientAmountItemViewModel: BaseItemViewModel {
                 print(error)
             }
         }
+    }
+    
+    public func setOpenImageAction(_ action: @escaping (UIImage) -> Void) {
+        openImageAction = action
+    }
+    
+    @objc private func openImage(gestureRecognizer: UITapGestureRecognizer) {
+        guard let image = image else { return }
+        openImageAction?(image)
     }
     
     public override func hash(into hasher: inout Hasher) {

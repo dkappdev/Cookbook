@@ -18,6 +18,7 @@ public class IngredientAmountCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.backgroundColor = .systemGray4
         imageView.isAccessibilityElement = false
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -39,6 +40,10 @@ public class IngredientAmountCell: UICollectionViewCell {
         label.isAccessibilityElement = false
         return label
     }()
+    
+    // MARK: - Instance properties
+    
+    public var tapGestureRecognizer: UITapGestureRecognizer?
     
     // MARK: - Static properties
     
@@ -122,5 +127,19 @@ public class IngredientAmountCell: UICollectionViewCell {
             ingredientImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
             ingredientImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
+    }
+    
+    // MARK: - Gesture recognizers
+    
+    public func addImageTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        self.tapGestureRecognizer = tapGestureRecognizer
+        ingredientImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    public func removeImageTapGestureRecognizer() {
+        if let tapGestureRecognizer = tapGestureRecognizer {
+            ingredientImageView.removeGestureRecognizer(tapGestureRecognizer)
+        }
+        tapGestureRecognizer = nil
     }
 }

@@ -105,7 +105,12 @@ public class MealInfoViewController: UICollectionViewController {
         models.append(ingredientsSection)
         ingredientsSection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("ingredients_section_name", comment: ""))
         for ingredient in mealInfo.ingredients {
-            ingredientsSection.items.append(IngredientAmountItemViewModel(ingredientAmount: ingredient))
+            let ingredientModel = IngredientAmountItemViewModel(ingredientAmount: ingredient)
+            ingredientsSection.items.append(ingredientModel)
+            ingredientModel.setOpenImageAction { [weak self] image in
+                guard let self = self else { return }
+                self.openMealImage(image: image)
+            }
         }
         
         // Cooking instructions

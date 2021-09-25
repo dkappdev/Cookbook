@@ -21,7 +21,7 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
     /// Cell that most recently called `setup(_:in:at:)`. This property is used to properly set category image after receiving it from network.
     private var mostRecentCell: QuickMealInfoCell?
     
-    /// Action to perform when users taps on the meal image
+    /// Action to perform when user taps on the meal image
     private var openImageAction: ((UIImage) -> Void)? = nil
     
     public let mealInfo: FullMealInfo
@@ -51,7 +51,7 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
         cell.mealAreaLabel.accessibilityLabel = mealInfo.areaInfo.name
         
         // Removing old gesture recognizer since cell might have been reused
-        cell.removeCustomGestureRecognizer()
+        cell.removeImageTapGestureRecognizer()
         
         if let image = image {
             cell.mealImageView.image = image

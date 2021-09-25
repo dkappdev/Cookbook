@@ -207,7 +207,7 @@ public class QuickMealInfoCell: UICollectionViewCell {
         mealImageView.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    public func removeCustomGestureRecognizer() {
+    public func removeImageTapGestureRecognizer() {
         if let tapGestureRecognizer = tapGestureRecognizer {
             mealImageView.removeGestureRecognizer(tapGestureRecognizer)
         }
