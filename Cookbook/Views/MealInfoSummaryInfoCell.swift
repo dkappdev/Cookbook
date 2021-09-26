@@ -64,7 +64,7 @@ public class MealInfoSummaryInfoCell: UICollectionViewCell {
     
     // MARK: - Static properties
     
-    public static let reuseIdentifier = "QuickMealInfo"
+    public static let reuseIdentifier = "MealInfoSummary"
     
     public static let imageSize: CGFloat = 120
     public static var textHeight: CGFloat {
