@@ -51,7 +51,7 @@ public class MealInfoViewController: UICollectionViewController {
         navigationItem.title = NSLocalizedString("recipe_title", comment: "")
         
         // Registering cells and supplementary views
-        collectionView.register(QuickMealInfoCell.self, forCellWithReuseIdentifier: QuickMealInfoCell.reuseIdentifier)
+        collectionView.register(MealInfoSummaryInfoCell.self, forCellWithReuseIdentifier: MealInfoSummaryInfoCell.reuseIdentifier)
         collectionView.register(IngredientAmountCell.self, forCellWithReuseIdentifier: IngredientAmountCell.reuseIdentifier)
         collectionView.register(CookingInstructionsCell.self, forCellWithReuseIdentifier: CookingInstructionsCell.reuseIdentifier)
         collectionView.register(NamedSectionHeader.self, forSupplementaryViewOfKind: NamedSectionHeader.elementKind, withReuseIdentifier: NamedSectionHeader.reuseIdentifier)
@@ -89,11 +89,11 @@ public class MealInfoViewController: UICollectionViewController {
     private func update() {
         // Quick meal info
         
-        let quickInfoSection = BaseSectionViewModel(uniqueSectionName: "QuickInfoSection")
-        models.append(quickInfoSection)
-        let quickMealInfoItem = QuickMealInfoItemViewModel(mealInfo: mealInfo)
-        quickInfoSection.items.append(quickMealInfoItem)
-        quickMealInfoItem.setOpenImageAction { [weak self] image in
+        let mealInfoSummarySection = BaseSectionViewModel(uniqueSectionName: "QuickInfoSection")
+        models.append(mealInfoSummarySection)
+        let mealInfoSummaryItem = MealInfoSummaryItemViewModel(mealInfo: mealInfo)
+        mealInfoSummarySection.items.append(mealInfoSummaryItem)
+        mealInfoSummaryItem.setOpenImageAction { [weak self] image in
             guard let self = self else { return }
             self.openMealImage(image: image)
         }
@@ -141,7 +141,7 @@ public class MealInfoViewController: UICollectionViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(max(QuickMealInfoCell.imageSize, QuickMealInfoCell.textHeight)))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(max(MealInfoSummaryInfoCell.imageSize, MealInfoSummaryInfoCell.textHeight)))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)

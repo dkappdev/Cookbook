@@ -1,5 +1,5 @@
 //
-//  QuickMealInfoCell.swift
+//  MealInfoSummaryInfoCell.swift
 //  Cookbook
 //
 //  Created by Daniil Kostitsin on 21.09.2021.
@@ -8,7 +8,7 @@
 import UIKit
 
 /// Collection view cell that displays meal's photo, name, origin, and category, along with an 'Add to Favorites' button
-public class QuickMealInfoCell: UICollectionViewCell {
+public class MealInfoSummaryInfoCell: UICollectionViewCell {
     
     // MARK: - Views
     

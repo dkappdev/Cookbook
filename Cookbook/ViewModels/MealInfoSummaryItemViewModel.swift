@@ -1,5 +1,5 @@
 //
-//  QuickMealInfoItemViewModel.swift
+//  MealInfoSummaryItemViewModel.swift
 //  Cookbook
 //
 //  Created by Daniil Kostitsin on 23.09.2021.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-public class QuickMealInfoItemViewModel: BaseItemViewModel {
+public class MealInfoSummaryItemViewModel: BaseItemViewModel {
     // MARK: - Properties
     
     public override var reuseIdentifier: String {
-        QuickMealInfoCell.reuseIdentifier
+        MealInfoSummaryInfoCell.reuseIdentifier
     }
     
     /// Cached version of downloaded image
@@ -19,7 +19,7 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
     /// Indicates whether or not an image has already been requested
     private var hasRequestedImage = false
     /// Cell that most recently called `setup(_:in:at:)`. This property is used to properly set category image after receiving it from network.
-    private var mostRecentCell: QuickMealInfoCell?
+    private var mostRecentCell: MealInfoSummaryInfoCell?
     
     /// Action to perform when user taps on the meal image
     private var openImageAction: ((UIImage) -> Void)? = nil
@@ -37,7 +37,7 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
     // MARK: - Setup
     
     public override func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath) {
-        guard let cell = cell as? QuickMealInfoCell else { return }
+        guard let cell = cell as? MealInfoSummaryInfoCell else { return }
         
         // Remembering most recent cell
         mostRecentCell = cell
@@ -96,6 +96,6 @@ public class QuickMealInfoItemViewModel: BaseItemViewModel {
     }
 }
 
-public func == (lhs: QuickMealInfoItemViewModel, rhs: QuickMealInfoItemViewModel) -> Bool {
+public func == (lhs: MealInfoSummaryItemViewModel, rhs: MealInfoSummaryItemViewModel) -> Bool {
     return lhs.mealInfo == rhs.mealInfo
 }
