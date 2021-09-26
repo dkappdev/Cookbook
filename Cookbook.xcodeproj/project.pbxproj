@@ -12,6 +12,7 @@
 		E2426BB326F0B6A3009246A5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB226F0B6A3009246A5 /* CategoryCell.swift */; };
 		E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */; };
 		E24DF5482700E7B600DFE742 /* ShortMealInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */; };
+		E24DF54A2700ED5100DFE742 /* ShortMealInfoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24DF5492700ED5100DFE742 /* ShortMealInfoItemViewModel.swift */; };
 		E258B90B26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */; };
 		E25B8B2A26EE7E6900B1EEA8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */; };
 		E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */; };
@@ -81,6 +82,7 @@
 		E2426BB226F0B6A3009246A5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewModel.swift; sourceTree = "<group>"; };
 		E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMealInfoCell.swift; sourceTree = "<group>"; };
+		E24DF5492700ED5100DFE742 /* ShortMealInfoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMealInfoItemViewModel.swift; sourceTree = "<group>"; };
 		E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoSummaryInfoCell.swift; sourceTree = "<group>"; };
 		E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeader.swift; sourceTree = "<group>"; };
@@ -167,9 +169,10 @@
 				E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */,
 				E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */,
 				E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */,
+				E22485E426FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift */,
 				E25B8B3326EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift */,
 				E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */,
-				E22485E426FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift */,
+				E24DF5492700ED5100DFE742 /* ShortMealInfoItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -225,9 +228,9 @@
 				E272E1EA26FEE5D100CE1F53 /* CookingInstructionsCell.swift */,
 				E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */,
 				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
+				E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */,
 				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
 				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
-				E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */,
 				E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */,
 			);
 			path = Views;
@@ -487,6 +490,7 @@
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2C923F426EBA4CA007A1BC3 /* RandomMealResponse.swift in Sources */,
 				E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */,
+				E24DF54A2700ED5100DFE742 /* ShortMealInfoItemViewModel.swift in Sources */,
 				E2C923EA26EB8623007A1BC3 /* ShortMealInfo.swift in Sources */,
 				E25B8B3826EFD4B000B1EEA8 /* BaseSectionViewModel.swift in Sources */,
 				E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */,
