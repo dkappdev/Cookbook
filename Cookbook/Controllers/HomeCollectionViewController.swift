@@ -255,6 +255,8 @@ public class HomeCollectionViewController: UICollectionViewController {
         return dataSource
     }
     
+    // MARK: - Responding to user actions
+    
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
