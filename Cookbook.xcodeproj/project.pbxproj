@@ -13,7 +13,6 @@
 		E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */; };
 		E258B90B26FA37E6005DB02A /* QuickMealInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */; };
 		E25B8B2A26EE7E6900B1EEA8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */; };
-		E25B8B2E26EF45F600B1EEA8 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */; };
 		E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */; };
 		E25B8B3226EF66C000B1EEA8 /* NamedSectionItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */; };
 		E25B8B3426EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B3326EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift */; };
@@ -82,7 +81,6 @@
 		E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewModel.swift; sourceTree = "<group>"; };
 		E258B90A26FA37E6005DB02A /* QuickMealInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMealInfoCell.swift; sourceTree = "<group>"; };
 		E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
-		E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeader.swift; sourceTree = "<group>"; };
 		E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionItemViewModel.swift; sourceTree = "<group>"; };
 		E25B8B3326EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfTheDayItemViewModel.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 				E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */,
 				E272E1EE26FF36D100CE1F53 /* ImageViewController.swift */,
 				E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */,
-				E25B8B2D26EF45F600B1EEA8 /* TestingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -489,7 +486,6 @@
 				E2C923EA26EB8623007A1BC3 /* ShortMealInfo.swift in Sources */,
 				E25B8B3826EFD4B000B1EEA8 /* BaseSectionViewModel.swift in Sources */,
 				E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */,
-				E25B8B2E26EF45F600B1EEA8 /* TestingViewController.swift in Sources */,
 				E22485E326FCE8BB00AD4954 /* UILabel+LabelHeight.swift in Sources */,
 				E2BF7FD326E92AFD00776BC2 /* APIRequest.swift in Sources */,
 				E2C923EE26EB890C007A1BC3 /* MealsByCategoryResponse.swift in Sources */,

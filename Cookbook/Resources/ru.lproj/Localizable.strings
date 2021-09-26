@@ -18,3 +18,5 @@
 "open_in_youtube_button_label" = "Открыть в YouTube";
 "cooking_instructions_section_name" = "Инструкция";
 "done_bar_button_title" = "Готово";
+"tab_bar_favorites_button_title" = "Избранное";
+"tab_bar_search_button_title" = "Поиск";

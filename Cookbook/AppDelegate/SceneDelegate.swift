@@ -36,14 +36,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         tabBarController.addChild(homeNavigationController)
         
-        // Testing
+        // Favorites
         
-        let testingViewController = TestingViewController()
-        testingViewController.tabBarItem.title = "Testing"
-        testingViewController.tabBarItem.image = UIImage(systemName: "hammer")
-        testingViewController.tabBarItem.selectedImage = UIImage(systemName: "hammer.fill")
-        tabBarController.addChild(testingViewController)
+        let favoritesViewController = UIViewController()
+        favoritesViewController.tabBarItem.title = NSLocalizedString("tab_bar_favorites_button_title", comment: "")
+        favoritesViewController.tabBarItem.image = UIImage(systemName: "heart")
+        favoritesViewController.tabBarItem.selectedImage = UIImage(systemName: "heart.fill")
+        tabBarController.addChild(favoritesViewController)
         
+        // Search
+        
+        let searchViewController = UIViewController()
+        searchViewController.tabBarItem.title = NSLocalizedString("tab_bar_search_button_title", comment: "")
+        searchViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        searchViewController.tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass")
+        tabBarController.addChild(searchViewController)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
