@@ -257,10 +257,13 @@ public class HomeCollectionViewController: UICollectionViewController {
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            guard let mealOfTheDayViewModel = models[indexPath.section].items[indexPath.section] as? MealOfTheDayItemViewModel else { return }
+            guard let mealOfTheDayViewModel = models[indexPath.section].items[indexPath.item] as? MealOfTheDayItemViewModel else { return }
             let mealInfoViewController = MealInfoViewController(mealInfo: mealOfTheDayViewModel.mealInfo)
             navigationController?.pushViewController(mealInfoViewController, animated: true)
-            break
+        case 1:
+            guard let categoryViewModel = models[indexPath.section].items[indexPath.item] as? CategoryItemViewModel else { return }
+            let mealsForCategoryViewController = MealsForCategoryCollectionViewController(categoryName: categoryViewModel.categoryInfo.categoryName)
+            navigationController?.pushViewController(mealsForCategoryViewController, animated: true)
         default:
             break
         }
