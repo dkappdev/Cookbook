@@ -51,8 +51,6 @@ public class MealsForCategoryCollectionViewController: UICollectionViewControlle
         // Creating data source
         dataSource = createDataSource()
         
-        #warning("Consider disabling prefetching here, too")
-        
         // Triggering update
         
         update()
