@@ -126,9 +126,9 @@ public class HomeCollectionViewController: UICollectionViewController {
             case .success(let areaListResponse):
                 var areas = areaListResponse.areaInfos.sorted { $0.name < $1.name }
                 
-                if let unknownIndex = areas.firstIndex(where: { $0.name == "Unknown" }) {
-                    let unknown = areas.remove(at: unknownIndex)
-                    areas.append(unknown)
+                if let otherIndex = areas.firstIndex(where: { $0.name == "Other" }) {
+                    let other = areas.remove(at: otherIndex)
+                    areas.append(other)
                 }
                 
                 for areaInfo in areas {
