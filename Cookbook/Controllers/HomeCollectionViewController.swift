@@ -229,11 +229,8 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     /// Creates diffable data source for collection view
     private func createDataSource() -> DataSourceType {
-        let dataSource = DataSourceType(collectionView: collectionView) { [weak self] collectionView, indexPath, model in
-            guard let self = self else { return nil }
-            
-            let sectionModel = self.models[indexPath.section]
-            let model = sectionModel.items[indexPath.item]
+        let dataSource = DataSourceType(collectionView: collectionView) { collectionView, indexPath, model in
+
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIdentifier, for: indexPath)
             
             model.setup(cell, in: collectionView, at: indexPath)
