@@ -47,7 +47,7 @@ public class HomeCollectionViewController: UICollectionViewController {
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseIdentifier)
         collectionView.register(AreaCell.self, forCellWithReuseIdentifier: AreaCell.reuseIdentifier)
         
-        // Creating layout and data source
+        // Creating data source
         dataSource = createDataSource()
         
         // Having prefetching enabled and using orthogonal scrolling causes collection view to dequeue cells too many times
