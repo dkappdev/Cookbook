@@ -43,7 +43,7 @@ public class MealsForCategoryCollectionViewController: UICollectionViewControlle
         
         // Configuring navigation controller title
         // We're not using localized string here because category names are not localized
-        navigationItem.title = "\(categoryName) Meals"
+        navigationItem.title = "\(categoryName) Dishes"
         navigationItem.largeTitleDisplayMode = .never
         
         collectionView.register(ShortMealInfoCell.self, forCellWithReuseIdentifier: ShortMealInfoCell.reuseIdentifier)
