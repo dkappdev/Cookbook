@@ -144,4 +144,10 @@ public class MealsForCategoryCollectionViewController: UICollectionViewControlle
     }
     
     // MARK: - Responding to user actions
+    
+    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let mealOfTheDayViewModel = models[indexPath.section].items[indexPath.item] as? ShortMealInfoItemViewModel else { return }
+        let mealInfoViewController = MealInfoViewController(mealID: mealOfTheDayViewModel.mealInfo.mealID)
+        navigationController?.pushViewController(mealInfoViewController, animated: true)
+    }
 }
