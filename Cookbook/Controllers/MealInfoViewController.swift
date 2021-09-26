@@ -68,12 +68,14 @@ public class MealInfoViewController: UICollectionViewController {
                     print(error)
                 }
                 
-                if self.mealInfo == nil {
-                    // If we were not able to get meal info, remove this controller from stack
-                    self.navigationController?.popViewController(animated: true)
-                } else {
-                    // Otherwise, update collection view
-                    self.update()
+                DispatchQueue.main.async {
+                    if self.mealInfo == nil {
+                        // If we were not able to get meal info, remove this controller from stack
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        // Otherwise, update collection view
+                        self.update()
+                    }
                 }
             }
         }
@@ -97,7 +99,6 @@ public class MealInfoViewController: UICollectionViewController {
             guard let self = self else { return }
             self.openMealImage(image: image)
         }
-        
         
         // Ingredients
         
