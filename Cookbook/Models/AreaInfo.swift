@@ -60,9 +60,13 @@ public struct AreaInfo {
     /// Creates area info with the specified area name
     /// - Parameter name: area name
     public init(name: String) {
-        self.name = name
-        
         let lowercaseName = name.lowercased()
+        
+        if lowercaseName == "unknown" {
+            self.name = "Other"
+        } else {
+            self.name = name
+        }
         
         if let flag = Self.nameToFlagMap[lowercaseName] {
             self.flagEmoji = flag
