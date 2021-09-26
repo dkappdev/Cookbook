@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Collection view cell that displays cooking instructions and a button to open recipe in YouTube
 public class CookingInstructionsCell: UICollectionViewCell {
     // MARK: - Views
     
