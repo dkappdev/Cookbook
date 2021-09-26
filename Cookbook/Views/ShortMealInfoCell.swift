@@ -24,7 +24,8 @@ public class ShortMealInfoCell: UICollectionViewCell {
         label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.isAccessibilityElement = false
-        label.numberOfLines = 2
+        label.numberOfLines = 3
+        label.textAlignment = .center
         return label
     }()
     
@@ -116,15 +117,15 @@ public class ShortMealInfoCell: UICollectionViewCell {
         mealNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mealNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            mealNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 8),
-            mealNameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            mealNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            mealNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
+            mealNameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -12),
         ])
         
         // Finishing bottom blur effect
         
         NSLayoutConstraint.activate([
-            bottomEffect.topAnchor.constraint(equalTo: mealNameLabel.topAnchor, constant: -8)
+            bottomEffect.topAnchor.constraint(equalTo: mealNameLabel.topAnchor, constant: -12)
         ])
     }
 }

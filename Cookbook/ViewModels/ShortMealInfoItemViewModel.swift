@@ -42,6 +42,8 @@ public class ShortMealInfoItemViewModel: BaseItemViewModel {
         
         // Setting up cell's label and image view
         
+        cell.mealNameLabel.text = mealInfo.mealName
+        
         if let image = image {
             cell.mealImageView.image = image
         }
