@@ -11,6 +11,7 @@
 		E22485E526FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22485E426FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift */; };
 		E2426BB326F0B6A3009246A5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB226F0B6A3009246A5 /* CategoryCell.swift */; };
 		E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */; };
+		E24DF5482700E7B600DFE742 /* ShortMealInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */; };
 		E258B90B26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */; };
 		E25B8B2A26EE7E6900B1EEA8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */; };
 		E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */; };
@@ -79,6 +80,7 @@
 		E22485E426FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoSummaryItemViewModel.swift; sourceTree = "<group>"; };
 		E2426BB226F0B6A3009246A5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewModel.swift; sourceTree = "<group>"; };
+		E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMealInfoCell.swift; sourceTree = "<group>"; };
 		E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoSummaryInfoCell.swift; sourceTree = "<group>"; };
 		E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeader.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
 				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
 				E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */,
+				E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				E2C923FC26EBB7EF007A1BC3 /* IngredientImageRequest.swift in Sources */,
 				E2846E9626F8977200233629 /* AreaItemViewModel.swift in Sources */,
 				E2C923E226EB7F4B007A1BC3 /* AreaListRequest.swift in Sources */,
+				E24DF5482700E7B600DFE742 /* ShortMealInfoCell.swift in Sources */,
 				E2D1809726F90AC200E3FD90 /* MealInfoViewController.swift in Sources */,
 				E2C923E426EB8212007A1BC3 /* IngredientInfo.swift in Sources */,
 				E2BF7FF726EA719100776BC2 /* MealByIDResponse.swift in Sources */,
