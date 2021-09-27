@@ -52,6 +52,7 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
     
     /// Updates model data with new data received from network
     private func update() {
+        // Saving old view models that contain cached images
         var oldModels: [ShortMealInfoItemViewModel] = []
         
         if !models.isEmpty,
@@ -67,8 +68,10 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
         
         for meal in UserSettings.shared.favoriteMeals {
             if let index = oldModels.firstIndex(where: { $0.mealInfo.mealID == meal.mealID }) {
+                // If we already had a view model containing given meal ID, we append an existing instance to items array to keep the cached images
                 mealsSection.items.append(oldModels[index])
             } else {
+                // Otherwise we create a new view model
                 mealsSection.items.append(ShortMealInfoItemViewModel(mealInfo: ShortMealInfo(mealID: meal.mealID, mealName: meal.mealName, imageURL: meal.imageURL)))
             }
         }
