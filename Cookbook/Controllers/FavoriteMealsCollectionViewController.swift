@@ -10,15 +10,10 @@ import UIKit
 /// View controller responsible for displaying user's favorite meals
 public class FavoriteMealsCollectionViewController: UICollectionViewController {
     
-    public typealias DataSourceType = UICollectionViewDiffableDataSource<BaseSectionViewModel, BaseItemViewModel>
-    
     // MARK: - Properties
     
     /// Section view models
     private var models: [BaseSectionViewModel] = []
-    
-    /// Collection view diffable data source
-    private var dataSource: DataSourceType!
     
     // MARK: - Initializers
     
@@ -44,11 +39,7 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
         
         collectionView.register(ShortMealInfoCell.self, forCellWithReuseIdentifier: ShortMealInfoCell.reuseIdentifier)
         
-        // Creating data source
-        dataSource = createDataSource()
-        
         // Triggering update
-        
         update()
     }
     
@@ -70,20 +61,7 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
             mealsSection.items.append(ShortMealInfoItemViewModel(mealInfo: ShortMealInfo(mealID: meal.mealID, mealName: meal.mealName, imageURL: meal.imageURL)))
         }
 
-        updateCollectionView()
-    }
-    
-    /// Updates collection view data source
-    private func updateCollectionView() {
-        var snapshot = NSDiffableDataSourceSnapshot<BaseSectionViewModel, BaseItemViewModel>()
-        
-        for model in models {
-            snapshot.appendSections([model])
-            snapshot.appendItems(model.items, toSection: model)
-            snapshot.reloadItems(model.items)
-        }
-        
-        dataSource.apply(snapshot, animatingDifferences: true)
+        collectionView.reloadData()
     }
     
     // MARK: - Collection view layout
@@ -107,31 +85,30 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
     }
     
     // MARK: - Collection view data source
+
+    public override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        models.count
+    }
     
-    /// Creates diffable data source
-    /// - Returns: data source
-    private func createDataSource() -> DataSourceType {
-        let dataSource = DataSourceType(collectionView: collectionView) { collectionView, indexPath, model in
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIdentifier, for: indexPath)
-            
-            model.setup(cell, in: collectionView, at: indexPath)
-            
-            return cell
-        }
+    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        models[section].items.count
+    }
+    
+    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let model = models[indexPath.section].items[indexPath.item]
         
-        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
-            guard let self = self else { return nil }
-            
-            guard let model = self.models[indexPath.section].model(forElementOfKind: kind) else { return nil }
-            
-            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: model.reuseIdentifier, for: indexPath)
-            model.setup(view, in: collectionView, at: indexPath)
-            
-            return view
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIdentifier, for: indexPath)
         
-        return dataSource
+        model.setup(cell, in: collectionView, at: indexPath)
+        
+        return cell
+    }
+    
+    public override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let model = models[indexPath.section].model(forElementOfKind: kind) else { return UICollectionReusableView() }
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: model.reuseIdentifier, for: indexPath)
+        model.setup(view, in: collectionView, at: indexPath)
+        return view
     }
     
     // MARK: - Responding to user actions
