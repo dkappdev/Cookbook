@@ -1,21 +1,21 @@
 //
-//  MealsForCategoryCollectionViewController.swift
+//  MealsForAreaCollectionViewController.swift
 //  Cookbook
 //
-//  Created by Daniil Kostitsin on 26.09.2021.
+//  Created by Daniil Kostitsin on 27.09.2021.
 //
 
 import UIKit
 
-/// View controller responsible for displaying all meals in a given category
-public class MealsForCategoryCollectionViewController: UICollectionViewController {
+/// View controller responsible for displaying all meals from a given area
+public class MealsForAreaCollectionViewController: UICollectionViewController {
     
     public typealias DataSourceType = UICollectionViewDiffableDataSource<BaseSectionViewModel, BaseItemViewModel>
     
     // MARK: - Properties
     
-    /// Category of meals this view controller should display
-    private var categoryName: String
+    /// Area of meals this view controller should display
+    private var areaName: String
     
     /// Section view models
     private var models: [BaseSectionViewModel] = []
@@ -25,8 +25,8 @@ public class MealsForCategoryCollectionViewController: UICollectionViewControlle
     
     // MARK: - Initializers
     
-    public init(categoryName: String) {
-        self.categoryName = categoryName
+    public init(areaName: String) {
+        self.areaName = areaName
         super.init(collectionViewLayout: Self.createLayout())
     }
     
@@ -43,8 +43,8 @@ public class MealsForCategoryCollectionViewController: UICollectionViewControlle
         collectionView.backgroundColor = .systemBackground
         
         // Configuring navigation controller title
-        // We're not using localized string here because category names are not localized
-        navigationItem.title = "\(categoryName) Dishes"
+        // We're not using localized string here because area names are not localized
+        navigationItem.title = "\(areaName) Meals"
         navigationItem.largeTitleDisplayMode = .never
         
         collectionView.register(ShortMealInfoCell.self, forCellWithReuseIdentifier: ShortMealInfoCell.reuseIdentifier)
@@ -64,10 +64,10 @@ public class MealsForCategoryCollectionViewController: UICollectionViewControlle
         let mealsSection = BaseSectionViewModel(uniqueSectionName: "MealsSection")
         models.append(mealsSection)
         
-        MealsByCategoryRequest(category: categoryName).send { result in
+        MealsByAreaRequest(areaName: areaName).send { result in
             switch result {
-            case .success(let mealsByCategoryResponse):
-                guard let meals = mealsByCategoryResponse.mealInfos else { break }
+            case .success(let mealsByAreaResponse):
+                guard let meals = mealsByAreaResponse.mealInfos else { break }
                 mealsSection.items.removeAll()
                 
                 for meal in meals {

@@ -61,13 +61,17 @@ public class AreaCell: UICollectionViewCell {
         
         isAccessibilityElement = true
         
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .systemGray4
+        self.selectedBackgroundView = backgroundView
+        
         addSubview(flagLabel)
         flagLabel.translatesAutoresizingMaskIntoConstraints = false
         
         flagLabel.setContentHuggingPriority(UILayoutPriority(751), for: .horizontal)
         
         NSLayoutConstraint.activate([
-            flagLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            flagLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             flagLabel.topAnchor.constraint(equalTo: topAnchor),
             flagLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
@@ -80,7 +84,7 @@ public class AreaCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: flagLabel.trailingAnchor, constant: 8),
             nameLabel.centerYAnchor.constraint(equalTo: flagLabel.centerYAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
         
         addSubview(lineView)

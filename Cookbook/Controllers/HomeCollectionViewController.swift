@@ -211,10 +211,11 @@ public class HomeCollectionViewController: UICollectionViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 8, trailing: 16)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 8, trailing: 0)
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
                 
                 section.boundarySupplementaryItems = [header]
                 
@@ -264,6 +265,10 @@ public class HomeCollectionViewController: UICollectionViewController {
             guard let categoryViewModel = models[indexPath.section].items[indexPath.item] as? CategoryItemViewModel else { return }
             let mealsForCategoryViewController = MealsForCategoryCollectionViewController(categoryName: categoryViewModel.categoryInfo.categoryName)
             navigationController?.pushViewController(mealsForCategoryViewController, animated: true)
+        case 2:
+            guard let areaViewModel = models[indexPath.section].items[indexPath.item] as? AreaItemViewModel else { return }
+            let mealsForAreaViewController = MealsForAreaCollectionViewController(areaName: areaViewModel.areaInfo.name)
+            navigationController?.pushViewController(mealsForAreaViewController, animated: true)
         default:
             break
         }

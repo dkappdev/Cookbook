@@ -13,7 +13,7 @@ public struct MealsByAreaRequest: APIRequest {
     
     public var path: String { "/api/json/v1/1/filter.php" }
     
-    public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "a", value: areaName)] }
+    public var queryItems: [URLQueryItem]? { [URLQueryItem(name: "a", value: areaName != "Other" ? areaName : "Unknown")] }
     
     public var areaName: String
 }
