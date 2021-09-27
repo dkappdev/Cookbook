@@ -32,6 +32,8 @@
 		E2846E9826F897BA00233629 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2846E9726F897BA00233629 /* AreaCell.swift */; };
 		E2AF701D2700F0460018384F /* MealsForCategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF701C2700F0460018384F /* MealsForCategoryCollectionViewController.swift */; };
 		E2AF701F2701D9950018384F /* MealsForAreaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF701E2701D9950018384F /* MealsForAreaCollectionViewController.swift */; };
+		E2AF70212701E4070018384F /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF70202701E4070018384F /* UserSettings.swift */; };
+		E2AF70232702234B0018384F /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF70222702234B0018384F /* CodableTests.swift */; };
 		E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB726E9109400776BC2 /* AppDelegate.swift */; };
 		E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */; };
 		E2BF7FC126E9109500776BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FC026E9109500776BC2 /* Assets.xcassets */; };
@@ -106,6 +108,8 @@
 		E2846E9726F897BA00233629 /* AreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCell.swift; sourceTree = "<group>"; };
 		E2AF701C2700F0460018384F /* MealsForCategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForCategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		E2AF701E2701D9950018384F /* MealsForAreaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForAreaCollectionViewController.swift; sourceTree = "<group>"; };
+		E2AF70202701E4070018384F /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		E2AF70222702234B0018384F /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
 		E2BF7FB426E9109400776BC2 /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BF7FB726E9109400776BC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				E2C923EB26EB87C0007A1BC3 /* IngredientAmount.swift */,
 				E2C923E326EB8212007A1BC3 /* IngredientInfo.swift */,
 				E2C923E926EB8623007A1BC3 /* ShortMealInfo.swift */,
+				E2AF70202701E4070018384F /* UserSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				E2BF7FEC26EA4FB100776BC2 /* Info.plist */,
 				E2BF7FF226EA553A00776BC2 /* APIRequestTests.swift */,
 				E2BF7FEA26EA4FB100776BC2 /* ServerResponseDecodingTests.swift */,
+				E2AF70222702234B0018384F /* CodableTests.swift */,
 			);
 			path = CookbookTests;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 				E2AF701F2701D9950018384F /* MealsForAreaCollectionViewController.swift in Sources */,
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2C923F426EBA4CA007A1BC3 /* RandomMealResponse.swift in Sources */,
+				E2AF70212701E4070018384F /* UserSettings.swift in Sources */,
 				E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */,
 				E24DF54A2700ED5100DFE742 /* ShortMealInfoItemViewModel.swift in Sources */,
 				E2C923EA26EB8623007A1BC3 /* ShortMealInfo.swift in Sources */,
@@ -517,6 +524,7 @@
 			files = (
 				E2BF7FF326EA553A00776BC2 /* APIRequestTests.swift in Sources */,
 				E2BF7FEB26EA4FB100776BC2 /* ServerResponseDecodingTests.swift in Sources */,
+				E2AF70232702234B0018384F /* CodableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

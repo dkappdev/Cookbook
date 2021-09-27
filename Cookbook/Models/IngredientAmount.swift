@@ -12,3 +12,5 @@ public struct IngredientAmount {
     public var name: String
     public var amount: String
 }
+
+extension IngredientAmount: Equatable { }

@@ -74,6 +74,30 @@ extension FullMealInfo: Decodable {
     }
 }
 
+extension FullMealInfo: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: AnyCodingKey.self)
+        
+        try container.encode(mealID, forKey: AnyCodingKey(stringValue: "idMeal"))
+        try container.encode(mealName, forKey: AnyCodingKey(stringValue: "strMeal"))
+        try container.encode(category, forKey: AnyCodingKey(stringValue: "strCategory"))
+        try container.encode(areaInfo.name, forKey: AnyCodingKey(stringValue: "strArea"))
+        try container.encode(cookingInstructions, forKey: AnyCodingKey(stringValue: "strInstructions"))
+        try container.encode(imageURL, forKey: AnyCodingKey(stringValue: "strMealThumb"))
+        try container.encode(youtubeURL, forKey: AnyCodingKey(stringValue: "strYoutube"))
+        
+        for i in 0..<ingredients.count {
+            try container.encode(ingredients[i].name, forKey: AnyCodingKey(stringValue: "strIngredient\(i + 1)"))
+            try container.encode(ingredients[i].amount, forKey: AnyCodingKey(stringValue: "strMeasure\(i + 1)"))
+        }
+        
+        for i in ingredients.count..<20 {
+            try container.encode("", forKey: AnyCodingKey(stringValue: "strIngredient\(i + 1)"))
+            try container.encode("", forKey: AnyCodingKey(stringValue: "strMeasure\(i + 1)"))
+        }
+    }
+}
+
 extension FullMealInfo: Hashable {
     public static func == (lhs: FullMealInfo, rhs: FullMealInfo) -> Bool {
         return lhs.mealID == rhs.mealID
