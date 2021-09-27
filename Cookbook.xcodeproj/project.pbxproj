@@ -34,6 +34,7 @@
 		E2AF701F2701D9950018384F /* MealsForAreaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF701E2701D9950018384F /* MealsForAreaCollectionViewController.swift */; };
 		E2AF70212701E4070018384F /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF70202701E4070018384F /* UserSettings.swift */; };
 		E2AF70232702234B0018384F /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF70222702234B0018384F /* CodableTests.swift */; };
+		E2AF7025270227590018384F /* FavoriteMealsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF7024270227590018384F /* FavoriteMealsCollectionViewController.swift */; };
 		E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB726E9109400776BC2 /* AppDelegate.swift */; };
 		E2BF7FBA26E9109400776BC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */; };
 		E2BF7FC126E9109500776BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BF7FC026E9109500776BC2 /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		E2AF701E2701D9950018384F /* MealsForAreaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForAreaCollectionViewController.swift; sourceTree = "<group>"; };
 		E2AF70202701E4070018384F /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		E2AF70222702234B0018384F /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
+		E2AF7024270227590018384F /* FavoriteMealsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMealsCollectionViewController.swift; sourceTree = "<group>"; };
 		E2BF7FB426E9109400776BC2 /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BF7FB726E9109400776BC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2BF7FB926E9109400776BC2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */,
 				E2AF701C2700F0460018384F /* MealsForCategoryCollectionViewController.swift */,
 				E2AF701E2701D9950018384F /* MealsForAreaCollectionViewController.swift */,
+				E2AF7024270227590018384F /* FavoriteMealsCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				E2AF701F2701D9950018384F /* MealsForAreaCollectionViewController.swift in Sources */,
 				E2BF7FB826E9109400776BC2 /* AppDelegate.swift in Sources */,
 				E2C923F426EBA4CA007A1BC3 /* RandomMealResponse.swift in Sources */,
+				E2AF7025270227590018384F /* FavoriteMealsCollectionViewController.swift in Sources */,
 				E2AF70212701E4070018384F /* UserSettings.swift in Sources */,
 				E2C923DE26EB6318007A1BC3 /* AreaListResponse.swift in Sources */,
 				E24DF54A2700ED5100DFE742 /* ShortMealInfoItemViewModel.swift in Sources */,

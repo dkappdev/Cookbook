@@ -38,11 +38,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Favorites
         
-        let favoritesViewController = UIViewController()
-        favoritesViewController.tabBarItem.title = NSLocalizedString("tab_bar_favorites_button_title", comment: "")
-        favoritesViewController.tabBarItem.image = UIImage(systemName: "heart")
-        favoritesViewController.tabBarItem.selectedImage = UIImage(systemName: "heart.fill")
-        tabBarController.addChild(favoritesViewController)
+        let favoritesCollectionViewController = FavoriteMealsCollectionViewController()
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesCollectionViewController)
+        
+        favoritesNavigationController.tabBarItem.title = NSLocalizedString("tab_bar_favorites_button_title", comment: "")
+        favoritesNavigationController.tabBarItem.image = UIImage(systemName: "heart")
+        favoritesNavigationController.tabBarItem.selectedImage = UIImage(systemName: "heart.fill")
+        
+        favoritesNavigationController.navigationBar.prefersLargeTitles = true
+        
+        tabBarController.addChild(favoritesNavigationController)
         
         // Search
         
