@@ -85,6 +85,11 @@ public class MealInfoViewController: UICollectionViewController {
         collectionView.isPrefetchingEnabled = false
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadItems(at: [IndexPath(item: 0, section: 0)])
+    }
+    
     // MARK: - Updates
     
     /// Creates collection view sections with meal information
@@ -100,6 +105,10 @@ public class MealInfoViewController: UICollectionViewController {
         mealInfoSummaryItem.setOpenImageAction { [weak self] image in
             guard let self = self else { return }
             self.openMealImage(image: image)
+        }
+        mealInfoSummaryItem.setToggleFavoriteAction { [weak self] mealInfo in
+            guard let self = self else { return }
+            self.toggleFavorite(meal: mealInfo)
         }
         
         // Ingredients
@@ -237,6 +246,10 @@ public class MealInfoViewController: UICollectionViewController {
         imageViewController.delegate = self
         imageViewController.modalPresentationStyle = .fullScreen
         present(imageViewController, animated: true, completion: nil)
+    }
+    
+    private func toggleFavorite(meal: FullMealInfo) {
+        UserSettings.shared.toggleFavorite(for: meal)
     }
 }
 

@@ -79,5 +79,5 @@ public class ShortMealInfoItemViewModel: BaseItemViewModel {
 }
 
 public func == (lhs: ShortMealInfoItemViewModel, rhs: ShortMealInfoItemViewModel) -> Bool {
-    lhs.mealInfo.mealID == rhs.mealInfo.mealID
+    return lhs.mealInfo.mealID == rhs.mealInfo.mealID
 }

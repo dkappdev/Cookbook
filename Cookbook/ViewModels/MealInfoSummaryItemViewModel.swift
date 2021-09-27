@@ -24,6 +24,9 @@ public class MealInfoSummaryItemViewModel: BaseItemViewModel {
     /// Action to perform when user taps on the meal image
     private var openImageAction: ((UIImage) -> Void)? = nil
     
+    /// Action to perform when user taps on the 'toggle favorite' button
+    private var toggleFavoriteAction: ((FullMealInfo) -> Void)? = nil
+    
     public let mealInfo: FullMealInfo
     
     // MARK: - Initializers
@@ -39,6 +42,8 @@ public class MealInfoSummaryItemViewModel: BaseItemViewModel {
     public override func setup(_ cell: UICollectionReusableView, in collectionView: UICollectionView, at indexPath: IndexPath) {
         guard let cell = cell as? MealInfoSummaryInfoCell else { return }
         
+        cell.updateAddToFavoritesButton(isAddedToFavorites: UserSettings.shared.favoriteMeals.contains(mealInfo))
+        
         // Remembering most recent cell
         mostRecentCell = cell
         
@@ -49,15 +54,18 @@ public class MealInfoSummaryItemViewModel: BaseItemViewModel {
         
         // Setting up accessibility information
         cell.mealAreaLabel.accessibilityLabel = mealInfo.areaInfo.name
+        cell.addToFavoritesButton.accessibilityLabel = NSLocalizedString("remove_from_favorites_button_accessibility_label", comment: "")
         
-        // Removing old gesture recognizer since cell might have been reused
+        // Removing old gesture recognizer and button target since cell might have been reused
         cell.removeImageTapGestureRecognizer()
+        cell.addToFavoritesButton.removeTarget(nil, action: nil, for: .allEvents)
         
         if let image = image {
             cell.mealImageView.image = image
             // If there is an image, configure the tap gesture
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openImage(gestureRecognizer:)))
             cell.addImageTapGestureRecognizer(tapGestureRecognizer)
+            cell.addToFavoritesButton.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)
         }
         
         // Requesting image only if we haven't requested it before
@@ -73,6 +81,7 @@ public class MealInfoSummaryItemViewModel: BaseItemViewModel {
                         mostRecentCell.mealImageView.image = image
                         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.openImage(gestureRecognizer:)))
                         mostRecentCell.addImageTapGestureRecognizer(tapGestureRecognizer)
+                        mostRecentCell.addToFavoritesButton.addTarget(self, action: #selector(self.toggleFavorite), for: .touchUpInside)
                     }
                 }
                 self.image = image
@@ -86,9 +95,18 @@ public class MealInfoSummaryItemViewModel: BaseItemViewModel {
         openImageAction = action
     }
     
+    public func setToggleFavoriteAction(_ action: @escaping (FullMealInfo) -> Void) {
+        toggleFavoriteAction = action
+    }
+    
     @objc private func openImage(gestureRecognizer: UITapGestureRecognizer) {
         guard let image = image else { return }
         openImageAction?(image)
+    }
+    
+    @objc private func toggleFavorite() {
+        toggleFavoriteAction?(mealInfo)
+        mostRecentCell?.updateAddToFavoritesButton(isAddedToFavorites: UserSettings.shared.favoriteMeals.contains(mealInfo))
     }
     
     public override func hash(into hasher: inout Hasher) {

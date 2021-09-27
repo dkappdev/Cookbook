@@ -13,6 +13,7 @@
 "button_accessibility_hint" = "Кнопка";
 "heading_accessibility_hint" = "Заголовок";
 "add_to_favorites_button_accessibility_label" = "Добавить в избранное";
+"remove_from_favorites_button_accessibility_label" = "Удалить из избранного";
 "recipe_title" = "Рецепт";
 "ingredients_section_name" = "Ингредиенты";
 "open_in_youtube_button_label" = "Открыть в YouTube";

@@ -13,6 +13,7 @@
 "button_accessibility_hint" = "Button";
 "heading_accessibility_hint" = "Heading";
 "add_to_favorites_button_accessibility_label" = "Add to Favorites";
+"remove_from_favorites_button_accessibility_label" = "Remove from Favorites";
 "recipe_title" = "Recipe";
 "ingredients_section_name" = "Ingredients";
 "open_in_youtube_button_label" = "Open in YouTube";

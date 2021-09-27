@@ -57,8 +57,7 @@ public class MealInfoSummaryInfoCell: UICollectionViewCell {
     public let isCurrentMealAddedToFavorites = false
     
     /// The tap gesture recognizer for image view
-    /// Because cell are reuse
-    public var tapGestureRecognizer: UITapGestureRecognizer?
+    public var imageTapGestureRecognizer: UITapGestureRecognizer?
     
     // MARK: - Static properties
     
@@ -132,9 +131,6 @@ public class MealInfoSummaryInfoCell: UICollectionViewCell {
         mealNameLabel.setContentHuggingPriority(UILayoutPriority(750), for: .horizontal)
         addToFavoritesButton.setContentHuggingPriority(UILayoutPriority(751), for: .horizontal)
         
-        // Updating 'Add to Favorites' button to use the appropriate SF Symbol size
-        updateAddToFavoritesButton(isAddedToFavorites: isCurrentMealAddedToFavorites)
-        
         // Calculating height for area and category labels
         
         let areaLabelHeight = UILabel.labelHeight(for: mealAreaLabel.font)
@@ -201,14 +197,14 @@ public class MealInfoSummaryInfoCell: UICollectionViewCell {
     // MARK: - Gesture recognizers
     
     public func addImageTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
-        self.tapGestureRecognizer = tapGestureRecognizer
+        self.imageTapGestureRecognizer = tapGestureRecognizer
         mealImageView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     public func removeImageTapGestureRecognizer() {
-        if let tapGestureRecognizer = tapGestureRecognizer {
+        if let tapGestureRecognizer = imageTapGestureRecognizer {
             mealImageView.removeGestureRecognizer(tapGestureRecognizer)
         }
-        tapGestureRecognizer = nil
+        imageTapGestureRecognizer = nil
     }
 }

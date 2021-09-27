@@ -52,6 +52,11 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
         update()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        update()
+    }
+    
     // MARK: - Updates
     
     /// Updates model data with new data received from network
@@ -62,7 +67,7 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
         models.append(mealsSection)
         
         for meal in UserSettings.shared.favoriteMeals {
-            mealsSection.items.append(ShortMealInfoItemViewModel(mealInfo: ShortMealInfo(mealID: meal.mealID, mealName: meal.mealID, imageURL: meal.imageURL)))
+            mealsSection.items.append(ShortMealInfoItemViewModel(mealInfo: ShortMealInfo(mealID: meal.mealID, mealName: meal.mealName, imageURL: meal.imageURL)))
         }
 
         updateCollectionView()
