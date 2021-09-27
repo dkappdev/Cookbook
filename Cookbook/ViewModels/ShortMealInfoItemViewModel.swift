@@ -57,8 +57,6 @@ public class ShortMealInfoItemViewModel: BaseItemViewModel {
         // Requesting image only if it hasn't already been requested
         guard !hasRequestedImage else { return }
         
-        print("An image request was made for \(mealInfo.mealName)")
-        
         hasRequestedImage = true
         ArbitraryImageRequest(imageURL: mealInfo.imageURL).send { result in
             switch result {
