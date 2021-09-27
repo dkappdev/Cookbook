@@ -15,8 +15,6 @@ public class MealInfoSummaryInfoCell: UICollectionViewCell {
     public let mealImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        // Allow OS to produce descriptions of meal images
-        imageView.isAccessibilityElement = true
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         return imageView
