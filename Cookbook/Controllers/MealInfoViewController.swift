@@ -89,6 +89,8 @@ public class MealInfoViewController: UICollectionViewController {
     
     /// Creates collection view sections with meal information
     private func update() {
+        models.removeAll()
+        
         // Quick meal info
         
         let mealInfoSummarySection = BaseSectionViewModel(uniqueSectionName: "QuickInfoSection")

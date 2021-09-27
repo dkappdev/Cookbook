@@ -65,6 +65,8 @@ public class HomeCollectionViewController: UICollectionViewController {
     
     /// Updates model data with new information received from network
     private func update() {
+        models.removeAll()
+        
         // MARK: Meal of the Day section
         
         // Setting up meal of the day section with empty info

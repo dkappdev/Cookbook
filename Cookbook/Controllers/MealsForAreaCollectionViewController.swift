@@ -61,6 +61,8 @@ public class MealsForAreaCollectionViewController: UICollectionViewController {
     
     /// Updates model data with new data received from network
     private func update() {
+        models.removeAll()
+        
         let mealsSection = BaseSectionViewModel(uniqueSectionName: "MealsSection")
         models.append(mealsSection)
         
