@@ -46,6 +46,8 @@ public class ShortMealInfoItemViewModel: BaseItemViewModel {
         
         if let image = image {
             cell.mealImageView.image = image
+        } else {
+            cell.mealImageView.image = nil
         }
         
         // Setting up accessibility information
@@ -54,6 +56,8 @@ public class ShortMealInfoItemViewModel: BaseItemViewModel {
         
         // Requesting image only if it hasn't already been requested
         guard !hasRequestedImage else { return }
+        
+        print("An image request was made for \(mealInfo.mealName)")
         
         hasRequestedImage = true
         ArbitraryImageRequest(imageURL: mealInfo.imageURL).send { result in

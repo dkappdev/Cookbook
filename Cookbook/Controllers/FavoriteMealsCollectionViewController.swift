@@ -52,13 +52,25 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
     
     /// Updates model data with new data received from network
     private func update() {
+        var oldModels: [ShortMealInfoItemViewModel] = []
+        
+        if !models.isEmpty,
+           let oldMealsSection = models.first,
+           let oldMealItems = oldMealsSection.items as? [ShortMealInfoItemViewModel] {
+            oldModels = oldMealItems
+        }
+        
         models.removeAll()
         
         let mealsSection = BaseSectionViewModel(uniqueSectionName: "MealsSection")
         models.append(mealsSection)
         
         for meal in UserSettings.shared.favoriteMeals {
-            mealsSection.items.append(ShortMealInfoItemViewModel(mealInfo: ShortMealInfo(mealID: meal.mealID, mealName: meal.mealName, imageURL: meal.imageURL)))
+            if let index = oldModels.firstIndex(where: { $0.mealInfo.mealID == meal.mealID }) {
+                mealsSection.items.append(oldModels[index])
+            } else {
+                mealsSection.items.append(ShortMealInfoItemViewModel(mealInfo: ShortMealInfo(mealID: meal.mealID, mealName: meal.mealName, imageURL: meal.imageURL)))
+            }
         }
 
         collectionView.reloadData()
