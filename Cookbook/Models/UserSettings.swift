@@ -22,6 +22,8 @@ public class UserSettings {
     
     private enum Setting {
         public static let favoriteMeals = "favoriteMeals"
+        public static let mostRecentMealOfTheDayInfo = "mostRecentMealOfTheDayInfo"
+        public static let mostRecentMealOfTheDayDate = "mostRecentMealOfTheDayDate"
     }
     
     // MARK: - Utility functions
@@ -38,7 +40,7 @@ public class UserSettings {
         return try? JSONDecoder().decode(T.self, from: data)
     }
     
-    // MARK: - Stored properties
+    // MARK: - Computed properties
     
     public var favoriteMeals: [FullMealInfo] {
         get {
@@ -46,6 +48,61 @@ public class UserSettings {
         }
         set {
             archiveJSON(key: Setting.favoriteMeals, value: newValue)
+        }
+    }
+    
+    private var mostRecentMealOfTheDayInfo: FullMealInfo? {
+        get {
+            unarchiveJSON(key: Setting.mostRecentMealOfTheDayInfo)
+        }
+        set {
+            archiveJSON(key: Setting.mostRecentMealOfTheDayInfo, value: newValue)
+        }
+    }
+    
+    private var mostRecentMealOfTheDayDate: Date? {
+        get {
+            unarchiveJSON(key: Setting.mostRecentMealOfTheDayDate)
+        }
+        set {
+            archiveJSON(key: Setting.mostRecentMealOfTheDayDate, value: newValue)
+        }
+    }
+    
+    // MARK: - Providing data
+    
+    public func mealOfTheDay(completion: @escaping (Result<FullMealInfo, Error>) -> Void) {
+        // Making sure there was a cached meal before
+        guard let mostRecentMealOfTheDayDate = mostRecentMealOfTheDayDate,
+              let mostRecentMealOfTheDayInfo = mostRecentMealOfTheDayInfo else {
+            RandomMealRequest().send { result in
+                switch result {
+                case .success(let response):
+                    self.mostRecentMealOfTheDayInfo = response.mealInfo
+                    self.mostRecentMealOfTheDayDate = Date()
+                    completion(.success(response.mealInfo))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+            return
+        }
+        
+        if Calendar.current.isDateInToday(mostRecentMealOfTheDayDate) {
+            // If meal of the day was already requested today, get the cached version
+            completion(.success(mostRecentMealOfTheDayInfo))
+        } else {
+            // Otherwise request new meal from network
+            RandomMealRequest().send { result in
+                switch result {
+                case .success(let response):
+                    self.mostRecentMealOfTheDayInfo = response.mealInfo
+                    self.mostRecentMealOfTheDayDate = Date()
+                    completion(.success(response.mealInfo))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
         }
     }
     

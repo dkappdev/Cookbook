@@ -76,12 +76,12 @@ public class HomeCollectionViewController: UICollectionViewController {
         mealOfTheDaySection.headerItem = NamedSectionItemViewModel(sectionName: NSLocalizedString("meal_of_the_day_section_name", comment: ""))
         mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: FullMealInfo.empty))
         
-        // Starting network request to get actual information
-        RandomMealRequest().send { result in
+        // Getting meal of the day from user settings
+        UserSettings.shared.mealOfTheDay { result in
             switch result {
-            case .success(let randomMealResponse):
+            case .success(let mealInfo):
                 mealOfTheDaySection.items.removeAll()
-                mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: randomMealResponse.mealInfo))
+                mealOfTheDaySection.items.append(MealOfTheDayItemViewModel(mealInfo: mealInfo))
                 DispatchQueue.main.async {
                     self.updateCollectionView()
                 }
