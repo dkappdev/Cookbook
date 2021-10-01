@@ -179,16 +179,12 @@
 		E26142DB26EE112D008E300E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				E2846E9526F8977200233629 /* AreaItemViewModel.swift */,
 				E25B8B3526EFC13300B1EEA8 /* BaseItemViewModel.swift */,
 				E25B8B3726EFD4B000B1EEA8 /* BaseSectionViewModel.swift */,
-				E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */,
-				E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */,
-				E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */,
-				E22485E426FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift */,
-				E25B8B3326EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift */,
-				E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */,
-				E24DF5492700ED5100DFE742 /* ShortMealInfoItemViewModel.swift */,
+				E2E7A6C3270720E300DB2B0A /* CookingInstructions */,
+				E2E7A6C2270720DE00DB2B0A /* HomeScreen */,
+				E2E7A6C1270720D600DB2B0A /* MealCells */,
+				E2E7A6C0270720CC00DB2B0A /* SectionHeaders */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -401,6 +397,42 @@
 				E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */,
 			);
 			path = "Meal Cells";
+			sourceTree = "<group>";
+		};
+		E2E7A6C0270720CC00DB2B0A /* SectionHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */,
+			);
+			path = SectionHeaders;
+			sourceTree = "<group>";
+		};
+		E2E7A6C1270720D600DB2B0A /* MealCells */ = {
+			isa = PBXGroup;
+			children = (
+				E24DF5492700ED5100DFE742 /* ShortMealInfoItemViewModel.swift */,
+			);
+			path = MealCells;
+			sourceTree = "<group>";
+		};
+		E2E7A6C2270720DE00DB2B0A /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E2846E9526F8977200233629 /* AreaItemViewModel.swift */,
+				E2426BB426F0BDDE009246A5 /* CategoryItemViewModel.swift */,
+				E25B8B3326EF820100B1EEA8 /* MealOfTheDayItemViewModel.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		E2E7A6C3270720E300DB2B0A /* CookingInstructions */ = {
+			isa = PBXGroup;
+			children = (
+				E272E1EC26FEEE5700CE1F53 /* CookingInstructionsItemViewModel.swift */,
+				E2636B8E26FE381A000FBD6A /* IngredientAmountItemViewModel.swift */,
+				E22485E426FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift */,
+			);
+			path = CookingInstructions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
