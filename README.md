@@ -34,7 +34,6 @@
 
 ## Requirements
 - iOS 14.5+
-- iPadOS 14.5+
 
 ## License
 
