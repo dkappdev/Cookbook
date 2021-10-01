@@ -70,7 +70,7 @@ public class UserSettings {
         }
     }
     
-    /// List of recents meals that user accessed through search. This list contains at most 6 elements. Most recent meals are stored at the end.
+    /// List of recents meals that user accessed through search. This list contains at most 6 elements. Most recent meals are stored at the beginning.
     public private(set) var recentMeals: [ShortMealInfo] {
         get {
             unarchiveJSON(key: Setting.recentMeals) ?? []
@@ -127,7 +127,7 @@ public class UserSettings {
         if favorites.contains(meal) {
             favorites = favorites.filter { $0 != meal }
         } else {
-            favorites.append(meal)
+            favorites.insert(meal, at: 0)
         }
         
         favoriteMeals = favorites
@@ -142,11 +142,11 @@ public class UserSettings {
         recents = recents.filter { $0 != meal }
         
         // Appending it to the array
-        recents.append(meal)
+        recents.insert(meal, at: 0)
         
         // If there are now more than 6 elements, remove the oldest element
         if recents.count > 6 {
-            recents.removeFirst()
+            recents.removeLast()
         }
         
         recentMeals = recents

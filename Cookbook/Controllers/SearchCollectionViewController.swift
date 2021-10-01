@@ -73,9 +73,9 @@ public class SearchCollectionViewController: UICollectionViewController {
         models.append(recentSection)
         recentSection.headerItem = NamedSubsectionItemViewModel(sectionName: NSLocalizedString("recent_section_name", comment: ""))
         
-        let reversedRecents = UserSettings.shared.recentMeals.reversed()
+        let recents = UserSettings.shared.recentMeals
         
-        for recent in reversedRecents {
+        for recent in recents {
             recentSection.items.append(ShortMealInfoItemViewModel(mealInfo: recent))
         }
         
