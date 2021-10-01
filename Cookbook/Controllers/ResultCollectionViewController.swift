@@ -60,7 +60,7 @@ public class ResultCollectionViewController: UICollectionViewController {
     }
     
     /// Fetches meals that match specified name from network
-    @objc public func fetchMeals(withName name: String?) {
+    @objc private func fetchMeals(withName name: String?) {
         let mealName = name ?? ""
         
         models.removeAll()
