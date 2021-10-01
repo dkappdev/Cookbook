@@ -35,7 +35,7 @@ extension APIRequest {
         components.host = host
         components.path = path
         components.queryItems = queryItems
-
+        
         guard let url = components.url else {
             fatalError("Failed to create URL for URLRequest")
         }
@@ -63,7 +63,7 @@ extension APIRequest where Response: Decodable {
 }
 
 public enum ImageRequestError: Error {
-    case couldNotInitializeFromData
+    case couldNotInitializeFromData(imageURL: URL)
 }
 
 // Provides a helper function for decoding images returned from server
@@ -77,7 +77,7 @@ extension APIRequest where Response == UIImage {
             } else if let error = error {
                 completion(.failure(error))
             } else {
-                completion(.failure(ImageRequestError.couldNotInitializeFromData))
+                completion(.failure(ImageRequestError.couldNotInitializeFromData(imageURL: request.url!)))
             }
         }.resume()
     }

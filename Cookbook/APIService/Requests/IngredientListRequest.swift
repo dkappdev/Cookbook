@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Request for getting all meal ingredients from TheMealDB
 public struct IngredientListRequest: APIRequest {
     public typealias Response = IngredientListResponse
     

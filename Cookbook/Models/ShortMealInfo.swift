@@ -17,10 +17,16 @@ public struct ShortMealInfo {
     public var imageURL: URL
 }
 
-extension ShortMealInfo: Decodable {
+extension ShortMealInfo: Codable {
     public enum CodingKeys: String, CodingKey {
         case mealID = "idMeal"
         case mealName = "strMeal"
         case imageURL = "strMealThumb"
+    }
+}
+
+extension ShortMealInfo: Equatable {
+    public static func == (lhs: ShortMealInfo, rhs: ShortMealInfo) -> Bool {
+        lhs.mealID == rhs.mealID
     }
 }

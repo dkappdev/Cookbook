@@ -24,7 +24,7 @@ class ServerResponseDecodingTests: XCTestCase {
             }
             expectation.fulfill()
         }
-     
+        
         waitForExpectations(timeout: 15, handler: nil)
     }
     

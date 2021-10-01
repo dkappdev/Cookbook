@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Request for getting a random meal from TheMealDB
 public struct RandomMealRequest: APIRequest {
     public typealias Response = RandomMealResponse
     

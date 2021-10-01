@@ -7,10 +7,10 @@
 
 import Foundation
 
-/// A type that represents information about meal origin (area).
+/// A type that represents information about meal origin area.
 public struct AreaInfo {
-    public var name: String
-    public var flagEmoji: String
+    
+    // MARK: - Properties
     
     private static var nameToFlagMap = [
         "american": "🇺🇸",
@@ -42,16 +42,43 @@ public struct AreaInfo {
         "unknown": "🇺🇳"
     ]
     
+    public var name: String
+    public var flagEmoji: String
+    
+    // MARK: - Computed Properties
+    
+    public var prettyString: String {
+        "\(flagEmoji) \(name.capitalized)"
+    }
+    
+    // MARK: - Instances
+    
+    public static let empty = AreaInfo()
+    
+    // MARK: - Initializers
+    
+    /// Creates area info with the specified area name
+    /// - Parameter name: area name
     public init(name: String) {
-        self.name = name
-        
         let lowercaseName = name.lowercased()
+        
+        if lowercaseName == "unknown" {
+            self.name = "Other"
+        } else {
+            self.name = name
+        }
         
         if let flag = Self.nameToFlagMap[lowercaseName] {
             self.flagEmoji = flag
         } else {
             self.flagEmoji = "🇺🇳"
         }
+    }
+    
+    /// Creates an empty instance of area info
+    private init() {
+        self.name = "   "
+        self.flagEmoji = ""
     }
 }
 

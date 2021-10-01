@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Request for getting all available categories in TheMealDB
+/// Request for getting all available meal categories in TheMealDB
 public struct CategoryListRequest: APIRequest {
     public typealias Response = CategoryListResponse
     

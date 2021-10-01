@@ -12,6 +12,9 @@ public struct CategoryInfo {
     public var categoryName: String
     public var categoryDescription: String
     public var imageURL: URL
+    
+    // MARK: Instances
+    public static let empty = CategoryInfo(categoryName: " ", categoryDescription: " ", imageURL: URL(string: "https://example.org")!)
 }
 
 extension CategoryInfo: Decodable {
@@ -19,5 +22,15 @@ extension CategoryInfo: Decodable {
         case categoryName = "strCategory"
         case categoryDescription = "strCategoryDescription"
         case imageURL = "strCategoryThumb"
+    }
+}
+
+extension CategoryInfo: Hashable {
+    public static func == (lhs: CategoryInfo, rhs: CategoryInfo) -> Bool {
+        lhs.categoryName == rhs.categoryName
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(categoryName)
     }
 }

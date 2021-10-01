@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Cookbook
+
+  Created by Daniil Kostitsin on 12.09.2021.
+  
+*/
+
+"tab_bar_home_button_title" = "Главная";
+"meal_of_the_day_section_name" = "Блюдо дня";
+"meals_by_category_section_name" = "Категории блюд";
+"meals_by_area_section_name" = "Блюда стран мира";
+"button_accessibility_hint" = "Кнопка";
+"heading_accessibility_hint" = "Заголовок";
+"add_to_favorites_button_accessibility_label" = "Добавить в избранное";
+"remove_from_favorites_button_accessibility_label" = "Удалить из избранного";
+"recipe_title" = "Рецепт";
+"ingredients_section_name" = "Ингредиенты";
+"open_in_youtube_button_label" = "Открыть в YouTube";
+"cooking_instructions_section_name" = "Инструкция";
+"done_bar_button_title" = "Готово";
+"tab_bar_favorites_button_title" = "Избранное";
+"tab_bar_search_button_title" = "Поиск";
+"favorite_meals_header" = "Избранное";
+"search_meals_header" = "Search";
+"search_meals_search_bar_placeholder" = "Все блюда";
+"recent_section_name" = "Недавнее";

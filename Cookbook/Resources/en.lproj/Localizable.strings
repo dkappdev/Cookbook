@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Cookbook
+
+  Created by Daniil Kostitsin on 12.09.2021.
+  
+*/
+
+"tab_bar_home_button_title" = "Home";
+"meal_of_the_day_section_name" = "Meal of the Day";
+"meals_by_category_section_name" = "Meals by Category";
+"meals_by_area_section_name" = "Meals by Area";
+"button_accessibility_hint" = "Button";
+"heading_accessibility_hint" = "Heading";
+"add_to_favorites_button_accessibility_label" = "Add to Favorites";
+"remove_from_favorites_button_accessibility_label" = "Remove from Favorites";
+"recipe_title" = "Recipe";
+"ingredients_section_name" = "Ingredients";
+"open_in_youtube_button_label" = "Open in YouTube";
+"cooking_instructions_section_name" = "Method";
+"done_bar_button_title" = "Done";
+"tab_bar_favorites_button_title" = "Favorites";
+"tab_bar_search_button_title" = "Search";
+"favorite_meals_header" = "Favorites";
+"search_meals_header" = "Search";
+"search_meals_search_bar_placeholder" = "All Meals";
+"recent_section_name" = "Recent";
