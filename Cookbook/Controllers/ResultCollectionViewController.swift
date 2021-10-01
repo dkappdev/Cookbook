@@ -50,8 +50,16 @@ public class ResultCollectionViewController: UICollectionViewController {
     
     // MARK: - Updates
     
+    public func requestResults(matchingName name: String?) {
+        Self.cancelPreviousPerformRequests(withTarget: self)
+        perform(#selector(fetchMeals(withName:)), with: name, afterDelay: 0.5)
+    }
+    
     /// Fetches meals that match specified name from network
-    public func fetchMeals(withName name: String?) {
+    @objc public func fetchMeals(withName name: String?) {
+        
+        print("performed with name \(name as Any)")
+        
         let mealName = name ?? ""
         
         models.removeAll()

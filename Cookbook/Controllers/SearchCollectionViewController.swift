@@ -46,7 +46,7 @@ extension SearchCollectionViewController: UISearchResultsUpdating {
         
         // Performing search
         if let resultController = searchController.searchResultsController as? ResultCollectionViewController {
-            resultController.fetchMeals(withName: strippedString)
+            resultController.requestResults(matchingName: strippedString)
         }
     }
 }
