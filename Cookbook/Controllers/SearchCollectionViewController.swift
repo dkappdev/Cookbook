@@ -31,6 +31,7 @@ public class SearchCollectionViewController: UICollectionViewController {
         // Registering views
         
         collectionView.register(NamedSubsectionHeader.self, forSupplementaryViewOfKind: NamedSubsectionHeader.elementKind, withReuseIdentifier: NamedSubsectionHeader.reuseIdentifier)
+        collectionView.register(ShortMealInfoCell.self, forCellWithReuseIdentifier: ShortMealInfoCell.reuseIdentifier)
         
         // Setting up background and title
         
@@ -56,30 +57,47 @@ public class SearchCollectionViewController: UICollectionViewController {
         update()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        update()
+    }
+    
+    // MARK: - Updates
+    
     private func update() {
         // Removing all models before updating
         models.removeAll()
+        
+        guard UserSettings.shared.recentMeals.count != 0 else { return }
         
         let recentSection = BaseSectionViewModel(uniqueSectionName: "Recent")
         models.append(recentSection)
         recentSection.headerItem = NamedSubsectionItemViewModel(sectionName: NSLocalizedString("recent_section_name", comment: ""))
         
+        let reversedRecents = UserSettings.shared.recentMeals.reversed()
+        
+        for recent in reversedRecents {
+            recentSection.items.append(ShortMealInfoItemViewModel(mealInfo: recent))
+        }
+        
         collectionView.reloadData()
     }
     
     private static func createLayout() -> UICollectionViewCompositionalLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(UILabel.labelHeight(for: .preferredFont(forTextStyle: .body)) + 24))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        
+        group.interItemSpacing = .fixed(16)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 8, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        section.interGroupSpacing = 16
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-        header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         
         section.boundarySupplementaryItems = [header]
         

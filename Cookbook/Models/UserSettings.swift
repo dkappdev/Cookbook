@@ -24,6 +24,7 @@ public class UserSettings {
         public static let favoriteMeals = "favoriteMeals"
         public static let mostRecentMealOfTheDayInfo = "mostRecentMealOfTheDayInfo"
         public static let mostRecentMealOfTheDayDate = "mostRecentMealOfTheDayDate"
+        public static let recentMeals = "recentMeals"
     }
     
     // MARK: - Utility functions
@@ -42,7 +43,7 @@ public class UserSettings {
     
     // MARK: - Computed properties
     
-    public var favoriteMeals: [FullMealInfo] {
+    public private(set) var favoriteMeals: [FullMealInfo] {
         get {
             unarchiveJSON(key: Setting.favoriteMeals) ?? []
         }
@@ -66,6 +67,16 @@ public class UserSettings {
         }
         set {
             archiveJSON(key: Setting.mostRecentMealOfTheDayDate, value: newValue)
+        }
+    }
+    
+    /// List of recents meals that user accessed through search. This list contains at most 6 elements. Most recent meals are stored at the end.
+    public private(set) var recentMeals: [ShortMealInfo] {
+        get {
+            unarchiveJSON(key: Setting.recentMeals) ?? []
+        }
+        set {
+            archiveJSON(key: Setting.recentMeals, value: newValue)
         }
     }
     
@@ -108,6 +119,8 @@ public class UserSettings {
     
     // MARK: - Data manipulation
     
+    /// Toggles favorite status for a meal
+    /// - Parameter meal: meal that is added to / removed from favorites
     func toggleFavorite(for meal: FullMealInfo) {
         var favorites = favoriteMeals
         
@@ -118,5 +131,24 @@ public class UserSettings {
         }
         
         favoriteMeals = favorites
+    }
+    
+    /// Adds a meal to the recent meals list
+    /// - Parameter meal: meal that user has accessed
+    func addRecentMeal(_ meal: ShortMealInfo) {
+        var recents = recentMeals
+        
+        // Removing current meal from recents if it is there
+        recents = recents.filter { $0 != meal }
+        
+        // Appending it to the array
+        recents.append(meal)
+        
+        // If there are now more than 6 elements, remove the oldest element
+        if recents.count > 6 {
+            recents.removeFirst()
+        }
+        
+        recentMeals = recents
     }
 }
