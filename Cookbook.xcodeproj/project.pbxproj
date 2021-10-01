@@ -72,6 +72,7 @@
 		E2D1809726F90AC200E3FD90 /* MealInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */; };
 		E2D6624926FE30CE008DBD72 /* IngredientAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */; };
 		E2E7A6BF27071FC600DB2B0A /* NamedSubsectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A6BE27071FC600DB2B0A /* NamedSubsectionHeader.swift */; };
+		E2E7A6C52707226A00DB2B0A /* NamedSubsectionItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A6C42707226A00DB2B0A /* NamedSubsectionItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		E2D1809626F90AC200E3FD90 /* MealInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoViewController.swift; sourceTree = "<group>"; };
 		E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientAmountCell.swift; sourceTree = "<group>"; };
 		E2E7A6BE27071FC600DB2B0A /* NamedSubsectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSubsectionHeader.swift; sourceTree = "<group>"; };
+		E2E7A6C42707226A00DB2B0A /* NamedSubsectionItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSubsectionItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */,
+				E2E7A6C42707226A00DB2B0A /* NamedSubsectionItemViewModel.swift */,
 			);
 			path = SectionHeaders;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				E2C923F026EB9192007A1BC3 /* MealsByCategoryRequest.swift in Sources */,
 				E2AF701D2700F0460018384F /* MealsForCategoryCollectionViewController.swift in Sources */,
 				E2E7A6BF27071FC600DB2B0A /* NamedSubsectionHeader.swift in Sources */,
+				E2E7A6C52707226A00DB2B0A /* NamedSubsectionItemViewModel.swift in Sources */,
 				E2BF7FE126EA4B3D00776BC2 /* MealsByNameRequest.swift in Sources */,
 				E2C923FE26EBBB6E007A1BC3 /* ArbitraryImageRequest.swift in Sources */,
 				E272E1EB26FEE5D100CE1F53 /* CookingInstructionsCell.swift in Sources */,

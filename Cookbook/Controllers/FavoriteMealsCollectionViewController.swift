@@ -113,7 +113,6 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
         let model = models[indexPath.section].items[indexPath.item]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIdentifier, for: indexPath)
-        
         model.setup(cell, in: collectionView, at: indexPath)
         
         return cell
@@ -121,8 +120,10 @@ public class FavoriteMealsCollectionViewController: UICollectionViewController {
     
     public override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let model = models[indexPath.section].model(forElementOfKind: kind) else { return UICollectionReusableView() }
+        
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: model.reuseIdentifier, for: indexPath)
         model.setup(view, in: collectionView, at: indexPath)
+        
         return view
     }
     

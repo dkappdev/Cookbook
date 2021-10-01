@@ -7,12 +7,30 @@
 
 import UIKit
 
-public class SearchCollectionViewController: UIViewController {
+public class SearchCollectionViewController: UICollectionViewController {
+    
+    // MARK: - Properties
+    
+    private var models: [BaseSectionViewModel] = []
+    
+    // MARK: - Initializers
+    
+    public init() {
+        super.init(collectionViewLayout: Self.createLayout())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View Lifecycle
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Registering views
+        
+        collectionView.register(NamedSubsectionHeader.self, forSupplementaryViewOfKind: NamedSubsectionHeader.elementKind, withReuseIdentifier: NamedSubsectionHeader.reuseIdentifier)
         
         // Setting up background and title
         
@@ -32,6 +50,68 @@ public class SearchCollectionViewController: UIViewController {
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        // Updating recents
+        
+        update()
+    }
+    
+    private func update() {
+        // Removing all models before updating
+        models.removeAll()
+        
+        let recentSection = BaseSectionViewModel(uniqueSectionName: "Recent")
+        models.append(recentSection)
+        recentSection.headerItem = NamedSubsectionItemViewModel(sectionName: NSLocalizedString("recent_section_name", comment: ""))
+        
+        collectionView.reloadData()
+    }
+    
+    private static func createLayout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(UILabel.labelHeight(for: .preferredFont(forTextStyle: .body)) + 24))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 8, trailing: 0)
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        
+        section.boundarySupplementaryItems = [header]
+        
+        return .init(section: section)
+    }
+    
+    // MARK: - Collection view data source
+    
+    public override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        models.count
+    }
+    
+    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        models[section].items.count
+    }
+    
+    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let model = models[indexPath.section].items[indexPath.item]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIdentifier, for: indexPath)
+        model.setup(cell, in: collectionView, at: indexPath)
+        
+        return cell
+    }
+    
+    public override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let model = models[indexPath.section].model(forElementOfKind: kind) else { return UICollectionReusableView() }
+        
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: model.reuseIdentifier, for: indexPath)
+        model.setup(view, in: collectionView, at: indexPath)
+        
+        return view
     }
 }
 
