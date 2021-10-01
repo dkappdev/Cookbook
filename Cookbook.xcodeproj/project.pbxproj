@@ -237,15 +237,11 @@
 		E2BF7FCC26E91F7C00776BC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E2846E9726F897BA00233629 /* AreaCell.swift */,
-				E2426BB226F0B6A3009246A5 /* CategoryCell.swift */,
-				E272E1EA26FEE5D100CE1F53 /* CookingInstructionsCell.swift */,
-				E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */,
+				E2E7A6BB27071F4100DB2B0A /* CookingInstructions */,
+				E2E7A6BA27071F2E00DB2B0A /* HomeScreen */,
 				E2BF7FC226E9109500776BC2 /* LaunchScreen.storyboard */,
-				E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */,
-				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
-				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
-				E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */,
+				E2E7A6BD27071F9900DB2B0A /* Meal Cells */,
+				E2E7A6BC27071F6800DB2B0A /* SectionHeaders */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -366,6 +362,42 @@
 				E2BF7FDB26E942C900776BC2 /* AnyCodingKey.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		E2E7A6BA27071F2E00DB2B0A /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E2846E9726F897BA00233629 /* AreaCell.swift */,
+				E2426BB226F0B6A3009246A5 /* CategoryCell.swift */,
+				E26142D926EE1118008E300E /* MealOfTheDayCell.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		E2E7A6BB27071F4100DB2B0A /* CookingInstructions */ = {
+			isa = PBXGroup;
+			children = (
+				E272E1EA26FEE5D100CE1F53 /* CookingInstructionsCell.swift */,
+				E2D6624826FE30CE008DBD72 /* IngredientAmountCell.swift */,
+				E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */,
+			);
+			path = CookingInstructions;
+			sourceTree = "<group>";
+		};
+		E2E7A6BC27071F6800DB2B0A /* SectionHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */,
+			);
+			path = SectionHeaders;
+			sourceTree = "<group>";
+		};
+		E2E7A6BD27071F9900DB2B0A /* Meal Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */,
+			);
+			path = "Meal Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
