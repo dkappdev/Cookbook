@@ -21,4 +21,6 @@
 "done_bar_button_title" = "Done";
 "tab_bar_favorites_button_title" = "Favorites";
 "tab_bar_search_button_title" = "Search";
-"favorite_meals_header" = "Favorite Meals";
+"favorite_meals_header" = "Favorites";
+"search_meals_header" = "Search";
+"search_meals_search_bar_placeholder" = "All Meals";
