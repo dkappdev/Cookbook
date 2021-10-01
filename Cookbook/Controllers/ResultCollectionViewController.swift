@@ -61,9 +61,6 @@ public class ResultCollectionViewController: UICollectionViewController {
     
     /// Fetches meals that match specified name from network
     @objc public func fetchMeals(withName name: String?) {
-        
-        print("performed with name \(name as Any)")
-        
         let mealName = name ?? ""
         
         models.removeAll()
