@@ -131,6 +131,16 @@ public class SearchCollectionViewController: UICollectionViewController {
         
         return view
     }
+    
+    // MARK: - Collection view delegate
+    
+    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let mealViewModel = models[indexPath.section].items[indexPath.item] as? ShortMealInfoItemViewModel else { return }
+        let mealInfoViewController = MealInfoViewController(mealID: mealViewModel.mealInfo.mealID)
+        navigationController?.pushViewController(mealInfoViewController, animated: true)
+        
+        UserSettings.shared.addRecentMeal(mealViewModel.mealInfo)
+    }
 }
 
 // MARK: - Search results updating
