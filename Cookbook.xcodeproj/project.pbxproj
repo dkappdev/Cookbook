@@ -14,6 +14,8 @@
 		E24DF5482700E7B600DFE742 /* ShortMealInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */; };
 		E24DF54A2700ED5100DFE742 /* ShortMealInfoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24DF5492700ED5100DFE742 /* ShortMealInfoItemViewModel.swift */; };
 		E258B90B26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */; };
+		E258EAEA2706EB4C0073D644 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258EAE92706EB4C0073D644 /* SearchCollectionViewController.swift */; };
+		E258EAEC2706EB5A0073D644 /* ResultCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258EAEB2706EB5A0073D644 /* ResultCollectionViewController.swift */; };
 		E25B8B2A26EE7E6900B1EEA8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */; };
 		E25B8B3026EF4E0500B1EEA8 /* NamedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */; };
 		E25B8B3226EF66C000B1EEA8 /* NamedSectionItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */; };
@@ -89,6 +91,8 @@
 		E24DF5472700E7B600DFE742 /* ShortMealInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMealInfoCell.swift; sourceTree = "<group>"; };
 		E24DF5492700ED5100DFE742 /* ShortMealInfoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMealInfoItemViewModel.swift; sourceTree = "<group>"; };
 		E258B90A26FA37E6005DB02A /* MealInfoSummaryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoSummaryInfoCell.swift; sourceTree = "<group>"; };
+		E258EAE92706EB4C0073D644 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
+		E258EAEB2706EB5A0073D644 /* ResultCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewController.swift; sourceTree = "<group>"; };
 		E25B8B2926EE7E6900B1EEA8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		E25B8B2F26EF4E0500B1EEA8 /* NamedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeader.swift; sourceTree = "<group>"; };
 		E25B8B3126EF66C000B1EEA8 /* NamedSectionItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionItemViewModel.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 				E2AF701C2700F0460018384F /* MealsForCategoryCollectionViewController.swift */,
 				E2AF701E2701D9950018384F /* MealsForAreaCollectionViewController.swift */,
 				E2AF7024270227590018384F /* FavoriteMealsCollectionViewController.swift */,
+				E258EAE92706EB4C0073D644 /* SearchCollectionViewController.swift */,
+				E258EAEB2706EB5A0073D644 /* ResultCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -464,9 +470,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2BF7FF526EA6DE500776BC2 /* MealByIDRequest.swift in Sources */,
+				E258EAEA2706EB4C0073D644 /* SearchCollectionViewController.swift in Sources */,
 				E2426BB526F0BDDE009246A5 /* CategoryItemViewModel.swift in Sources */,
 				E22485E526FCF8A100AD4954 /* MealInfoSummaryItemViewModel.swift in Sources */,
 				E2BF7FD826E939D400776BC2 /* FullMealInfo.swift in Sources */,
+				E258EAEC2706EB5A0073D644 /* ResultCollectionViewController.swift in Sources */,
 				E26142DA26EE1118008E300E /* MealOfTheDayCell.swift in Sources */,
 				E2846E9826F897BA00233629 /* AreaCell.swift in Sources */,
 				E25B8B3226EF66C000B1EEA8 /* NamedSectionItemViewModel.swift in Sources */,

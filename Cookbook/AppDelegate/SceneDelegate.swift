@@ -51,11 +51,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Search
         
-        let searchViewController = UIViewController()
-        searchViewController.tabBarItem.title = NSLocalizedString("tab_bar_search_button_title", comment: "")
-        searchViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        searchViewController.tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass")
-        tabBarController.addChild(searchViewController)
+        let searchViewController = SearchCollectionViewController()
+        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        
+        searchNavigationController.tabBarItem.title = NSLocalizedString("tab_bar_search_button_title", comment: "")
+        searchNavigationController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        searchNavigationController.tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass")
+        
+        searchNavigationController.navigationBar.prefersLargeTitles = true
+        
+        tabBarController.addChild(searchNavigationController)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
