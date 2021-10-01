@@ -21,7 +21,7 @@ public class SearchCollectionViewController: UIViewController {
         
         // Setting up search controller
         
-        let resultController = ResultCollectionViewController()
+        let resultController = ResultCollectionViewController(searchViewController: self)
         let searchController = UISearchController(searchResultsController: resultController)
         
         searchController.searchResultsUpdater = self

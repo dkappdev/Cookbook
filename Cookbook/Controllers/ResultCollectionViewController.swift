@@ -20,9 +20,13 @@ public class ResultCollectionViewController: UICollectionViewController {
     /// Collection view diffable data source
     private var dataSource: DataSourceType!
     
+    /// View controller that presented this results controller. It is used to access its navigation controller
+    private var searchViewController: SearchCollectionViewController
+    
     // MARK: - Initializers
     
-    public init() {
+    public init(searchViewController: SearchCollectionViewController) {
+        self.searchViewController = searchViewController
         super.init(collectionViewLayout: Self.createLayout())
     }
     
@@ -165,6 +169,6 @@ public class ResultCollectionViewController: UICollectionViewController {
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let mealOfTheDayViewModel = models[indexPath.section].items[indexPath.item] as? ShortMealInfoItemViewModel else { return }
         let mealInfoViewController = MealInfoViewController(mealID: mealOfTheDayViewModel.mealInfo.mealID)
-        navigationController?.pushViewController(mealInfoViewController, animated: true)
+        searchViewController.navigationController?.pushViewController(mealInfoViewController, animated: true)
     }
 }
