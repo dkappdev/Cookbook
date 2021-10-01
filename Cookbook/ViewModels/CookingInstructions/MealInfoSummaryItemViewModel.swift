@@ -54,7 +54,7 @@ public class MealInfoSummaryItemViewModel: BaseItemViewModel {
         
         // Setting up accessibility information
         cell.mealAreaLabel.accessibilityLabel = mealInfo.areaInfo.name
-        cell.addToFavoritesButton.accessibilityLabel = NSLocalizedString("remove_from_favorites_button_accessibility_label", comment: "")
+        cell.addToFavoritesButton.accessibilityLabel = UserSettings.shared.favoriteMeals.contains(mealInfo) ? NSLocalizedString("remove_from_favorites_button_accessibility_label", comment: "") : NSLocalizedString("add_to_favorites_button_accessibility_label", comment: "")
         
         // Removing old gesture recognizer and button target since cell might have been reused
         cell.removeImageTapGestureRecognizer()

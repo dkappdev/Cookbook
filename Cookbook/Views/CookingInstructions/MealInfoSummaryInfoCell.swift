@@ -192,6 +192,7 @@ public class MealInfoSummaryInfoCell: UICollectionViewCell {
         let sfSymbolName = isAddedToFavorites ? "heart.fill" : "heart"
         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: UIFont.TextStyle.title1.metrics.scaledValue(for: 22), weight: .semibold, scale: .default)
         addToFavoritesButton.setImage(UIImage(systemName: sfSymbolName, withConfiguration: symbolConfiguration), for: .normal)
+        addToFavoritesButton.accessibilityLabel = isAddedToFavorites ? NSLocalizedString("remove_from_favorites_button_accessibility_label", comment: "") : NSLocalizedString("add_to_favorites_button_accessibility_label", comment: "")
     }
     
     // MARK: - Gesture recognizers
