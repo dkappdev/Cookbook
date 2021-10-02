@@ -30,7 +30,7 @@ public class AreaCell: UICollectionViewCell {
     
     public let lineView: UIView = {
         let line = UIView()
-        line.backgroundColor = .tertiaryLabel
+        line.backgroundColor = .opaqueSeparator
         line.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale).isActive = true
         line.isAccessibilityElement = false
         return line

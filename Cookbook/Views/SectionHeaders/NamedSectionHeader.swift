@@ -57,7 +57,7 @@ public class NamedSectionHeader: UICollectionReusableView {
         ])
         
         let lineView = UIView()
-        lineView.backgroundColor = .tertiaryLabel
+        lineView.backgroundColor = .opaqueSeparator
         let lineViewHeight = 1 / UIScreen.main.scale
         
         addSubview(lineView)
