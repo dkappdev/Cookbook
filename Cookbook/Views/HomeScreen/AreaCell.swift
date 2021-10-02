@@ -92,7 +92,7 @@ public class AreaCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             lineView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
