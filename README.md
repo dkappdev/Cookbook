@@ -24,7 +24,7 @@
 
 <img src="Images/recipe_screen_first_page.png" alt="Screenshot of the first page of meal recipe that displays meal information summary, ingredients, and cooking instructions" height="600" /> <img src="Images/recipe_screen_second_page.png" alt="Screenshot of the second page of meal recipe that displays cooking instructions and a button to open YouTube video" height="600" /> <img src="Images/meal_image_screen.png" alt="Screenshot of the meal image in full screen" height="600" />
 
-- Mark recipes you like as favorite to get quick access to them through the 'Favorites' tab
+- Mark recipes you like as favorite to get quick access to them through the Favorites tab
 
 <img src="Images/favorites_screen.png" alt="Screenshot of the 'Favorites' section" height="600" />
 
